@@ -5,16 +5,20 @@
   
 
   
-  <title>Hexo</title>
+  <title>programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+  <meta name="description" content="coding to make progress">
+<meta property="og:type" content="website">
+<meta property="og:title" content="programming for fun">
 <meta property="og:url" content="http://lld2006.github.io/leetlint/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="programming for fun">
+<meta property="og:description" content="coding to make progress">
+<meta property="og:locale" content="English">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="programming for fun">
+<meta name="twitter:description" content="coding to make progress">
   
-    <link rel="alternate" href="/leetlint/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -33,7 +37,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/leetlint/" id="logo">Hexo</a>
+        <a href="/leetlint/" id="logo">programming for fun</a>
       </h1>
       
     </div>
@@ -48,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -83,13 +87,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <xmp><br>class Solution {<br>public:<br>    /<em>
+     </em> @param a: The first integer<br>     <em> @param b: The second integer
+     </em> @return: The sum of a and b<br>     */<br>    int aplusb(int a, int b) {<br>        // write your code here, try to do it without arithmetic operators.<br>        int tbit = 1; int carry = 0;<br>        int ret = 0;<br>        for ( int i = 0; i &lt; 32; ++i, tbit &lt;&lt;= 1 ) {<br>            bool aset = a &amp; tbit;<br>            bool bset = b &amp; tbit;<br>            if ( aset &amp;&amp; bset ) {<br>                ret |= (carry &lt;&lt;i);<br>                carry = 1;<br>            } else if ( (aset &amp;&amp; !bset)|(!aset &amp;&amp; bset) ) {<br>                if ( carry == 0 ) {<br>                    ret |= 1 &lt;&lt; i;<br>                    carry = 0;<br>                } else {<br>                    carry = 1;<br>                }<br>            } else {<br>                ret |= (carry &lt;&lt; i);<br>                carry = 0;<br>            }<br>        }<br>    }<br>};<br></xmp>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjcpmdx2d0003pov49gj2zk0q" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjcpmdx2d0003pov49gj2zk0q" class="article-share-link">Teilen</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
+
     </footer>
   </div>
   
@@ -123,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/need-more-effort/" data-id="cjcpmdx2a0001pov4929rvuaq" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/need-more-effort/" data-id="cjcpmdx2a0001pov4929rvuaq" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -160,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-hexo/" data-id="cjcpmdx250000pov42y7sg7t3" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-hexo/" data-id="cjcpmdx250000pov42y7sg7t3" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -205,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjcpmdx2c0002pov4s2mypxvg" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjcpmdx2c0002pov4s2mypxvg" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -225,13 +234,27 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -241,7 +264,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
@@ -273,8 +296,8 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 John Doe<br>
-      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+      &copy; 2018 lld2006<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
