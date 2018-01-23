@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="coding," />
+  <meta name="keywords" content="lint, algorithm," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
-<meta name="keywords" content="coding">
+<meta name="description" content="http://www.lintcode.com/en/problem/next-permutation/I know how to solve this problem for a long time, but still I made some mistakes while I am implementing it.The algorithm is pretty straight forward">
+<meta name="keywords" content="lint, algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A+B Problem">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/21/test2/index.html">
+<meta property="og:title" content="next permutation">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
+<meta property="og:description" content="http://www.lintcode.com/en/problem/next-permutation/I know how to solve this problem for a long time, but still I made some mistakes while I am implementing it.The algorithm is pretty straight forward">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-22T03:31:04.285Z">
+<meta property="og:updated_time" content="2018-01-23T08:30:22.032Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A+B Problem">
-<meta name="twitter:description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
+<meta name="twitter:title" content="next permutation">
+<meta name="twitter:description" content="http://www.lintcode.com/en/problem/next-permutation/I know how to solve this problem for a long time, but still I made some mistakes while I am implementing it.The algorithm is pretty straight forward">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://lld2006.github.io/leetlint/2018/01/21/test2/"/>
+  <link rel="canonical" href="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/"/>
 
 
 
 
 
-  <title>A+B Problem | programming for fun</title>
+  <title>next permutation | programming for fun</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lld2006.github.io/leetlint/leetlint/2018/01/21/test2/">
+    <link itemprop="mainEntityOfPage" href="http://lld2006.github.io/leetlint/leetlint/2018/01/23/next-permutation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lld2006">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">A+B Problem</h1>
+          <h1 class="post-title" itemprop="name headline">next permutation</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T18:55:19-08:00">
-                2018-01-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T00:21:30-08:00">
+                2018-01-23
               </time>
             
 
@@ -300,39 +300,9 @@
       
 
       
-        <p><a href="http://www.lintcode.com/en/problem/a-b-problem/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/a-b-problem/</a><br>The first problem of lintcode, I used bit operation to solve the problem.</p>
-<pre><code>class Solution {
-public:
-    /*
-     * @param a: The first integer
-     * @param b: The second integer
-     * @return: The sum of a and b
-     */
-    int aplusb(int a, int b) {
-        // write your code here, try to do it without arithmetic operators.
-        int tbit = 1; int carry = 0;
-        int ret = 0;
-        for ( int i = 0; i &lt; 32; ++i, tbit &lt;&lt;= 1 ) {
-            bool aset = a &amp; tbit;
-            bool bset = b &amp; tbit;
-            if ( aset &amp;&amp; bset ) {
-                ret |= (carry &lt;&lt;i);
-                carry = 1;
-            } else if ( (aset &amp;&amp; !bset)|(!aset &amp;&amp; bset) ) {
-                if ( carry == 0 ) {
-                    ret |= 1 &lt;&lt; i;
-                    carry = 0;
-                } else {
-                    carry = 1;
-                }
-            } else {
-                ret |= (carry &lt;&lt; i);
-                carry = 0;
-            }
-        }
-    }
-};
-</code></pre>
+        <p><a href="http://www.lintcode.com/en/problem/next-permutation/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/next-permutation/</a><br>I know how to solve this problem for a long time, but still I made some mistakes while I am implementing it.<br>The algorithm is pretty straight forward. One first need to find the maximum value k that nums[k] &lt; nums[p] where k &lt; p. The second step is to find the minimum value for all p &gt; k. If duplicate is found, then find the last one.  Third step,<br>swap nums[k] and nums[p], after that reverse all numbers on the right side of k.<br>The first error is in line 36, I forgot to incrementing and decrementing j and k.<br>The second error is that I did not think carefully about duplicate on line 24.<br>The third problem is  that I need to swap all numbers on the right side of k, still on line 36.</p>
+<p>I need to check the STL implementations to see how to reduce line of code.</p>
+
       
     </div>
     
@@ -349,7 +319,7 @@ public:
       
         <div class="post-tags">
           
-            <a href="/leetlint/tags/coding/" rel="tag"># coding</a>
+            <a href="/leetlint/tags/lint-algorithm/" rel="tag"># lint, algorithm</a>
           
         </div>
       
@@ -362,8 +332,8 @@ public:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/leetlint/2018/01/21/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/leetlint/2018/01/21/test2/" rel="next" title="A+B Problem">
+                <i class="fa fa-chevron-left"></i> A+B Problem
               </a>
             
           </div>
@@ -371,10 +341,6 @@ public:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/leetlint/2018/01/23/next-permutation/" rel="prev" title="next permutation">
-                next permutation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

@@ -232,6 +232,127 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lld2006.github.io/leetlint/leetlint/2018/01/23/next-permutation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lld2006">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/leetlint/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="programming for fun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/leetlint/2018/01/23/next-permutation/" itemprop="url">next permutation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T00:21:30-08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.lintcode.com/en/problem/next-permutation/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/next-permutation/</a><br>I know how to solve this problem for a long time, but still I made some mistakes while I am implementing it.<br>The algorithm is pretty straight forward. One first need to find the maximum value k that nums[k] &lt; nums[p] where k &lt; p. The second step is to find the minimum value for all p &gt; k. If duplicate is found, then find the last one.  Third step,<br>swap nums[k] and nums[p], after that reverse all numbers on the right side of k.<br>The first error is in line 36, I forgot to incrementing and decrementing j and k.<br>The second error is that I did not think carefully about duplicate on line 24.<br>The third problem is  that I need to swap all numbers on the right side of k, still on line 36.</p>
+<p>I need to check the STL implementations to see how to reduce line of code.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://lld2006.github.io/leetlint/leetlint/2018/01/21/test2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -544,7 +665,7 @@ public:
               
                 <a href="/leetlint/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -557,7 +678,7 @@ public:
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">Tags</span>
                 
               </div>
