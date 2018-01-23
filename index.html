@@ -185,7 +185,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -261,7 +261,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-23T00:21:30-08:00">
                 2018-01-23
@@ -304,7 +304,7 @@
         
           
             <p><a href="http://www.lintcode.com/en/problem/next-permutation/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/next-permutation/</a><br>I know how to solve this problem for a long time, but still I made some mistakes while I am implementing it.<br>The algorithm is pretty straight forward. One first need to find the maximum value k that nums[k] &lt; nums[p] where k &lt; p. The second step is to find the minimum value for all p &gt; k. If duplicate is found, then find the last one.  Third step,<br>swap nums[k] and nums[p], after that reverse all numbers on the right side of k.<br>The first error is in line 36, I forgot to incrementing and decrementing j and k.<br>The second error is that I did not think carefully about duplicate on line 24.<br>The third problem is  that I need to swap all numbers on the right side of k, still on line 36.</p>
-<p>I need to check the STL implementations to see how to reduce line of code.<br><figure class="highlight c"><figcaption><span>[next permutation] [++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * @param nums: A list of integers</span></span><br><span class="line"><span class="comment">     * @return: A list of integers</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nextPermutation(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> size = nums.size() ;</span><br><span class="line">        <span class="keyword">int</span> pos = size - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> maxSoFar = nums[pos];</span><br><span class="line">        <span class="keyword">int</span> index = pos;</span><br><span class="line">        <span class="keyword">int</span> firstOrdered = size;</span><br><span class="line">        <span class="keyword">bool</span> found = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">while</span>( pos &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[pos<span class="number">-1</span>] &gt;= maxSoFar)&#123;</span><br><span class="line">                --pos;</span><br><span class="line">                maxSoFar = nums[pos];</span><br><span class="line">                index = pos;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                found = <span class="literal">true</span>;</span><br><span class="line">                firstOrdered = pos - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> k = pos;</span><br><span class="line">                <span class="keyword">while</span>(k &lt; size)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(nums[k] &gt; nums[firstOrdered] &amp;&amp; nums[k] &lt;= maxSoFar)&#123;</span><br><span class="line">                        index = k;</span><br><span class="line">                        maxSoFar = nums[k];</span><br><span class="line">                    &#125;</span><br><span class="line">                    ++k;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(found)&#123;</span><br><span class="line">            swap(nums[firstOrdered], nums[index]);</span><br><span class="line">            <span class="keyword">int</span> j = firstOrdered+<span class="number">1</span>, k = size<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; k) swap(nums[j++], nums[k--]);</span><br><span class="line">            <span class="keyword">return</span> nums;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            reverse(nums.begin(), nums.end());</span><br><span class="line">            <span class="keyword">return</span> nums;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>I need to check the STL implementations to see how to reduce line of code.<br><figure class="highlight plain"><figcaption><span>[next permutation] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: A list of integers</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; nextPermutation(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        int size = nums.size() ;</span><br><span class="line">        int pos = size - 1;</span><br><span class="line">        int maxSoFar = nums[pos];</span><br><span class="line">        int index = pos;</span><br><span class="line">        int firstOrdered = size;</span><br><span class="line">        bool found = false;</span><br><span class="line">        while( pos &gt; 0)&#123;</span><br><span class="line">            if(nums[pos-1] &gt;= maxSoFar)&#123;</span><br><span class="line">                --pos;</span><br><span class="line">                maxSoFar = nums[pos];</span><br><span class="line">                index = pos;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                found = true;</span><br><span class="line">                firstOrdered = pos - 1;</span><br><span class="line">                int k = pos;</span><br><span class="line">                while(k &lt; size)&#123;</span><br><span class="line">                    if(nums[k] &gt; nums[firstOrdered] &amp;&amp; nums[k] &lt;= maxSoFar)&#123;</span><br><span class="line">                        index = k;</span><br><span class="line">                        maxSoFar = nums[k];</span><br><span class="line">                    &#125;</span><br><span class="line">                    ++k;</span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(found)&#123;</span><br><span class="line">            swap(nums[firstOrdered], nums[index]);</span><br><span class="line">            int j = firstOrdered+1, k = size-1;</span><br><span class="line">            while(j &lt; k) swap(nums[j++], nums[k--]);</span><br><span class="line">            return nums;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            reverse(nums.begin(), nums.end());</span><br><span class="line">            return nums;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -382,7 +382,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T18:55:19-08:00">
                 2018-01-21
@@ -533,7 +533,7 @@ public:
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-21T02:03:38-08:00">
                 2018-01-21
@@ -666,7 +666,7 @@ public:
                 <a href="/leetlint/archives/">
               
                   <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -679,7 +679,7 @@ public:
               <div class="site-state-item site-state-tags">
                 
                   <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">Tags</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -725,7 +725,7 @@ public:
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
