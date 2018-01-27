@@ -5,20 +5,18 @@
   
 
   
-  <title>A+B Problem | programming for fun</title>
+  <title>Archiv | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
-<meta name="keywords" content="coding">
-<meta property="og:type" content="article">
-<meta property="og:title" content="A+B Problem">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/21/test2/index.html">
+  <meta name="description" content="coding to make progress">
+<meta property="og:type" content="website">
+<meta property="og:title" content="programming for fun">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/archives/page/2/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
+<meta property="og:description" content="coding to make progress">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-22T03:31:04.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A+B Problem">
-<meta name="twitter:description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
+<meta name="twitter:title" content="programming for fun">
+<meta name="twitter:description" content="coding to make progress">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,94 +63,45 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/21/test2/" class="article-date">
-  <time datetime="2018-01-22T02:55:19.000Z" itemprop="datePublished">2018-01-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      A+B Problem
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/leetlint/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/leetlint/2018/01/21/hello-world/" class="archive-article-date">
+  <time datetime="2018-01-21T10:03:38.623Z" itemprop="datePublished">Jan 21</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/leetlint/2018/01/21/hello-world/">Hello World</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/a-b-problem/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/a-b-problem/</a><br>The first problem of lintcode, I used bit operation to solve the problem.</p>
-<pre><code>class Solution {
-public:
-    /*
-     * @param a: The first integer
-     * @param b: The second integer
-     * @return: The sum of a and b
-     */
-    int aplusb(int a, int b) {
-        // write your code here, try to do it without arithmetic operators.
-        int tbit = 1; int carry = 0;
-        int ret = 0;
-        for ( int i = 0; i &lt; 32; ++i, tbit &lt;&lt;= 1 ) {
-            bool aset = a &amp; tbit;
-            bool bset = b &amp; tbit;
-            if ( aset &amp;&amp; bset ) {
-                ret |= (carry &lt;&lt;i);
-                carry = 1;
-            } else if ( (aset &amp;&amp; !bset)|(!aset &amp;&amp; bset) ) {
-                if ( carry == 0 ) {
-                    ret |= 1 &lt;&lt; i;
-                    carry = 0;
-                } else {
-                    carry = 1;
-                }
-            } else {
-                ret |= (carry &lt;&lt; i);
-                carry = 0;
-            }
-        }
-    }
-};
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjcxz7enk000fusv4bxjq0xhx" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/leetlint/2018/01/23/next-permutation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          next permutation
-        
-      </div>
-    </a>
-  
-  
-    <a href="/leetlint/2018/01/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/leetlint/archives/">&laquo; zurück</a><a class="page-number" href="/leetlint/archives/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
         
