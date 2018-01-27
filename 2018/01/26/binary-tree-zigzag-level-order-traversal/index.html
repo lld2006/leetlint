@@ -5,18 +5,20 @@
   
 
   
-  <title>Archivos | programming for fun</title>
+  <title>binary tree zigzag level order traversal | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="coding to make progress">
-<meta property="og:type" content="website">
-<meta property="og:title" content="programming for fun">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/archives/index.html">
+  <meta name="description" content="http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/This problem is easy. I used to vector to visit level by level. A reverse of the vector is needed to do a zigzag way, a flag">
+<meta name="keywords" content="lint">
+<meta property="og:type" content="article">
+<meta property="og:title" content="binary tree zigzag level order traversal">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="coding to make progress">
+<meta property="og:description" content="http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/This problem is easy. I used to vector to visit level by level. A reverse of the vector is needed to do a zigzag way, a flag">
 <meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-01-27T02:08:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="programming for fun">
-<meta name="twitter:description" content="coding to make progress">
+<meta name="twitter:title" content="binary tree zigzag level order traversal">
+<meta name="twitter:description" content="http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/This problem is easy. I used to vector to visit level by level. A reverse of the vector is needed to do a zigzag way, a flag">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -63,173 +65,98 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/leetlint/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" class="archive-article-date">
-  <time datetime="2018-01-27T02:03:26.000Z" itemprop="datePublished">Jan 26</time>
+        <section id="main"><article id="post-binary-tree-zigzag-level-order-traversal" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" class="article-date">
+  <time datetime="2018-01-27T02:03:26.000Z" itemprop="datePublished">2018-01-26</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/">binary tree zigzag level order traversal</a>
+    <h1 class="article-title" itemprop="name">
+      binary tree zigzag level order traversal
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/leetlint/2018/01/26/binary-tree-level-order-traversal/" class="archive-article-date">
-  <time datetime="2018-01-27T00:38:41.000Z" itemprop="datePublished">Jan 26</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/leetlint/2018/01/26/binary-tree-level-order-traversal/">binary tree level order traversal</a>
-    </h1>
-  
+        <p><a href="http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/</a><br>This problem is easy. I used to vector to visit level by level. A reverse of the vector is needed to do a zigzag way, a flag of forward visit or backward visit is also needed to place all nodes in order.<br>{ % codeblock [zigzag traversal] [lang: c++] %}<br>/**</p>
+<ul>
+<li>Definition of TreeNode:</li>
+<li>class TreeNode {</li>
+<li>public:</li>
+<li>int val;</li>
+<li>TreeNode <em>left, </em>right;</li>
+<li>TreeNode(int val) {</li>
+<li>this-&gt;val = val;</li>
+<li>this-&gt;left = this-&gt;right = NULL;</li>
+<li>}</li>
+<li>}<br>*/</li>
+</ul>
+<p>class Solution {<br>public:<br>    /*</p>
+<pre><code> * @param root: A Tree
+ * @return: A list of lists of integer include the zigzag level order traversal of its nodes&apos; values.
+ */
+vector&lt;vector&lt;int&gt;&gt; zigzagLevelOrder(TreeNode * root) {
+    if(!root)return vector&lt;vector&lt;int&gt;&gt;();
+    vector&lt;TreeNode*&gt; nodes, newNodes;
+    vector&lt;vector&lt;int&gt;&gt; results;
+    nodes.push_back(root);
+    bool forward = true;
+    while(!nodes.empty()){
+        newNodes.clear();
+        results.push_back(vector&lt;int&gt;());
+        vector&lt;int&gt;&amp; v = results.back();
+        for(int i = 0; i&lt;nodes.size(); ++i){
+            TreeNode * node = nodes[i];
+            v.push_back(node-&gt;val);
+            if(forward){
+                if(node-&gt;left)newNodes.push_back(node-&gt;left);
+                if(node-&gt;right)newNodes.push_back(node-&gt;right);
+            }else{
+                if(node-&gt;right)newNodes.push_back(node-&gt;right);
+                if(node-&gt;left)newNodes.push_back(node-&gt;left);
+            }
+        }
+        reverse(newNodes.begin(), newNodes.end());
+        nodes.swap(newNodes);
+        forward = !forward;
+    }
+    return results;
+}
+</code></pre><p>};<br>{ % endcodeblock % }</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/leetlint/2018/01/26/4sum/" class="archive-article-date">
-  <time datetime="2018-01-26T21:48:53.000Z" itemprop="datePublished">Jan 26</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/leetlint/2018/01/26/4sum/">4sum</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/leetlint/2018/01/24/new-post-not-generated-by-hexo/" class="archive-article-date">
-  <time datetime="2018-01-24T08:03:10.000Z" itemprop="datePublished">Jan 24</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjcwpv4l3000358v47uvw6uaf" class="article-share-link">Compartir</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/leetlint/2018/01/24/new-post-not-generated-by-hexo/">new post not generated by hexo</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/leetlint/2018/01/23/prev-permutation/" class="archive-article-date">
-  <time datetime="2018-01-24T07:40:09.000Z" itemprop="datePublished">Jan 23</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/leetlint/2018/01/23/prev-permutation/">prev_permutation</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/leetlint/2018/01/23/next-permutation/" class="archive-article-date">
-  <time datetime="2018-01-23T08:21:30.000Z" itemprop="datePublished">Jan 23</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/leetlint/2018/01/23/next-permutation/">next permutation</a>
-    </h1>
   
+    <a href="/leetlint/2018/01/26/binary-tree-level-order-traversal/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">binary tree level order traversal</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/leetlint/2018/01/21/test2/" class="archive-article-date">
-  <time datetime="2018-01-22T02:55:19.000Z" itemprop="datePublished">Jan 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/leetlint/2018/01/21/test2/">A+B Problem</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/leetlint/2018/01/21/hello-world/" class="archive-article-date">
-  <time datetime="2018-01-21T10:03:38.623Z" itemprop="datePublished">Jan 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/leetlint/2018/01/21/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         
