@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -87,12 +87,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/</a><br>This problem is easy. I used to vector to visit level by level. A reverse of the vector is needed to do a zigzag way, a flag of forward visit or backward visit is also needed to place all nodes in order.<br><figure class="highlight plain"><figcaption><span>[zigzag traversal] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: A Tree</span><br><span class="line">     * @return: A list of lists of integer include the zigzag level order traversal of its nodes&apos; values.</span><br><span class="line">     */</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; zigzagLevelOrder(TreeNode * root) &#123;</span><br><span class="line">        if(!root)return vector&lt;vector&lt;int&gt;&gt;();</span><br><span class="line">        vector&lt;TreeNode*&gt; nodes, newNodes;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; results;</span><br><span class="line">        nodes.push_back(root);</span><br><span class="line">        bool forward = true;</span><br><span class="line">        while(!nodes.empty())&#123;</span><br><span class="line">            newNodes.clear();</span><br><span class="line">            results.push_back(vector&lt;int&gt;());</span><br><span class="line">            vector&lt;int&gt;&amp; v = results.back();</span><br><span class="line">            for(int i = 0; i&lt;nodes.size(); ++i)&#123;</span><br><span class="line">                TreeNode * node = nodes[i];</span><br><span class="line">                v.push_back(node-&gt;val);</span><br><span class="line">                if(forward)&#123;</span><br><span class="line">                    if(node-&gt;left)newNodes.push_back(node-&gt;left);</span><br><span class="line">                    if(node-&gt;right)newNodes.push_back(node-&gt;right);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    if(node-&gt;right)newNodes.push_back(node-&gt;right);</span><br><span class="line">                    if(node-&gt;left)newNodes.push_back(node-&gt;left);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            reverse(newNodes.begin(), newNodes.end());</span><br><span class="line">            nodes.swap(newNodes);</span><br><span class="line">            forward = !forward;</span><br><span class="line">        &#125;</span><br><span class="line">        return results;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+        <p><a href="http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/</a><br>This problem is easy. I used to vector to visit level by level. A reverse of the vector is needed to do a zigzag way, a flag of forward visit or backward visit is also needed to place all nodes in order.</p>
+<figure class="highlight plain"><figcaption><span>[zigzag traversal] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: A Tree</span><br><span class="line">     * @return: A list of lists of integer include the zigzag level order traversal of its nodes&apos; values.</span><br><span class="line">     */</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; zigzagLevelOrder(TreeNode * root) &#123;</span><br><span class="line">        if(!root)return vector&lt;vector&lt;int&gt;&gt;();</span><br><span class="line">        vector&lt;TreeNode*&gt; nodes, newNodes;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; results;</span><br><span class="line">        nodes.push_back(root);</span><br><span class="line">        bool forward = true;</span><br><span class="line">        while(!nodes.empty())&#123;</span><br><span class="line">            newNodes.clear();</span><br><span class="line">            results.push_back(vector&lt;int&gt;());</span><br><span class="line">            vector&lt;int&gt;&amp; v = results.back();</span><br><span class="line">            for(int i = 0; i&lt;nodes.size(); ++i)&#123;</span><br><span class="line">                TreeNode * node = nodes[i];</span><br><span class="line">                v.push_back(node-&gt;val);</span><br><span class="line">                if(forward)&#123;</span><br><span class="line">                    if(node-&gt;left)newNodes.push_back(node-&gt;left);</span><br><span class="line">                    if(node-&gt;right)newNodes.push_back(node-&gt;right);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    if(node-&gt;right)newNodes.push_back(node-&gt;right);</span><br><span class="line">                    if(node-&gt;left)newNodes.push_back(node-&gt;left);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            reverse(newNodes.begin(), newNodes.end());</span><br><span class="line">            nodes.swap(newNodes);</span><br><span class="line">            forward = !forward;</span><br><span class="line">        &#125;</span><br><span class="line">        return results;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjcwpv4l3000358v47uvw6uaf" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjcwpv4l3000358v47uvw6uaf" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -132,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjcwpv4kz000158v4rr32rmrc" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjcwpv4kz000158v4rr32rmrc" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -172,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjcwpv4kv000058v436068zo7" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjcwpv4kv000058v436068zo7" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -212,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjcwpv4l4000458v4q3flhbab" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjcwpv4l4000458v4q3flhbab" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li></ul>
@@ -251,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjcwpv4l8000858v4datyc2ka" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjcwpv4l8000858v4datyc2ka" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -292,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjcwpv4l6000558v4hm3t8isg" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjcwpv4l6000558v4hm3t8isg" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li></ul>
@@ -362,7 +363,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjcwpv4lb000c58v4fcaw4mfj" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjcwpv4lb000c58v4fcaw4mfj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
@@ -409,7 +410,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjcwpv4l9000958v45b8aalhp" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjcwpv4l9000958v45b8aalhp" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -440,7 +441,7 @@ public:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nube de Tags</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a>
     </div>
@@ -449,7 +450,7 @@ public:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -459,7 +460,7 @@ public:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
@@ -496,7 +497,7 @@ public:
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 lld2006<br>
-      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
