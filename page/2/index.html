@@ -65,6 +65,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/21/test2/" class="article-date">
+  <time datetime="2018-01-22T02:55:19.000Z" itemprop="datePublished">2018-01-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/21/test2/">A+B Problem</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.lintcode.com/en/problem/a-b-problem/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/a-b-problem/</a><br>The first problem of lintcode, I used bit operation to solve the problem.</p>
+<pre><code>class Solution {
+public:
+    /*
+     * @param a: The first integer
+     * @param b: The second integer
+     * @return: The sum of a and b
+     */
+    int aplusb(int a, int b) {
+        // write your code here, try to do it without arithmetic operators.
+        int tbit = 1; int carry = 0;
+        int ret = 0;
+        for ( int i = 0; i &lt; 32; ++i, tbit &lt;&lt;= 1 ) {
+            bool aset = a &amp; tbit;
+            bool bset = b &amp; tbit;
+            if ( aset &amp;&amp; bset ) {
+                ret |= (carry &lt;&lt;i);
+                carry = 1;
+            } else if ( (aset &amp;&amp; !bset)|(!aset &amp;&amp; bset) ) {
+                if ( carry == 0 ) {
+                    ret |= 1 &lt;&lt; i;
+                    carry = 0;
+                } else {
+                    carry = 1;
+                }
+            } else {
+                ret |= (carry &lt;&lt; i);
+                carry = 0;
+            }
+        }
+    }
+};
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjcy00rug000nb8v4xg6tr6wi" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/leetlint/2018/01/21/hello-world/" class="article-date">
@@ -100,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjcxz7eng0008usv4j3i92ynr" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjcy00ru20004b8v4vbatxsq1" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -160,6 +230,10 @@
       <ul>
         
           <li>
+            <a href="/leetlint/2018/01/27/longest-common-substring/">longest common substring</a>
+          </li>
+        
+          <li>
             <a href="/leetlint/2018/01/27/first-bad-version/">first bad version</a>
           </li>
         
@@ -173,10 +247,6 @@
         
           <li>
             <a href="/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/">binary tree zigzag level order traversal</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/01/26/binary-tree-level-order-traversal/">binary tree level order traversal</a>
           </li>
         
       </ul>

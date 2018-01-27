@@ -65,6 +65,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-longest-common-substring" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/27/longest-common-substring/" class="article-date">
+  <time datetime="2018-01-27T23:37:30.000Z" itemprop="datePublished">2018-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/27/longest-common-substring/">longest common substring</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This is an easy dynamic programming problem. Once one understood how to solve the longest common subsequence, the longest substring is much easier. </p>
+<figure class="highlight plain"><figcaption><span>[longest common substring] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param A: A string</span><br><span class="line">     * @param B: A string</span><br><span class="line">     * @return: the length of the longest common substring.</span><br><span class="line">     */</span><br><span class="line">    int longestCommonSubstring(string &amp;A, string &amp;B) &#123;</span><br><span class="line">        int sa = A.size(), sb=B.size();</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; vcnt=vector&lt;vector&lt;int&gt;&gt;(sa+1, vector&lt;int&gt;(sb+1, 0));</span><br><span class="line">        int maxMatch = 0;</span><br><span class="line">        for(int row = 1; row &lt;= sa; ++row)&#123;</span><br><span class="line">            for(int col = 1; col&lt;=sb;++col)&#123;</span><br><span class="line">                if(A[row-1]==B[col-1]) vcnt[row][col] = vcnt[row-1][col-1] + 1;</span><br><span class="line">                if(vcnt[row][col] &gt; maxMatch)&#123;</span><br><span class="line">                    maxMatch = vcnt[row][col];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return maxMatch;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjcy00ru9000db8v4jikmth3o" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-first-bad-version" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/leetlint/2018/01/27/first-bad-version/" class="article-date">
@@ -87,13 +127,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.lintcode.com/en/problem/first-bad-version/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/first-bad-version/</a><br>This is an easy problem. One just need to understand how to right lower_bound to never make mistakes in binary search.</p>
+        <p>This is an easy problem. One just need to understand how to right lower_bound to never make mistakes in binary search.</p>
 <figure class="highlight plain"><figcaption><span>[bad version] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * class SVNRepo &#123;</span><br><span class="line"> *     public:</span><br><span class="line"> *     static bool isBadVersion(int k);</span><br><span class="line"> * &#125;</span><br><span class="line"> * you can use SVNRepo::isBadVersion(k) to judge whether </span><br><span class="line"> * the kth code version is bad or not.</span><br><span class="line">*/</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param n: An integer</span><br><span class="line">     * @return: An integer which is the first bad version.</span><br><span class="line">     */</span><br><span class="line">    int findFirstBadVersion(int n) &#123;</span><br><span class="line">        int mid, low = 0, high = n;</span><br><span class="line">        while(high - low &gt; 1)&#123;</span><br><span class="line">            mid = low + (high-low)/2;</span><br><span class="line">            if(SVNRepo::isBadVersion(mid))&#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return high;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjcxz7enb0003usv485eemm3q" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjcy00ru7000ab8v43w7a6tgj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -132,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjcxz7en80001usv4mh1ndlye" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjcy00rtx0001b8v4o7lsl1yx" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -172,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjcxz7enl000iusv4gse5cudj" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjcy00rua000fb8v4hzmnobo3" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -212,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjcxz7enc0004usv4a0hh45yn" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjcy00ru00003b8v4mhysdutd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -252,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjcxz7end0005usv4g6g3yh9j" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjcy00ru30005b8v4awr0ashy" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -292,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjcxz7en30000usv41vf1edu4" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjcy00rtt0000b8v42feh4xqf" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -332,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjcxz7enh000ausv4962b1ss0" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjcy00ru50008b8v4len9vjdi" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li></ul>
@@ -371,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjcxz7enj000dusv4uasno8je" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjcy00ruf000kb8v41cesopis" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -412,80 +452,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjcxz7eno000kusv41rnsgc0d" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjcy00ruc000ib8v4t9sg3479" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/21/test2/" class="article-date">
-  <time datetime="2018-01-22T02:55:19.000Z" itemprop="datePublished">2018-01-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/21/test2/">A+B Problem</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/a-b-problem/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/a-b-problem/</a><br>The first problem of lintcode, I used bit operation to solve the problem.</p>
-<pre><code>class Solution {
-public:
-    /*
-     * @param a: The first integer
-     * @param b: The second integer
-     * @return: The sum of a and b
-     */
-    int aplusb(int a, int b) {
-        // write your code here, try to do it without arithmetic operators.
-        int tbit = 1; int carry = 0;
-        int ret = 0;
-        for ( int i = 0; i &lt; 32; ++i, tbit &lt;&lt;= 1 ) {
-            bool aset = a &amp; tbit;
-            bool bset = b &amp; tbit;
-            if ( aset &amp;&amp; bset ) {
-                ret |= (carry &lt;&lt;i);
-                carry = 1;
-            } else if ( (aset &amp;&amp; !bset)|(!aset &amp;&amp; bset) ) {
-                if ( carry == 0 ) {
-                    ret |= 1 &lt;&lt; i;
-                    carry = 0;
-                } else {
-                    carry = 1;
-                }
-            } else {
-                ret |= (carry &lt;&lt; i);
-                carry = 0;
-            }
-        }
-    }
-};
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjcxz7enk000fusv4bxjq0xhx" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
 
     </footer>
   </div>
@@ -544,6 +514,10 @@ public:
       <ul>
         
           <li>
+            <a href="/leetlint/2018/01/27/longest-common-substring/">longest common substring</a>
+          </li>
+        
+          <li>
             <a href="/leetlint/2018/01/27/first-bad-version/">first bad version</a>
           </li>
         
@@ -557,10 +531,6 @@ public:
         
           <li>
             <a href="/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/">binary tree zigzag level order traversal</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/01/26/binary-tree-level-order-traversal/">binary tree level order traversal</a>
           </li>
         
       </ul>
