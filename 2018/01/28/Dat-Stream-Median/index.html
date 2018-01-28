@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="programming for fun">
 <meta property="og:description" content="http://www.lintcode.com/en/problem/data-stream-median/I solved a similar problem in Project Euler like this problem. I used two multiset to solve this problem. But this time, I made several mistakes i">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-28T08:22:53.483Z">
+<meta property="og:updated_time" content="2018-01-28T08:31:37.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dat Stream Median">
 <meta name="twitter:description" content="http://www.lintcode.com/en/problem/data-stream-median/I solved a similar problem in Project Euler like this problem. I used two multiset to solve this problem. But this time, I made several mistakes i">
@@ -54,9 +54,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSSフィード"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="検索"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -88,12 +88,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="http://www.lintcode.com/en/problem/data-stream-median/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/data-stream-median/</a><br>I solved a similar problem in Project Euler like this problem. I used two multiset to solve this problem. But this time, I made several mistakes in the criteria how to insert and erase the elements in the two set. It should be quite straight forward. And I do not remember how to convert a reverse_iterator to a forward iterator and checked it online again.</p>
+<p>Is there any other approches to solve this problem?</p>
 <figure class="highlight plain"><figcaption><span>[Data Stream Median] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: the median of numbers</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; medianII(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        vector&lt;int&gt; result;</span><br><span class="line">        multiset&lt;int&gt; slow, shigh;//maximum diff is one number Nslow&gt; Nshigh</span><br><span class="line">        for(int i = 0; i&lt;nums.size(); ++i)&#123;</span><br><span class="line">            int val = nums[i];</span><br><span class="line">            if(slow.size() &gt; shigh.size())&#123;</span><br><span class="line">                if(*slow.rbegin() &lt;= val)&#123;//no need to check if shigh is empty</span><br><span class="line">                    shigh.insert(val);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    auto iter = --slow.rbegin().base(); //this is iterator conversion</span><br><span class="line">                    shigh.insert(*iter);</span><br><span class="line">                    slow.erase(iter);</span><br><span class="line">                    slow.insert(val);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;else&#123;//equal size</span><br><span class="line">                if(slow.empty() || *shigh.begin()&gt;=val)&#123;//slow is empty is a special case or I can directly insert the first element to slow to avoid checking it</span><br><span class="line">                    slow.insert(val);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    slow.insert(*shigh.begin());</span><br><span class="line">                    shigh.erase(shigh.begin());</span><br><span class="line">                    shigh.insert(val);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            result.push_back(*slow.rbegin());</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjcyipjys0000h8v4x94u2ry2" class="article-share-link">共有</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjcyj6tft0000ucv4n102q793" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -104,9 +105,18 @@
     
 <nav id="article-nav">
   
+    <a href="/leetlint/2018/01/28/single-number/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          single number
+        
+      </div>
+    </a>
+  
   
     <a href="/leetlint/2018/01/27/longest-common-substring/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前の記事</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">longest common substring</div>
     </a>
   
@@ -124,7 +134,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">タグ</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/coding/">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li></ul>
     </div>
@@ -134,7 +144,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">タグクラウド</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a>
     </div>
@@ -143,7 +153,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">アーカイブ</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -153,9 +163,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">最近の投稿</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/01/28/single-number/">single number</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/01/28/Dat-Stream-Median/">Dat Stream Median</a>
@@ -171,10 +185,6 @@
         
           <li>
             <a href="/leetlint/2018/01/27/Rogue-Knight-Sven/">Rogue Knight Sven</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/01/26/nth-to-last-node-in-list/">nth to last node in list</a>
           </li>
         
       </ul>
