@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="검색"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,46 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-binary-tree-maximum-path-sum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/" class="article-date">
+  <time datetime="2018-01-31T08:24:02.000Z" itemprop="datePublished">2018-01-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/">binary tree maximum path sum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>My code is not optimized, but still passed. May still need some effort to optimize it. But my code is very easy to follow. The only thing is that I assumed that all numbers in the tree are positive, which is totoally wrong. After I corrected that mistake, All cases passed.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: The root of binary tree.</span><br><span class="line">     * @return: An integer</span><br><span class="line">     */</span><br><span class="line">    //only consider one side is not sufficient, need to </span><br><span class="line">    //consider both sides sum</span><br><span class="line">    int oneSideMaximumSum(TreeNode* topNode)&#123;</span><br><span class="line">        if(topNode == nullptr) return 0;</span><br><span class="line">        int leftMax = oneSideMaximumSum(topNode-&gt;left);</span><br><span class="line">        int rightMax = oneSideMaximumSum(topNode-&gt;right);</span><br><span class="line">        return max(leftMax, rightMax)&gt;0? max(leftMax, rightMax)+topNode-&gt;val:topNode-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">    int maxPathSum(TreeNode * root) &#123;</span><br><span class="line">        if(root == nullptr) return 0;</span><br><span class="line">        int left2 = root-&gt;left? maxPathSum(root-&gt;left):numeric_limits&lt;int&gt;::min();</span><br><span class="line">        int right2 = root-&gt;right? maxPathSum(root-&gt;right) :numeric_limits&lt;int&gt;::min();</span><br><span class="line">        int max2 = max(left2, right2);</span><br><span class="line">        int left1 = oneSideMaximumSum(root-&gt;left);</span><br><span class="line">        if(left1 &lt; 0) left1 = 0;</span><br><span class="line">        int right1 = oneSideMaximumSum(root-&gt;right);</span><br><span class="line">        if(right1 &lt; 0) right1 = 0;</span><br><span class="line">        return max(max2, left1+right1+root-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjd2t6q0o000124v4bx3jizcy" class="article-share-link">공유</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-balanced-binary-tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjczyzn04000ar8v4gxyu0cx4" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjd2t6q1c001024v4b4gwopfo" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -133,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjczyzmzu0001r8v4jezc8inj" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjd2t6q1b000x24v4x00u87kw" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -173,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjczyzn0g000vr8v4wacstd4l" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjd2t6q15000m24v4a416bhx8" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -213,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjczyzn0g000xr8v49eqpq451" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjd2t6q18000t24v4v1ljbxpa" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -254,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjczyzmzy0003r8v4mzg8gnb0" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjd2t6q0w000824v4d5sbsx8l" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -294,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjczyzn08000hr8v4f4d5r0du" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjd2t6q12000h24v42odf3s39" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -334,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjczyzn06000dr8v42mivmkls" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjd2t6q0t000524v40evmechc" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -373,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjczyzmzz0004r8v4s9pj3i3k" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjd2t6q0s000424v40ebh6fme" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -413,47 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjczyzn0b000lr8v4acqko5hb" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-binary-tree-zigzag-level-order-traversal" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" class="article-date">
-  <time datetime="2018-01-27T02:03:26.000Z" itemprop="datePublished">2018-01-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/">binary tree zigzag level order traversal</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/</a><br>This problem is easy. I used to vector to visit level by level. A reverse of the vector is needed to do a zigzag way, a flag of forward visit or backward visit is also needed to place all nodes in order.</p>
-<figure class="highlight plain"><figcaption><span>[zigzag traversal] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: A Tree</span><br><span class="line">     * @return: A list of lists of integer include the zigzag level order traversal of its nodes&apos; values.</span><br><span class="line">     */</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; zigzagLevelOrder(TreeNode * root) &#123;</span><br><span class="line">        if(!root)return vector&lt;vector&lt;int&gt;&gt;();</span><br><span class="line">        vector&lt;TreeNode*&gt; nodes, newNodes;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; results;</span><br><span class="line">        nodes.push_back(root);</span><br><span class="line">        bool forward = true;</span><br><span class="line">        while(!nodes.empty())&#123;</span><br><span class="line">            newNodes.clear();</span><br><span class="line">            results.push_back(vector&lt;int&gt;());</span><br><span class="line">            vector&lt;int&gt;&amp; v = results.back();</span><br><span class="line">            for(int i = 0; i&lt;nodes.size(); ++i)&#123;</span><br><span class="line">                TreeNode * node = nodes[i];</span><br><span class="line">                v.push_back(node-&gt;val);</span><br><span class="line">                if(forward)&#123;</span><br><span class="line">                    if(node-&gt;left)newNodes.push_back(node-&gt;left);</span><br><span class="line">                    if(node-&gt;right)newNodes.push_back(node-&gt;right);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    if(node-&gt;right)newNodes.push_back(node-&gt;right);</span><br><span class="line">                    if(node-&gt;left)newNodes.push_back(node-&gt;left);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            reverse(newNodes.begin(), newNodes.end());</span><br><span class="line">            nodes.swap(newNodes);</span><br><span class="line">            forward = !forward;</span><br><span class="line">        &#125;</span><br><span class="line">        return results;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjczyzn030008r8v43vx5i55m" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjd2t6q17000r24v49r5u3u9b" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -469,7 +469,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="extend next" rel="next" href="/leetlint/page/2/">weiter &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="extend next" rel="next" href="/leetlint/page/2/">다음 &raquo;</a>
   </nav>
 
 </section>
@@ -481,7 +481,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">태그</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/coding/">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li></ul>
     </div>
@@ -491,7 +491,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">태그 클라우드</h3>
     <div class="widget tagcloud">
       <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a>
     </div>
@@ -500,7 +500,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">아카이브</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -510,9 +510,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">최근 포스트</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/">binary tree maximum path sum</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/01/29/balanced-binary-tree/">balanced binary tree</a>
@@ -528,10 +532,6 @@
         
           <li>
             <a href="/leetlint/2018/01/28/single-number/">single number</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/01/28/Dat-Stream-Median/">Dat Stream Median</a>
           </li>
         
       </ul>

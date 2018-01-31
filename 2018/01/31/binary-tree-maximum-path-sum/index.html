@@ -5,20 +5,20 @@
   
 
   
-  <title>single number II | programming for fun</title>
+  <title>binary tree maximum path sum | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This problem is hard for me, and I found a solution online. It is quite straight forward, just mark all bits according to number of occurrence on each bit, i.e., once, twice or three times. Then at la">
+  <meta name="description" content="My code is not optimized, but still passed. May still need some effort to optimize it. But my code is very easy to follow. The only thing is that I assumed that all numbers in the tree are positive, w">
 <meta name="keywords" content="lint">
 <meta property="og:type" content="article">
-<meta property="og:title" content="single number II">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/index.html">
+<meta property="og:title" content="binary tree maximum path sum">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="This problem is hard for me, and I found a solution online. It is quite straight forward, just mark all bits according to number of occurrence on each bit, i.e., once, twice or three times. Then at la">
+<meta property="og:description" content="My code is not optimized, but still passed. May still need some effort to optimize it. But my code is very easy to follow. The only thing is that I assumed that all numbers in the tree are positive, w">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-28T09:06:54.730Z">
+<meta property="og:updated_time" content="2018-01-31T08:27:07.059Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="single number II">
-<meta name="twitter:description" content="This problem is hard for me, and I found a solution online. It is quite straight forward, just mark all bits according to number of occurrence on each bit, i.e., once, twice or three times. Then at la">
+<meta name="twitter:title" content="binary tree maximum path sum">
+<meta name="twitter:description" content="My code is not optimized, but still passed. May still need some effort to optimize it. But my code is very easy to follow. The only thing is that I assumed that all numbers in the tree are positive, w">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-single-number-II" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-binary-tree-maximum-path-sum" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/01/28/single-number-II/" class="article-date">
-  <time datetime="2018-01-28T09:04:06.000Z" itemprop="datePublished">2018-01-28</time>
+    <a href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/" class="article-date">
+  <time datetime="2018-01-31T08:24:02.000Z" itemprop="datePublished">2018-01-31</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      single number II
+      binary tree maximum path sum
     </h1>
   
 
@@ -87,13 +87,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This problem is hard for me, and I found a solution online. It is quite straight forward, just mark all bits according to number of occurrence on each bit, i.e., once, twice or three times. Then at last, two should be zero, three does not matter and we just need one. See code for detail.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	/**</span><br><span class="line">	 * @param A : An integer array</span><br><span class="line">	 * @return : An integer </span><br><span class="line">	 */</span><br><span class="line">    int singleNumberII(vector&lt;int&gt; &amp;A) &#123;</span><br><span class="line">        int one = 0; //appeared once</span><br><span class="line">        int two = 0; //appeared twice</span><br><span class="line">        int three = 0; //appeared three times!</span><br><span class="line">        for(int i = 0; i &lt; A.size(); ++i)&#123;</span><br><span class="line">            int num = A[i];</span><br><span class="line">             //if it appeared twice on one bit, &amp; a 1 on that bit gives a three!</span><br><span class="line">             //once a bit reaches 3, it is reset as 0 when the next number comes in</span><br><span class="line">             //so we donot need a |</span><br><span class="line">            three = two &amp; num;</span><br><span class="line">            //those bits marked as one now become two</span><br><span class="line">            two |= one &amp; num;</span><br><span class="line">            // we need to reset those bits that is just converted to three!</span><br><span class="line">            two &amp;= ~three;</span><br><span class="line">            //one bit needs to or with all &apos;1&apos; bits in number</span><br><span class="line">            one |=num;</span><br><span class="line">            //&apos;1&apos; one bits just promote 1------&gt;2 2-------&gt;3 and 0-----------------&gt;1</span><br><span class="line">            //                          now in 2   now in 3      new or already in 1</span><br><span class="line">            one &amp;=~(two | three); //kick out those bits that has promoted to 2 or 3</span><br><span class="line">        &#125;</span><br><span class="line">        return one;    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p>My code is not optimized, but still passed. May still need some effort to optimize it. But my code is very easy to follow. The only thing is that I assumed that all numbers in the tree are positive, which is totoally wrong. After I corrected that mistake, All cases passed.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: The root of binary tree.</span><br><span class="line">     * @return: An integer</span><br><span class="line">     */</span><br><span class="line">    //only consider one side is not sufficient, need to </span><br><span class="line">    //consider both sides sum</span><br><span class="line">    int oneSideMaximumSum(TreeNode* topNode)&#123;</span><br><span class="line">        if(topNode == nullptr) return 0;</span><br><span class="line">        int leftMax = oneSideMaximumSum(topNode-&gt;left);</span><br><span class="line">        int rightMax = oneSideMaximumSum(topNode-&gt;right);</span><br><span class="line">        return max(leftMax, rightMax)&gt;0? max(leftMax, rightMax)+topNode-&gt;val:topNode-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">    int maxPathSum(TreeNode * root) &#123;</span><br><span class="line">        if(root == nullptr) return 0;</span><br><span class="line">        int left2 = root-&gt;left? maxPathSum(root-&gt;left):numeric_limits&lt;int&gt;::min();</span><br><span class="line">        int right2 = root-&gt;right? maxPathSum(root-&gt;right) :numeric_limits&lt;int&gt;::min();</span><br><span class="line">        int max2 = max(left2, right2);</span><br><span class="line">        int left1 = oneSideMaximumSum(root-&gt;left);</span><br><span class="line">        if(left1 &lt; 0) left1 = 0;</span><br><span class="line">        int right1 = oneSideMaximumSum(root-&gt;right);</span><br><span class="line">        if(right1 &lt; 0) right1 = 0;</span><br><span class="line">        return max(max2, left1+right1+root-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjd2t6q15000m24v4a416bhx8" class="article-share-link">공유</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjd2t6q0o000124v4bx3jizcy" class="article-share-link">공유</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -104,19 +104,10 @@
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/01/28/Lowest-Common-Ancestor/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">최신</strong>
-      <div class="article-nav-title">
-        
-          Lowest Common Ancestor
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/01/28/single-number/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/01/29/balanced-binary-tree/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">이전</strong>
-      <div class="article-nav-title">single number</div>
+      <div class="article-nav-title">balanced binary tree</div>
     </a>
   
 </nav>
