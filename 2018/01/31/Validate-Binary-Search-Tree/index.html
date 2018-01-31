@@ -5,20 +5,20 @@
   
 
   
-  <title>balanced binary tree | programming for fun</title>
+  <title>Validate Binary Search Tree | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="The problem is not difficult, but the definition of level is not as usually defined. We do not need to follow the level convention to solve this problem, otherwise, the code is complicated. 1234567891">
+  <meta name="description" content="This problem is relatively easy, but read the definition carefully is very important. I missed it the first time. The rest part are easy! 12345678910111213141516171819202122232425262728293031323334/**">
 <meta name="keywords" content="lint">
 <meta property="og:type" content="article">
-<meta property="og:title" content="balanced binary tree">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/index.html">
+<meta property="og:title" content="Validate Binary Search Tree">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="The problem is not difficult, but the definition of level is not as usually defined. We do not need to follow the level convention to solve this problem, otherwise, the code is complicated. 1234567891">
+<meta property="og:description" content="This problem is relatively easy, but read the definition carefully is very important. I missed it the first time. The rest part are easy! 12345678910111213141516171819202122232425262728293031323334/**">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-29T08:46:23.480Z">
+<meta property="og:updated_time" content="2018-01-31T08:57:49.949Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="balanced binary tree">
-<meta name="twitter:description" content="The problem is not difficult, but the definition of level is not as usually defined. We do not need to follow the level convention to solve this problem, otherwise, the code is complicated. 1234567891">
+<meta name="twitter:title" content="Validate Binary Search Tree">
+<meta name="twitter:description" content="This problem is relatively easy, but read the definition carefully is very important. I missed it the first time. The rest part are easy! 12345678910111213141516171819202122232425262728293031323334/**">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-balanced-binary-tree" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Validate-Binary-Search-Tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/01/29/balanced-binary-tree/" class="article-date">
-  <time datetime="2018-01-29T08:44:27.000Z" itemprop="datePublished">2018-01-29</time>
+    <a href="/leetlint/2018/01/31/Validate-Binary-Search-Tree/" class="article-date">
+  <time datetime="2018-01-31T08:55:38.000Z" itemprop="datePublished">2018-01-31</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      balanced binary tree
+      Validate Binary Search Tree
     </h1>
   
 
@@ -87,13 +87,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>The problem is not difficult, but the definition of level is not as usually defined. We do not need to follow the level convention to solve this problem, otherwise, the code is complicated.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: The root of binary tree.</span><br><span class="line">     * @return: True if this Binary tree is Balanced, or false.</span><br><span class="line">     */</span><br><span class="line">    int level(TreeNode * node)&#123;</span><br><span class="line">        if(node == NULL) return 0;</span><br><span class="line">        int leftLevel = level(node-&gt;left);</span><br><span class="line">        int rightLevel = level(node-&gt;right);</span><br><span class="line">        if(leftLevel == -1 || rightLevel == -1 || abs(leftLevel-rightLevel)&gt;1)</span><br><span class="line">            return -1;</span><br><span class="line">        else</span><br><span class="line">            return max(leftLevel, rightLevel)+1;</span><br><span class="line">    &#125;</span><br><span class="line">    bool isBalanced(TreeNode * root) &#123;</span><br><span class="line">        if(!root) return true;</span><br><span class="line">        int rLevel = level(root);</span><br><span class="line">        return !(rLevel == -1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p>This problem is relatively easy, but read the definition carefully is very important. I missed it the first time. The rest part are easy!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: The root of binary tree.</span><br><span class="line">     * @return: True if the binary tree is BST, or false</span><br><span class="line">     */</span><br><span class="line">    bool isValidBST(TreeNode * root) &#123;</span><br><span class="line">        return validHelper(root, numeric_limits&lt;long&gt;::min(), numeric_limits&lt;long&gt;::max());</span><br><span class="line">    &#125;</span><br><span class="line">    bool validHelper(TreeNode* node, long minV, long maxV)&#123;</span><br><span class="line">        // write your code here</span><br><span class="line">        if(node == nullptr) return true;</span><br><span class="line">        if(node-&gt;val &gt;= maxV || node-&gt;val &lt;= minV) return false;</span><br><span class="line">        bool leftValid = !node-&gt;left || (validHelper(node-&gt;left, minV, node-&gt;val));</span><br><span class="line">        if(!leftValid) return false;</span><br><span class="line">        bool rightValid = !node-&gt;right || (validHelper(node-&gt;right, node-&gt;val, maxV));</span><br><span class="line">        if(!rightValid) return false;</span><br><span class="line">        return true;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjd2ua0xe000a70v42yus3b1r" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjd2ua0x7000370v4hkbca27q" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -104,19 +104,10 @@
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          binary tree maximum path sum
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/01/28/Lowest-Common-Ancestor/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Lowest Common Ancestor</div>
+      <div class="article-nav-title">binary tree maximum path sum</div>
     </a>
   
 </nav>
