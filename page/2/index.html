@@ -65,6 +65,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Rogue-Knight-Sven" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/27/Rogue-Knight-Sven/" class="article-date">
+  <time datetime="2018-01-27T09:36:24.000Z" itemprop="datePublished">2018-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/27/Rogue-Knight-Sven/">Rogue Knight Sven</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This problem is easy, but I still made two mistakes, the first is I should use long long instead of int; int may cause overflow! Second, the name “n”, “m” is still not very informative, and I messed up with n and m!<br><figure class="highlight plain"><figcaption><span>[Sven] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param n: the max identifier of planet.</span><br><span class="line">     * @param m: gold coins that Sven has.</span><br><span class="line">     * @param limit: the max difference.</span><br><span class="line">     * @param cost: the number of gold coins that reaching the planet j through the portal costs.</span><br><span class="line">     * @return: return the number of ways he can reach the planet n through the portal.</span><br><span class="line">     */</span><br><span class="line">    long long getNumberOfWays(int n, int m, int limit, vector&lt;int&gt; &amp;cost) &#123;</span><br><span class="line">        vector&lt;vector&lt;long long&gt;&gt; way;</span><br><span class="line">        way.resize(n+1);</span><br><span class="line">        for(int i = 0; i&lt;way.size(); ++i)way[i].resize(m+1, 0);</span><br><span class="line">        way[0][m] = 1;</span><br><span class="line">        for(int from = 0; from&lt;n; ++from)&#123;</span><br><span class="line">            int maxTo = min(from+limit, n);</span><br><span class="line">            for(int to =from+1 ; to&lt;=maxTo; ++to)&#123;</span><br><span class="line">                int cx = cost[to];</span><br><span class="line">                for(int mx = cx; mx&lt;=m; ++mx)&#123;</span><br><span class="line">                    int fund = mx - cx;</span><br><span class="line">                    way[to][fund] += way[from][mx];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        long long total = accumulate(way[n].begin(), way[n].end(), 0LL);</span><br><span class="line">        return total;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjd49h0wm0005u8v4d2jncuhh" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-nth-to-last-node-in-list" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/leetlint/2018/01/26/nth-to-last-node-in-list/" class="article-date">
@@ -93,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjd2ua0xr000w70v4utsvlac4" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjd49h0x9000zu8v450u8sxjd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -133,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjd2ua0xg000f70v4tiu67qty" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjd49h0wr000du8v4atkxr6p9" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -173,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjd2ua0xa000570v4dfce1sga" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjd49h0wo0008u8v4azkmz6xs" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -213,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjd2ua0x0000070v45qfiw380" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjd49h0wc0000u8v4684k1bdb" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -253,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjd2ua0xm000n70v4grx8p8vc" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjd49h0wu000hu8v4kovixxzq" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li></ul>
@@ -292,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjd2ua0xp000s70v4ay9tehkd" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjd49h0x7000uu8v4nxyk10qt" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -333,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjd2ua0xn000p70v4x5g5l73k" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjd49h0x7000su8v4g1znovrf" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li></ul>
@@ -403,7 +442,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjd2ua0y2001370v4v82hl1cd" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjd49h0xb0013u8v4bgsb8vf2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
@@ -450,7 +489,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjd2ua0xl000l70v4nq5a16ts" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjd49h0x6000qu8v442ca3b4f" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -497,7 +536,7 @@ public:
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -508,6 +547,10 @@ public:
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/02/01/partition-list/">partition list</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/01/31/Validate-Binary-Search-Tree/">Validate Binary Search Tree</a>
@@ -523,10 +566,6 @@ public:
         
           <li>
             <a href="/leetlint/2018/01/28/Lowest-Common-Ancestor/">Lowest Common Ancestor</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/01/28/single-number-II/">single number II</a>
           </li>
         
       </ul>
