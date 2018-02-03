@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Remove-Duplicates-from-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" class="article-date">
+  <time datetime="2018-02-03T08:29:32.000Z" itemprop="datePublished">2018-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/">Remove Duplicates from Sorted Array</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This problem is easy, just need two numbers, the first is the last index<br>of non-duplicated number vector and the second is an index to iterate the whole vectors.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: An ineger array</span><br><span class="line">     * @return: An integer</span><br><span class="line">     */</span><br><span class="line">    int removeDuplicates(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        if(nums.empty()) return 0;</span><br><span class="line">        int left = 0, right = 0;</span><br><span class="line">        while(right &lt; nums.size())&#123;</span><br><span class="line">            while(right &lt; nums.size() &amp;&amp; nums[right] == nums[left]) ++right;</span><br><span class="line">            if(right &lt; nums.size())</span><br><span class="line">                nums[++left] = nums[right++];</span><br><span class="line">        &#125;</span><br><span class="line">        nums.resize(left+1);</span><br><span class="line">        return left+1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" data-id="cjd73ot5f00042gv4uoj5ycck" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-reorder-list" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/reorder-list/" data-id="cjd72t740000sgov42zp8n102" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/reorder-list/" data-id="cjd73ot5z00132gv4auz88sf4" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -132,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjd72t74c0019gov45gzaoq01" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjd73ot5w000w2gv484ol3bpr" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -172,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjd72t73x000ogov44f9pyj6a" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjd73ot5l000d2gv4z2ffse7c" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -212,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjd72t73k000agov44c58kg23" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjd73ot5g00052gv4tee3qzoo" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -252,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjd72t73j0008gov4rjb2ec5m" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjd73ot5k000a2gv4i5ioet6d" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -292,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjd72t73g0005gov4fmlwfevv" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjd73ot5d00032gv4gvv5uq23" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -332,7 +371,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjd72t7440011gov4jx3z5ax5" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjd73ot6100172gv4qovsmtop" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -372,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjd72t743000zgov4dwrxltkq" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjd73ot5y00112gv4zn3eest8" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -413,47 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjd72t73b0001gov47nchm5x5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-longest-common-substring" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/27/longest-common-substring/" class="article-date">
-  <time datetime="2018-01-27T23:37:30.000Z" itemprop="datePublished">2018-01-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/27/longest-common-substring/">longest common substring</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This is an easy dynamic programming problem. Once one understood how to solve the longest common subsequence, the longest substring is much easier. </p>
-<figure class="highlight plain"><figcaption><span>[longest common substring] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param A: A string</span><br><span class="line">     * @param B: A string</span><br><span class="line">     * @return: the length of the longest common substring.</span><br><span class="line">     */</span><br><span class="line">    int longestCommonSubstring(string &amp;A, string &amp;B) &#123;</span><br><span class="line">        int sa = A.size(), sb=B.size();</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; vcnt=vector&lt;vector&lt;int&gt;&gt;(sa+1, vector&lt;int&gt;(sb+1, 0));</span><br><span class="line">        int maxMatch = 0;</span><br><span class="line">        for(int row = 1; row &lt;= sa; ++row)&#123;</span><br><span class="line">            for(int col = 1; col&lt;=sb;++col)&#123;</span><br><span class="line">                if(A[row-1]==B[col-1]) vcnt[row][col] = vcnt[row-1][col-1] + 1;</span><br><span class="line">                if(vcnt[row][col] &gt; maxMatch)&#123;</span><br><span class="line">                    maxMatch = vcnt[row][col];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return maxMatch;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjd72t73w000lgov4v36k8v4d" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjd73ot5a00012gv4bvzq7vfu" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -469,7 +468,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><a class="extend next" rel="next" href="/leetlint/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><a class="extend next" rel="next" href="/leetlint/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -500,7 +499,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -510,9 +509,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/">Remove Duplicates from Sorted Array</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/02/03/reorder-list/">reorder list</a>
@@ -528,10 +531,6 @@
         
           <li>
             <a href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/">binary tree maximum path sum</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/01/29/balanced-binary-tree/">balanced binary tree</a>
           </li>
         
       </ul>
