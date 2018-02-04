@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,46 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Lowest-Common-Ancestor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/28/Lowest-Common-Ancestor/" class="article-date">
+  <time datetime="2018-01-29T06:40:55.000Z" itemprop="datePublished">2018-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/28/Lowest-Common-Ancestor/">Lowest Common Ancestor</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.lintcode.com/en/problem/lowest-common-ancestor/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/lowest-common-ancestor/</a><br>parents and level infomation are not available, and node has no ID. I just used map to solve this problem. It works, but not elegant.  I need to check if there is any better method.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: The root of the binary search tree.</span><br><span class="line">     * @param A: A TreeNode in a Binary.</span><br><span class="line">     * @param B: A TreeNode in a Binary.</span><br><span class="line">     * @return: Return the least common ancestor(LCA) of the two nodes.</span><br><span class="line">     */</span><br><span class="line">    TreeNode * lowestCommonAncestor(TreeNode * root, TreeNode * A, TreeNode * B) &#123;</span><br><span class="line">        map&lt;TreeNode*, int&gt; levels;</span><br><span class="line">        map&lt;TreeNode*, TreeNode*&gt; parents;</span><br><span class="line">        levels[root] = 0;</span><br><span class="line">        parents[root] = nullptr;</span><br><span class="line">        queue&lt;TreeNode*&gt; nodes;</span><br><span class="line">        nodes.push(root);</span><br><span class="line">        while(!nodes.empty())&#123;</span><br><span class="line">            TreeNode* node = nodes.front();</span><br><span class="line">            nodes.pop();</span><br><span class="line">            int cLevel = levels[node];</span><br><span class="line">            if(node-&gt;left)&#123; </span><br><span class="line">                parents[node-&gt;left] = node;</span><br><span class="line">                levels[node-&gt;left] = cLevel+1;</span><br><span class="line">                nodes.push(node-&gt;left);</span><br><span class="line">            &#125;</span><br><span class="line">            if(node-&gt;right)&#123;</span><br><span class="line">                parents[node-&gt;right] = node;</span><br><span class="line">                levels[node-&gt;right] = cLevel+1;</span><br><span class="line">                nodes.push(node-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode* pa = A, *pb=B;</span><br><span class="line">        int la = levels[pa], lb = levels[pb];</span><br><span class="line">        do&#123;</span><br><span class="line">            if(la &lt; lb)&#123; pb = parents[pb]; --lb;&#125;</span><br><span class="line">            if(la &gt; lb) &#123;pa = parents[pa]; --la;&#125;</span><br><span class="line">            if(la == lb &amp;&amp; pa !=pb)&#123;</span><br><span class="line">                pa = parents[pa];</span><br><span class="line">                pb = parents[pb];</span><br><span class="line">                --la;--lb;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;while(pa!=pb);</span><br><span class="line">        return pa;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjd8lk3sw000584v4t2rok2b4" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-single-number-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjd87jy2l001bh8v4prxtk4cn" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjd8lk3tr001f84v46wcjh5v2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -133,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjd87jy2k0019h8v4ar4lfas6" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjd8lk3to001984v4c0trzciu" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -174,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjd87jy1t0005h8v4uggr0931" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjd8lk3sy000884v4nfo6aoh2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -214,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjd87jy2c000ph8v46uj8qwax" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjd8lk3ti000t84v4zacvytr8" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -254,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjd87jy2a000lh8v4s6d5f22f" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjd8lk3te000n84v44k94n8gl" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -293,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjd87jy20000fh8v4z2yle4nf" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjd8lk3t9000h84v4al3tocp1" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -333,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjd87jy2f000yh8v4kgye9xhs" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjd8lk3tk001084v4cx6sr9bk" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -373,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjd87jy2d000rh8v4aqli8jg2" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjd8lk3tc000j84v4hofdb0m3" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -413,47 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjd87jy21000hh8v4ps6w6wf1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-4sum" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/26/4sum/" class="article-date">
-  <time datetime="2018-01-26T21:48:53.000Z" itemprop="datePublished">2018-01-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/26/4sum/">4sum</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/4sum/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/4sum/</a><br>This problem is an application of two sum algorithm. After a long time of solving two sum, I totally forgot it and trying to solve this problem in a wrong way. Finally I realized my problem and changed it back to the two sum approach.</p>
-<figure class="highlight plain"><figcaption><span>[4 sum] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param numbers: Give an array</span><br><span class="line">     * @param target: An integer</span><br><span class="line">     * @return: Find all unique quadruplets in the array which gives the sum of zero</span><br><span class="line">     */</span><br><span class="line">     //duplicate is trouble-maker!</span><br><span class="line">    using IntPair = pair&lt;int, int&gt;;</span><br><span class="line">    vector&lt;IntPair&gt; findTwoSumPairs(int begin, int end, vector&lt;int&gt;&amp; numbers, int target)</span><br><span class="line">    &#123;</span><br><span class="line">        vector&lt;IntPair&gt; results;</span><br><span class="line">        if(end-begin &lt; 2) return results;</span><br><span class="line">        if(numbers[begin]+numbers[begin+1]&gt;target) return results;</span><br><span class="line">        if(numbers.back()+ numbers[end-2]&lt; target) return results;</span><br><span class="line">        int left = begin, right = end-1;</span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            int sum = numbers[left]+numbers[right];</span><br><span class="line">            if(sum == target)&#123;</span><br><span class="line">                IntPair p = IntPair(numbers[left], numbers[right]);</span><br><span class="line">                if(!results.empty() &amp;&amp; results.back() == p)&#123;</span><br><span class="line">                    ++left; --right; continue;   </span><br><span class="line">                &#125;</span><br><span class="line">                results.push_back(p);</span><br><span class="line">                ++left; --right;</span><br><span class="line">            &#125;else if(sum &lt; target)&#123;</span><br><span class="line">                ++left;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                --right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return results;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; fourSum(vector&lt;int&gt; numbers, int target) &#123;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; results;</span><br><span class="line">        sort(numbers.begin(), numbers.end());</span><br><span class="line">        int size = numbers.size();</span><br><span class="line">        for(int i = 0; i &lt; size; ++i)&#123;</span><br><span class="line">            if(i &gt; 0 &amp;&amp; numbers[i] == numbers[i-1]) continue;</span><br><span class="line">            for(int j = i+1; j&lt; size; ++j)&#123;</span><br><span class="line">                if(j&gt;i+1 &amp;&amp; numbers[j] == numbers[j-1]) continue;</span><br><span class="line">                int val = numbers[i]+numbers[j];</span><br><span class="line">                vector&lt;IntPair&gt; v2 = findTwoSumPairs(j+1, numbers.size(), numbers, target - val);</span><br><span class="line">                for(int k = 0; k&lt;v2.size(); ++k)&#123;</span><br><span class="line">                    results.push_back(vector&lt;int&gt;&#123;numbers[i], numbers[j], v2[k].first, v2[k].second&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return results;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjd87jy1n0001h8v42zmazskh" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjd8lk3t8000f84v4hnxhr6gr" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -469,7 +469,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/leetlint/">&laquo; Prev</a><a class="page-number" href="/leetlint/">1</a><span class="page-number current">2</span><a class="page-number" href="/leetlint/page/3/">3</a><a class="extend next" rel="next" href="/leetlint/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/leetlint/">&laquo; zurück</a><a class="page-number" href="/leetlint/">1</a><span class="page-number current">2</span><a class="page-number" href="/leetlint/page/3/">3</a><a class="extend next" rel="next" href="/leetlint/page/3/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -500,7 +500,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -510,9 +510,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/02/04/wordbreak/">wordbreak</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/">Convert Sorted List to Balanced BST</a>
@@ -528,10 +532,6 @@
         
           <li>
             <a href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/">Remove Duplicates from Sorted Array</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/02/03/reorder-list/">reorder list</a>
           </li>
         
       </ul>

@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,47 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-wordbreak" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/02/04/wordbreak/" class="article-date">
+  <time datetime="2018-02-04T09:37:03.000Z" itemprop="datePublished">2018-02-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/02/04/wordbreak/">wordbreak</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.lintcode.com/en/problem/word-break/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/word-break/</a><br>This problem should be solved by using dictionary tree? I would still live with the hash_set.  It is still easy. I made a mistake when trying to init the max<em>size</em>, where I used int max_size_0 = 0 !</p>
+<p>After the bug is fixed, all case passed.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param s: A string</span><br><span class="line">     * @param dict: A dictionary of words dict</span><br><span class="line">     * @return: A boolean</span><br><span class="line">     */</span><br><span class="line">    //dictionary tree should be better than hash_set</span><br><span class="line">    bool wordBreak(string &amp;s, unordered_set&lt;string&gt; &amp;dict) &#123;</span><br><span class="line">        if(s.size() == 0) return true;</span><br><span class="line">        init(s, dict);</span><br><span class="line">        wordBreakHelper(0, s, dict);</span><br><span class="line">        return (flags[0] == 1) ;</span><br><span class="line">    &#125;</span><br><span class="line">    //Dict dictTree;</span><br><span class="line">    void init(string&amp;s, const unordered_set&lt;string&gt;&amp; dict)</span><br><span class="line">    &#123;</span><br><span class="line">        max_size_ = 0;</span><br><span class="line">        for(auto iter = dict.begin(); iter != dict.end(); ++iter)&#123;</span><br><span class="line">            if(iter-&gt;size() &gt; max_size_)</span><br><span class="line">                max_size_ = iter-&gt;size();</span><br><span class="line">        &#125;</span><br><span class="line">        flags.resize(s.size(), -1);</span><br><span class="line">    &#125;</span><br><span class="line">    bool wordBreakHelper(int start, string&amp; s, const unordered_set&lt;string&gt;&amp; dict)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s.size() == start) return true;</span><br><span class="line">        if(flags[start]&gt;=0) return flags[start]; </span><br><span class="line">        int maxLen = min(max_size_, static_cast&lt;int&gt;(s.size()-start));</span><br><span class="line">        for(int i = 0; i&lt;maxLen; ++i)&#123;</span><br><span class="line">            string s1(s.substr(start, i+1));</span><br><span class="line">            if(dict.find(s1) != dict.end())&#123;</span><br><span class="line">                flags[start] = wordBreakHelper(start+s1.size(), s, dict);</span><br><span class="line">                if(flags[start] == 1) return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        flags[start] = false;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    int max_size_;</span><br><span class="line">    vector&lt;int&gt; flags;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/04/wordbreak/" data-id="cjd8lk3tp001b84v4yf47nup9" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Convert-Sorted-List-to-Balanced-BST" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/" data-id="cjd87jy1j0000h8v46z2lpuf0" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/" data-id="cjd8lk3sv000484v4jwoit4tr" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -133,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Copy-List-with-Random-Pointer/" data-id="cjd87jy1r0003h8v4sy38kvpo" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Copy-List-with-Random-Pointer/" data-id="cjd8lk3sq000184v4kk6siywz" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -172,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" data-id="cjd87jy2h0012h8v4n5t7jn8v" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" data-id="cjd8lk3tm001584v4i1f0at6r" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -211,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" data-id="cjd87jy1w0008h8v41nyyfvji" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" data-id="cjd8lk3su000384v4limzz4m9" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -251,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/reorder-list/" data-id="cjd87jy2j0017h8v4b8cqcf6u" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/reorder-list/" data-id="cjd8lk3tn001784v4lkgfp9ht" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -290,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjd87jy2g0010h8v4nq8f4cfa" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjd8lk3tk000y84v42homoc6p" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -330,7 +371,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjd87jy1z000dh8v4zr35343h" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjd8lk3t0000a84v4nbgobiof" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -370,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjd87jy23000jh8v464omb0yc" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjd8lk3td000l84v4p421lifm" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -410,47 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjd87jy1x000ah8v4olv1yv90" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Lowest-Common-Ancestor" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/28/Lowest-Common-Ancestor/" class="article-date">
-  <time datetime="2018-01-29T06:40:55.000Z" itemprop="datePublished">2018-01-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/28/Lowest-Common-Ancestor/">Lowest Common Ancestor</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/lowest-common-ancestor/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/lowest-common-ancestor/</a><br>parents and level infomation are not available, and node has no ID. I just used map to solve this problem. It works, but not elegant.  I need to check if there is any better method.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: The root of the binary search tree.</span><br><span class="line">     * @param A: A TreeNode in a Binary.</span><br><span class="line">     * @param B: A TreeNode in a Binary.</span><br><span class="line">     * @return: Return the least common ancestor(LCA) of the two nodes.</span><br><span class="line">     */</span><br><span class="line">    TreeNode * lowestCommonAncestor(TreeNode * root, TreeNode * A, TreeNode * B) &#123;</span><br><span class="line">        map&lt;TreeNode*, int&gt; levels;</span><br><span class="line">        map&lt;TreeNode*, TreeNode*&gt; parents;</span><br><span class="line">        levels[root] = 0;</span><br><span class="line">        parents[root] = nullptr;</span><br><span class="line">        queue&lt;TreeNode*&gt; nodes;</span><br><span class="line">        nodes.push(root);</span><br><span class="line">        while(!nodes.empty())&#123;</span><br><span class="line">            TreeNode* node = nodes.front();</span><br><span class="line">            nodes.pop();</span><br><span class="line">            int cLevel = levels[node];</span><br><span class="line">            if(node-&gt;left)&#123; </span><br><span class="line">                parents[node-&gt;left] = node;</span><br><span class="line">                levels[node-&gt;left] = cLevel+1;</span><br><span class="line">                nodes.push(node-&gt;left);</span><br><span class="line">            &#125;</span><br><span class="line">            if(node-&gt;right)&#123;</span><br><span class="line">                parents[node-&gt;right] = node;</span><br><span class="line">                levels[node-&gt;right] = cLevel+1;</span><br><span class="line">                nodes.push(node-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode* pa = A, *pb=B;</span><br><span class="line">        int la = levels[pa], lb = levels[pb];</span><br><span class="line">        do&#123;</span><br><span class="line">            if(la &lt; lb)&#123; pb = parents[pb]; --lb;&#125;</span><br><span class="line">            if(la &gt; lb) &#123;pa = parents[pa]; --la;&#125;</span><br><span class="line">            if(la == lb &amp;&amp; pa !=pb)&#123;</span><br><span class="line">                pa = parents[pa];</span><br><span class="line">                pb = parents[pb];</span><br><span class="line">                --la;--lb;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;while(pa!=pb);</span><br><span class="line">        return pa;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjd87jy1s0004h8v42nzptcit" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjd8lk3t2000d84v45sw5a4m3" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -466,7 +467,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><a class="extend next" rel="next" href="/leetlint/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><a class="extend next" rel="next" href="/leetlint/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -497,7 +498,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -507,9 +508,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/02/04/wordbreak/">wordbreak</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/">Convert Sorted List to Balanced BST</a>
@@ -525,10 +530,6 @@
         
           <li>
             <a href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/">Remove Duplicates from Sorted Array</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/02/03/reorder-list/">reorder list</a>
           </li>
         
       </ul>
