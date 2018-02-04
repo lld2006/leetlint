@@ -5,20 +5,20 @@
   
 
   
-  <title>prev_permutation | programming for fun</title>
+  <title>remove duplicates from sorted array II | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http://www.lintcode.com/en/problem/previous-permutation/The algorithm is clearer now. It include three part, first find the number which is greater than at least one of the numbers on its right; secon">
+  <meta name="description" content="Problem is easy. But I made a mistake, when I count the number of duplicates, I used a fLeft which might be changed in the following while loop! Stupid mistake! The rest of the code is very straight f">
 <meta name="keywords" content="lint">
 <meta property="og:type" content="article">
-<meta property="og:title" content="prev_permutation">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/index.html">
+<meta property="og:title" content="remove duplicates from sorted array II">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="http://www.lintcode.com/en/problem/previous-permutation/The algorithm is clearer now. It include three part, first find the number which is greater than at least one of the numbers on its right; secon">
+<meta property="og:description" content="Problem is easy. But I made a mistake, when I count the number of duplicates, I used a fLeft which might be changed in the following while loop! Stupid mistake! The rest of the code is very straight f">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-24T08:01:26.227Z">
+<meta property="og:updated_time" content="2018-02-04T01:11:24.263Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="prev_permutation">
-<meta name="twitter:description" content="http://www.lintcode.com/en/problem/previous-permutation/The algorithm is clearer now. It include three part, first find the number which is greater than at least one of the numbers on its right; secon">
+<meta name="twitter:title" content="remove duplicates from sorted array II">
+<meta name="twitter:description" content="Problem is easy. But I made a mistake, when I count the number of duplicates, I used a fLeft which might be changed in the following while loop! Stupid mistake! The rest of the code is very straight f">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-prev-permutation" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-remove-duplicates-from-sorted-array-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/01/23/prev-permutation/" class="article-date">
-  <time datetime="2018-01-24T07:40:09.000Z" itemprop="datePublished">2018-01-23</time>
+    <a href="/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" class="article-date">
+  <time datetime="2018-02-04T01:08:35.000Z" itemprop="datePublished">2018-02-03</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      prev_permutation
+      remove duplicates from sorted array II
     </h1>
   
 
@@ -87,12 +87,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.lintcode.com/en/problem/previous-permutation/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/previous-permutation/</a><br>The algorithm is clearer now. It include three part, first find the number which is greater than at least one of the numbers on its right; second, reverse all the numbers on the right side; (third, find the maximum number on the right side of the number found in step one which is still less than the number; Now the code looks better.<br><figure class="highlight plain"><figcaption><span>[prev permutation] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: A list of integers that&apos;s previous permuation</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; previousPermuation(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        int size = nums.size();</span><br><span class="line">        int pos = size-1;</span><br><span class="line">        int index = pos, firstOrder = pos;</span><br><span class="line">        bool found = false;</span><br><span class="line">        //find pos where nums[pos] &gt; nums[pos+1]</span><br><span class="line">        while(pos &gt; 0 &amp;&amp; nums[pos-1] &lt;= nums[pos]) --pos;</span><br><span class="line">        --pos;</span><br><span class="line">        //swap all numbers on the right side of pos</span><br><span class="line">        int left = pos+1, right = size-1;</span><br><span class="line">        while(left &lt; right) swap(nums[left++], nums[right--]);</span><br><span class="line">        </span><br><span class="line">        if(pos &lt; 0) return nums;</span><br><span class="line">        int pos2 = size - 1;</span><br><span class="line">        while(nums[pos2] &lt; nums[pos])--pos2;</span><br><span class="line">        ++pos2;</span><br><span class="line">        swap(nums[pos], nums[pos2]);</span><br><span class="line">        return nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+        <p>Problem is easy. But I made a mistake, when I count the number of duplicates, I used a fLeft which might be changed in the following while loop! Stupid mistake! The rest of the code is very straight forward.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param A: a list of integers</span><br><span class="line">     * @return : return an integer</span><br><span class="line">     */</span><br><span class="line">    int removeDuplicates(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        // write your code here</span><br><span class="line">        int copyTo = 0, fLeft = 0, fRight=0;</span><br><span class="line">        while(fLeft &lt; nums.size())&#123;</span><br><span class="line">            while(nums[fRight] == nums[fLeft])++fRight;</span><br><span class="line">            int cnt = 0;</span><br><span class="line">            if(false &amp;&amp; copyTo == fLeft)&#123;</span><br><span class="line">                copyTo = fRight;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                int nCnt = fRight - fLeft;</span><br><span class="line">                while(cnt &lt; min(2, nCnt) )&#123;</span><br><span class="line">                    nums[copyTo++] = nums[fLeft++]; ++cnt;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            fLeft = fRight;</span><br><span class="line">        &#125;</span><br><span class="line">        nums.resize(copyTo);</span><br><span class="line">        return copyTo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjd83dm9y0011wsv4mipm0z1k" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" data-id="cjd83dm9w000wwsv47hcpfczf" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -103,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/01/24/new-post-not-generated-by-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          new post not generated by hexo
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/01/23/next-permutation/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">next permutation</div>
+      <div class="article-nav-title">Remove Duplicates from Sorted Array</div>
     </a>
   
 </nav>
