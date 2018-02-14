@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,46 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Single-Number-III" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/02/13/Single-Number-III/" class="article-date">
+  <time datetime="2018-02-14T07:00:39.000Z" itemprop="datePublished">2018-02-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/02/13/Single-Number-III/">Single Number III</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.lintcode.com/en/problem/single-number-iii/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/single-number-iii/</a><br>The idea behind this problem is the key to solve it. Just to reduce it to two of the Single Number problem. But it is not easy to see the clue. The key is that for these two numbers, they differ at least in one bit. Find this bit and split all numbers into two groups, one with that bit 1 and one with that bit 0. The rest is very easy.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param A : An integer array</span><br><span class="line">     * @return : Two integers</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; singleNumberIII(vector&lt;int&gt; &amp;A) &#123;</span><br><span class="line">        int result = 0;</span><br><span class="line">        for(int k = 0; k&lt;A.size(); ++k)&#123;</span><br><span class="line">            result ^= A[k];</span><br><span class="line">        &#125;</span><br><span class="line">        int bit = 1; </span><br><span class="line">        while((bit &amp; result) == 0) bit&lt;&lt;=1;</span><br><span class="line">        int a = 0, b=0;</span><br><span class="line">        for(int k = 0; k&lt; A.size(); ++k)&#123;</span><br><span class="line">            if(A[k] &amp; bit) </span><br><span class="line">                a ^= A[k];</span><br><span class="line">            else</span><br><span class="line">                b ^= A[k];</span><br><span class="line">        &#125;</span><br><span class="line">        return a&lt;b? vector&lt;int&gt;&#123;a, b&#125; : vector&lt;int&gt;&#123;b,a&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/13/Single-Number-III/" data-id="cjdmqf5gf0004ssv49p9lboww" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-word-ladder" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/11/word-ladder/" data-id="cjdjx5fga001dmgv4lk6qxq74" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/11/word-ladder/" data-id="cjdmqf5hd001issv4llgqdqyh" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -134,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/04/wordbreak/" data-id="cjdjx5fgn001jmgv480mr95kd" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/04/wordbreak/" data-id="cjdmqf5hw001nssv4nxqynlo5" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -174,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/" data-id="cjdjx5ffn000fmgv4zastxgtj" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/" data-id="cjdmqf5go000hssv4wk4f1ywy" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -214,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Copy-List-with-Random-Pointer/" data-id="cjdjx5ffb0001mgv46chxcfgg" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Copy-List-with-Random-Pointer/" data-id="cjdmqf5g50000ssv4w0dgngmk" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -253,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" data-id="cjdjx5fg50012mgv494ikmwjn" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" data-id="cjdmqf5h30017ssv49xg6tymk" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -292,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" data-id="cjdjx5ffg0005mgv49gcnecay" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" data-id="cjdmqf5gj0008ssv4t0oemkhk" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -332,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/reorder-list/" data-id="cjdjx5fg80019mgv4ekxm8nns" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/reorder-list/" data-id="cjdmqf5h40019ssv4ipuajl3y" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -371,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjdjx5fg3000ymgv492h8g0vv" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjdmqf5gz0010ssv4ywv4e9cf" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -411,47 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjdjx5ffk000amgv4w2pn2sjr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-binary-tree-maximum-path-sum" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/" class="article-date">
-  <time datetime="2018-01-31T08:24:02.000Z" itemprop="datePublished">2018-01-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/">binary tree maximum path sum</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>My code is not optimized, but still passed. May still need some effort to optimize it. But my code is very easy to follow. The only thing is that I assumed that all numbers in the tree are positive, which is totoally wrong. After I corrected that mistake, All cases passed.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: The root of binary tree.</span><br><span class="line">     * @return: An integer</span><br><span class="line">     */</span><br><span class="line">    //only consider one side is not sufficient, need to </span><br><span class="line">    //consider both sides sum</span><br><span class="line">    int oneSideMaximumSum(TreeNode* topNode)&#123;</span><br><span class="line">        if(topNode == nullptr) return 0;</span><br><span class="line">        int leftMax = oneSideMaximumSum(topNode-&gt;left);</span><br><span class="line">        int rightMax = oneSideMaximumSum(topNode-&gt;right);</span><br><span class="line">        return max(leftMax, rightMax)&gt;0? max(leftMax, rightMax)+topNode-&gt;val:topNode-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">    int maxPathSum(TreeNode * root) &#123;</span><br><span class="line">        if(root == nullptr) return 0;</span><br><span class="line">        int left2 = root-&gt;left? maxPathSum(root-&gt;left):numeric_limits&lt;int&gt;::min();</span><br><span class="line">        int right2 = root-&gt;right? maxPathSum(root-&gt;right) :numeric_limits&lt;int&gt;::min();</span><br><span class="line">        int max2 = max(left2, right2);</span><br><span class="line">        int left1 = oneSideMaximumSum(root-&gt;left);</span><br><span class="line">        if(left1 &lt; 0) left1 = 0;</span><br><span class="line">        int right1 = oneSideMaximumSum(root-&gt;right);</span><br><span class="line">        if(right1 &lt; 0) right1 = 0;</span><br><span class="line">        return max(max2, left1+right1+root-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjdjx5ffy000lmgv43oeum612" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjdmqf5gm000dssv4qzgxkjbd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -467,7 +467,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><a class="extend next" rel="next" href="/leetlint/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><a class="extend next" rel="next" href="/leetlint/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -498,7 +498,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -508,9 +508,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/02/13/Single-Number-III/">Single Number III</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/02/11/word-ladder/">word ladder</a>
@@ -526,10 +530,6 @@
         
           <li>
             <a href="/leetlint/2018/02/03/Copy-List-with-Random-Pointer/">Copy List with Random Pointer</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/">remove duplicates from sorted array II</a>
           </li>
         
       </ul>
