@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,46 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-reorder-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/02/03/reorder-list/" class="article-date">
+  <time datetime="2018-02-03T08:05:33.000Z" itemprop="datePublished">2018-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/02/03/reorder-list/">reorder list</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.lintcode.com/en/problem/reorder-list/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/reorder-list/</a><br>Problem is not hard, but I used a vector to dump all nodes, which is not a good approach, the code is relatively short though.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of ListNode</span><br><span class="line"> * class ListNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;next = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param head: The head of linked list.</span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void reorderList(ListNode * head) &#123;</span><br><span class="line">        ListNode* slow = head, * fast = head, *node;</span><br><span class="line">        vector&lt;ListNode*&gt; vNodes;</span><br><span class="line">        while(slow)&#123;</span><br><span class="line">            vNodes.push_back(slow);</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        int left = 0, right = vNodes.size()-1;</span><br><span class="line">        while(left &lt; right) &#123;</span><br><span class="line">            slow = vNodes[left];</span><br><span class="line">            fast = vNodes[right];</span><br><span class="line">            node = slow-&gt;next;</span><br><span class="line">            slow-&gt;next = fast;</span><br><span class="line">            fast-&gt;next = node;</span><br><span class="line">            vNodes.pop_back();</span><br><span class="line">            ++left; --right;</span><br><span class="line">            if(left &lt; right)</span><br><span class="line">                vNodes.back()-&gt;next = nullptr;</span><br><span class="line">            else</span><br><span class="line">                vNodes[left]-&gt;next = nullptr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/reorder-list/" data-id="cjdpop4br0017icv4ghli60j6" class="article-share-link">Compartir</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-partition-list" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -92,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjdo7qgu60012hgv4631eusz1" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjdpop4bk0012icv4gig1ttb9" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -132,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjdo7qgtt000fhgv41vzo3p32" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjdpop4bc000nicv4stp11bky" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -172,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjdo7qgu0000nhgv4ntxcwe0h" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjdpop4b9000jicv4l1if7ytc" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -212,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjdo7qgtu000hhgv4d7281pjn" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjdpop4b5000ficv4alk5cixn" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -252,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjdo7qgtn0005hgv4ilptf1s7" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjdpop4az0005icv4bd0xkih6" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -292,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjdo7qgue001ghgv4x8pd98rl" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjdpop4bt001bicv4gtu3lzk9" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -332,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjdo7qgug001khgv4mjzr66br" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjdpop4bw001iicv4khsuadk9" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -373,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjdo7qgtm0004hgv4pudkzxt4" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjdpop4aw0003icv4cfmuk5vu" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -413,47 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjdo7qgu4000whgv4ra9je8pf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-first-bad-version" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/27/first-bad-version/" class="article-date">
-  <time datetime="2018-01-27T23:14:46.000Z" itemprop="datePublished">2018-01-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/27/first-bad-version/">first bad version</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This is an easy problem. One just need to understand how to right lower_bound to never make mistakes in binary search.</p>
-<figure class="highlight plain"><figcaption><span>[bad version] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * class SVNRepo &#123;</span><br><span class="line"> *     public:</span><br><span class="line"> *     static bool isBadVersion(int k);</span><br><span class="line"> * &#125;</span><br><span class="line"> * you can use SVNRepo::isBadVersion(k) to judge whether </span><br><span class="line"> * the kth code version is bad or not.</span><br><span class="line">*/</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param n: An integer</span><br><span class="line">     * @return: An integer which is the first bad version.</span><br><span class="line">     */</span><br><span class="line">    int findFirstBadVersion(int n) &#123;</span><br><span class="line">        int mid, low = 0, high = n;</span><br><span class="line">        while(high - low &gt; 1)&#123;</span><br><span class="line">            mid = low + (high-low)/2;</span><br><span class="line">            if(SVNRepo::isBadVersion(mid))&#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return high;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjdo7qgu1000phgv44ch8y834" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjdpop4be000ricv4iiy8a3pj" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -469,7 +469,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/leetlint/">&laquo; Prev</a><a class="page-number" href="/leetlint/">1</a><span class="page-number current">2</span><a class="page-number" href="/leetlint/page/3/">3</a><a class="extend next" rel="next" href="/leetlint/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/leetlint/">&laquo; Previo</a><a class="page-number" href="/leetlint/">1</a><span class="page-number current">2</span><a class="page-number" href="/leetlint/page/3/">3</a><a class="page-number" href="/leetlint/page/4/">4</a><a class="extend next" rel="next" href="/leetlint/page/3/">Siguiente &raquo;</a>
   </nav>
 
 </section>
@@ -483,7 +483,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/coding/">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/coding/">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
     </div>
   </div>
 
@@ -491,16 +491,16 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nube de Tags</h3>
     <div class="widget tagcloud">
-      <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a> <a href="/leetlint/tags/lintcode/" style="font-size: 15px;">lintcode</a>
+      <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-code/" style="font-size: 10px;">lint code</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a> <a href="/leetlint/tags/lintcode/" style="font-size: 15px;">lintcode</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -510,9 +510,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/02/16/word-search/">word search</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/02/14/set-matrix-zero/">set matrix zero</a>
@@ -530,10 +534,6 @@
             <a href="/leetlint/2018/02/11/word-ladder/">word ladder</a>
           </li>
         
-          <li>
-            <a href="/leetlint/2018/02/04/wordbreak/">wordbreak</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -547,7 +547,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 lld2006<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

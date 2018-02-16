@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>word search | programming for fun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This problem is easy. I just need to change my habit a little bit, read the problem carefully. I assumed that diagonally adjacent is also called neighbor since I did not find a solution for the first">
+<meta name="keywords" content="lint code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="word search">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/02/16/word-search/index.html">
+<meta property="og:site_name" content="programming for fun">
+<meta property="og:description" content="This problem is easy. I just need to change my habit a little bit, read the problem carefully. I assumed that diagonally adjacent is also called neighbor since I did not find a solution for the first">
+<meta property="og:locale" content="English">
+<meta property="og:updated_time" content="2018-02-16T08:40:51.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="word search">
+<meta name="twitter:description" content="This problem is easy. I just need to change my habit a little bit, read the problem carefully. I assumed that diagonally adjacent is also called neighbor since I did not find a solution for the first">
+  
+    <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/leetlint/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/leetlint/" id="logo">programming for fun</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/leetlint/">Home</a>
+        
+          <a class="main-nav-link" href="/leetlint/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-word-search" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/02/16/word-search/" class="article-date">
+  <time datetime="2018-02-16T08:37:30.000Z" itemprop="datePublished">2018-02-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      word search
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This problem is easy. I just need to change my habit a little bit, read the problem carefully. I assumed that diagonally adjacent is also called neighbor since I did not find a solution for the first example on first glance! </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param board: A list of lists of character</span><br><span class="line">     * @param word: A string</span><br><span class="line">     * @return: A boolean</span><br><span class="line">     */</span><br><span class="line">    bool exist(vector&lt;vector&lt;char&gt;&gt; &amp;board, string &amp;word) &#123;</span><br><span class="line">        if(board.empty()|| board[0].empty()) return false;</span><br><span class="line">        flags.resize(board.size(), vector&lt;bool&gt;( board[0].size(), false));</span><br><span class="line">        return existCore(board, word, 0, 0, 0);</span><br><span class="line">    &#125;</span><br><span class="line">    bool existCore(const vector&lt;vector&lt;char&gt;&gt;&amp; board, const string&amp; word, int x, int y, int pos)&#123;</span><br><span class="line">        if(pos == word.size()) return true;</span><br><span class="line">        bool found = false;</span><br><span class="line">        if(pos ==0)&#123;</span><br><span class="line">            for(int row = 0; row&lt; board.size(); ++row)&#123;</span><br><span class="line">                for(int col = 0; col &lt; board[0].size(); ++col)&#123;</span><br><span class="line">                    if(word[0] == board[row][col])&#123;</span><br><span class="line">                        flags[row][col] = true;</span><br><span class="line">                        found = existCore(board, word, row, col, 1);</span><br><span class="line">                        flags[row][col] = false;</span><br><span class="line">                        if(found) return true;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            int rowStart = max(x-1, 0);</span><br><span class="line">            int colStart = max(y-1, 0);</span><br><span class="line">            int rowEnd = min(x+2, static_cast&lt;int&gt;(board.size()));</span><br><span class="line">            int colEnd = min(y+2, static_cast&lt;int&gt;(board[0].size()));</span><br><span class="line">            for(int row = rowStart; row&lt; rowEnd; ++row )&#123;</span><br><span class="line">                for(int col = colStart; col &lt; colEnd; ++col)&#123;</span><br><span class="line">                    if(flags[row][col]) continue;</span><br><span class="line">                    if(abs(row-x)+abs(col-y) != 1) continue;</span><br><span class="line">                    if(board[row][col] != word[pos]) continue;</span><br><span class="line">                    flags[row][col] = true;</span><br><span class="line">                    found = existCore(board, word, row, col, pos+1);</span><br><span class="line">                    flags[row][col]=false;</span><br><span class="line">                    if(found) return true;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;bool&gt;&gt; flags;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjdpop4by001micv4mf9iyx1z" class="article-share-link">Compartir</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/leetlint/2018/02/14/set-matrix-zero/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">set matrix zero</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/coding/">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nube de Tags</h3>
+    <div class="widget tagcloud">
+      <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-code/" style="font-size: 10px;">lint code</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a> <a href="/leetlint/tags/lintcode/" style="font-size: 15px;">lintcode</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archivos</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Posts recientes</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/leetlint/2018/02/16/word-search/">word search</a>
+          </li>
+        
+          <li>
+            <a href="/leetlint/2018/02/14/set-matrix-zero/">set matrix zero</a>
+          </li>
+        
+          <li>
+            <a href="/leetlint/2018/02/14/rehashing/">rehashing</a>
+          </li>
+        
+          <li>
+            <a href="/leetlint/2018/02/13/Single-Number-III/">Single Number III</a>
+          </li>
+        
+          <li>
+            <a href="/leetlint/2018/02/11/word-ladder/">word ladder</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 lld2006<br>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/leetlint/" class="mobile-nav-link">Home</a>
+  
+    <a href="/leetlint/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/leetlint/fancybox/jquery.fancybox.css">
+  <script src="/leetlint/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/leetlint/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
