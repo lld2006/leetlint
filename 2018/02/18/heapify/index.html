@@ -5,20 +5,20 @@
   
 
   
-  <title>longest common substring | programming for fun</title>
+  <title>heapify | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This is an easy dynamic programming problem. Once one understood how to solve the longest common subsequence, the longest substring is much easier.  [longest common substring] [lang: c++]1234567891011">
-<meta name="keywords" content="lint">
+  <meta name="description" content="http://www.lintcode.com/en/problem/heapify/The problem is not hard; it can be found in CLRS. I did not follow what the bookdid and made a mistake. When the maximum or minimum needs to be found, it is">
+<meta name="keywords" content="lintcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="longest common substring">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/index.html">
+<meta property="og:title" content="heapify">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/02/18/heapify/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="This is an easy dynamic programming problem. Once one understood how to solve the longest common subsequence, the longest substring is much easier.  [longest common substring] [lang: c++]1234567891011">
+<meta property="og:description" content="http://www.lintcode.com/en/problem/heapify/The problem is not hard; it can be found in CLRS. I did not follow what the bookdid and made a mistake. When the maximum or minimum needs to be found, it is">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-27T23:39:42.810Z">
+<meta property="og:updated_time" content="2018-02-18T08:23:45.495Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="longest common substring">
-<meta name="twitter:description" content="This is an easy dynamic programming problem. Once one understood how to solve the longest common subsequence, the longest substring is much easier.  [longest common substring] [lang: c++]1234567891011">
+<meta name="twitter:title" content="heapify">
+<meta name="twitter:description" content="http://www.lintcode.com/en/problem/heapify/The problem is not hard; it can be found in CLRS. I did not follow what the bookdid and made a mistake. When the maximum or minimum needs to be found, it is">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-longest-common-substring" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-heapify" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/01/27/longest-common-substring/" class="article-date">
-  <time datetime="2018-01-27T23:37:30.000Z" itemprop="datePublished">2018-01-27</time>
+    <a href="/leetlint/2018/02/18/heapify/" class="article-date">
+  <time datetime="2018-02-18T08:20:33.000Z" itemprop="datePublished">2018-02-18</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      longest common substring
+      heapify
     </h1>
   
 
@@ -87,16 +87,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This is an easy dynamic programming problem. Once one understood how to solve the longest common subsequence, the longest substring is much easier. </p>
-<figure class="highlight plain"><figcaption><span>[longest common substring] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param A: A string</span><br><span class="line">     * @param B: A string</span><br><span class="line">     * @return: the length of the longest common substring.</span><br><span class="line">     */</span><br><span class="line">    int longestCommonSubstring(string &amp;A, string &amp;B) &#123;</span><br><span class="line">        int sa = A.size(), sb=B.size();</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; vcnt=vector&lt;vector&lt;int&gt;&gt;(sa+1, vector&lt;int&gt;(sb+1, 0));</span><br><span class="line">        int maxMatch = 0;</span><br><span class="line">        for(int row = 1; row &lt;= sa; ++row)&#123;</span><br><span class="line">            for(int col = 1; col&lt;=sb;++col)&#123;</span><br><span class="line">                if(A[row-1]==B[col-1]) vcnt[row][col] = vcnt[row-1][col-1] + 1;</span><br><span class="line">                if(vcnt[row][col] &gt; maxMatch)&#123;</span><br><span class="line">                    maxMatch = vcnt[row][col];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return maxMatch;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p><a href="http://www.lintcode.com/en/problem/heapify/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/heapify/</a><br>The problem is not hard; it can be found in CLRS. I did not follow what the bookdid and made a mistake. When the maximum or minimum needs to be found, it is always helpful to set it to some value instead of a meaningless one.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param A: Given an integer array</span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void heapify(vector&lt;int&gt;&amp; A, int k)&#123;</span><br><span class="line">        int left  = 2*k+1;</span><br><span class="line">        int right = 2*k+2;</span><br><span class="line">        int size = A.size();</span><br><span class="line">        int pos = -1;</span><br><span class="line">        if(left &lt; size &amp;&amp; A[left] &lt; A[k])&#123;</span><br><span class="line">            pos = left;</span><br><span class="line">        &#125;</span><br><span class="line">        if(right &lt; size &amp;&amp; A[right] &lt; A[left] &amp;&amp; A[right] &lt; A[k])&#123;</span><br><span class="line">            pos = right;</span><br><span class="line">        &#125;</span><br><span class="line">        if(pos &gt; k)&#123;</span><br><span class="line">            swap(A[pos], A[k]);</span><br><span class="line">            heapify(A, pos);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    void heapify(vector&lt;int&gt; &amp;A) &#123;</span><br><span class="line">        int size = A.size();</span><br><span class="line">        int start = (size-2)/2;</span><br><span class="line">        for(int k = start; k&gt;=0; --k)&#123;</span><br><span class="line">            heapify(A, k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjdsizm3j000xqkv4orpg7x0a" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjdsizm3d000lqkv4d3izbcpi" class="article-share-link">Teilen</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
 
     </footer>
   </div>
@@ -104,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/01/28/Dat-Stream-Median/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          Dat Stream Median
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/01/27/first-bad-version/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/02/16/word-search/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">first bad version</div>
+      <div class="article-nav-title">word search</div>
     </a>
   
 </nav>
