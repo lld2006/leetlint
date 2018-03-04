@@ -65,6 +65,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-prev-permutation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/23/prev-permutation/" class="article-date">
+  <time datetime="2018-01-24T07:40:09.000Z" itemprop="datePublished">2018-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/23/prev-permutation/">prev_permutation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.lintcode.com/en/problem/previous-permutation/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/previous-permutation/</a><br>The algorithm is clearer now. It include three part, first find the number which is greater than at least one of the numbers on its right; second, reverse all the numbers on the right side; (third, find the maximum number on the right side of the number found in step one which is still less than the number; Now the code looks better.<br><figure class="highlight plain"><figcaption><span>[prev permutation] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: A list of integers that&apos;s previous permuation</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; previousPermuation(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        int size = nums.size();</span><br><span class="line">        int pos = size-1;</span><br><span class="line">        int index = pos, firstOrder = pos;</span><br><span class="line">        bool found = false;</span><br><span class="line">        //find pos where nums[pos] &gt; nums[pos+1]</span><br><span class="line">        while(pos &gt; 0 &amp;&amp; nums[pos-1] &lt;= nums[pos]) --pos;</span><br><span class="line">        --pos;</span><br><span class="line">        //swap all numbers on the right side of pos</span><br><span class="line">        int left = pos+1, right = size-1;</span><br><span class="line">        while(left &lt; right) swap(nums[left++], nums[right--]);</span><br><span class="line">        </span><br><span class="line">        if(pos &lt; 0) return nums;</span><br><span class="line">        int pos2 = size - 1;</span><br><span class="line">        while(nums[pos2] &lt; nums[pos])--pos2;</span><br><span class="line">        ++pos2;</span><br><span class="line">        swap(nums[pos], nums[pos2]);</span><br><span class="line">        return nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjedd9niy0017sov4save2i0w" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-next-permutation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/leetlint/2018/01/23/next-permutation/" class="article-date">
@@ -94,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjec6hxay000xssv4dv74qc43" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjedd9nio000xsov4sls9ao3n" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li></ul>
@@ -164,7 +203,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjec6hxbc001ossv4dg036hou" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjedd9nj6001ksov4ojhwdc0j" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
@@ -211,7 +250,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjec6hxau000pssv446f2rh0g" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjedd9nij000nsov4adfqlwxc" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -271,6 +310,10 @@ public:
       <ul>
         
           <li>
+            <a href="/leetlint/2018/03/04/subarray-sum/">subarray sum</a>
+          </li>
+        
+          <li>
             <a href="/leetlint/2018/03/03/toplogical-sort/">toplogical sort</a>
           </li>
         
@@ -284,10 +327,6 @@ public:
         
           <li>
             <a href="/leetlint/2018/02/14/set-matrix-zero/">set matrix zero</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/02/14/rehashing/">rehashing</a>
           </li>
         
       </ul>
