@@ -65,6 +65,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-remove-duplicates-from-sorted-array-II" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" class="article-date">
+  <time datetime="2018-02-04T01:08:35.000Z" itemprop="datePublished">2018-02-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/">remove duplicates from sorted array II</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Problem is easy. But I made a mistake, when I count the number of duplicates, I used a fLeft which might be changed in the following while loop! Stupid mistake! The rest of the code is very straight forward.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param A: a list of integers</span><br><span class="line">     * @return : return an integer</span><br><span class="line">     */</span><br><span class="line">    int removeDuplicates(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        // write your code here</span><br><span class="line">        int copyTo = 0, fLeft = 0, fRight=0;</span><br><span class="line">        while(fLeft &lt; nums.size())&#123;</span><br><span class="line">            while(nums[fRight] == nums[fLeft])++fRight;</span><br><span class="line">            int cnt = 0;</span><br><span class="line">            if(false &amp;&amp; copyTo == fLeft)&#123;</span><br><span class="line">                copyTo = fRight;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                int nCnt = fRight - fLeft;</span><br><span class="line">                while(cnt &lt; min(2, nCnt) )&#123;</span><br><span class="line">                    nums[copyTo++] = nums[fLeft++]; ++cnt;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            fLeft = fRight;</span><br><span class="line">        &#125;</span><br><span class="line">        nums.resize(copyTo);</span><br><span class="line">        return copyTo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" data-id="cjec6hxb6001dssv4rcyeqfct" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Remove-Duplicates-from-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" class="article-date">
@@ -92,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" data-id="cjdsizm2y0008qkv42ucmpjjt" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" data-id="cjec6hxaj000assv41q4xbv16" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -132,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/reorder-list/" data-id="cjdsizm3t001iqkv4glariajc" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/reorder-list/" data-id="cjec6hxb5001bssv43x2h5fpb" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -171,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjdsizm3o0018qkv458dn26ut" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/01/partition-list/" data-id="cjec6hxb40019ssv4tzejjr85" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -211,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjdsizm39000hqkv48eze8hs6" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjec6hxah0008ssv4yczje0js" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -251,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjdsizm3f000qqkv43nkkle0m" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjec6hxar000lssv4mxwkxu6m" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -291,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjdsizm38000fqkv48mdafr9k" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjec6hxap000jssv49hayguoq" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -331,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjdsizm2v0004qkv4balr66ua" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjec6hxad0004ssv49md7ufms" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -371,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjdsizm3s001gqkv4w9ksz3xo" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjec6hxba001kssv4j1g9alio" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -411,48 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjdsizm3v001kqkv43nqvplyh" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Dat-Stream-Median" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/28/Dat-Stream-Median/" class="article-date">
-  <time datetime="2018-01-28T08:17:11.000Z" itemprop="datePublished">2018-01-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/28/Dat-Stream-Median/">Dat Stream Median</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/data-stream-median/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/data-stream-median/</a><br>I solved a similar problem in Project Euler like this problem. I used two multiset to solve this problem. But this time, I made several mistakes in the criteria how to insert and erase the elements in the two set. It should be quite straight forward. And I do not remember how to convert a reverse_iterator to a forward iterator and checked it online again.</p>
-<p>Is there any other approches to solve this problem?</p>
-<figure class="highlight plain"><figcaption><span>[Data Stream Median] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: the median of numbers</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; medianII(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        vector&lt;int&gt; result;</span><br><span class="line">        multiset&lt;int&gt; slow, shigh;//maximum diff is one number Nslow&gt; Nshigh</span><br><span class="line">        for(int i = 0; i&lt;nums.size(); ++i)&#123;</span><br><span class="line">            int val = nums[i];</span><br><span class="line">            if(slow.size() &gt; shigh.size())&#123;</span><br><span class="line">                if(*slow.rbegin() &lt;= val)&#123;//no need to check if shigh is empty</span><br><span class="line">                    shigh.insert(val);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    auto iter = --slow.rbegin().base(); //this is iterator conversion</span><br><span class="line">                    shigh.insert(*iter);</span><br><span class="line">                    slow.erase(iter);</span><br><span class="line">                    slow.insert(val);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;else&#123;//equal size</span><br><span class="line">                if(slow.empty() || *shigh.begin()&gt;=val)&#123;//slow is empty is a special case or I can directly insert the first element to slow to avoid checking it</span><br><span class="line">                    slow.insert(val);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    slow.insert(*shigh.begin());</span><br><span class="line">                    shigh.erase(shigh.begin());</span><br><span class="line">                    shigh.insert(val);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            result.push_back(*slow.rbegin());</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjdsizm2u0003qkv474p841sx" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjec6hxbb001mssv496i25sur" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -501,7 +499,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
   </div>
 
@@ -512,6 +510,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/03/toplogical-sort/">toplogical sort</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/02/18/heapify/">heapify</a>
@@ -527,10 +529,6 @@
         
           <li>
             <a href="/leetlint/2018/02/14/rehashing/">rehashing</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/02/13/Single-Number-III/">Single Number III</a>
           </li>
         
       </ul>
