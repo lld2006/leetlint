@@ -5,20 +5,20 @@
   
 
   
-  <title>subarray sum | programming for fun</title>
+  <title>clone graph | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="The problem is easy. An extra zero in the hash makes the problem easier. I did not find it when I wrote the code and handled a special case in my code.12345678910111213141516171819202122class Solution">
+  <meta name="description" content="I used hash to save all nodes in the new graph, it is pretty easy to handle.1234567891011121314151617181920212223242526272829303132333435363738394041/** * Definition for undirected graph. * struct Und">
 <meta name="keywords" content="lintcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="subarray sum">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/index.html">
+<meta property="og:title" content="clone graph">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="The problem is easy. An extra zero in the hash makes the problem easier. I did not find it when I wrote the code and handled a special case in my code.12345678910111213141516171819202122class Solution">
+<meta property="og:description" content="I used hash to save all nodes in the new graph, it is pretty easy to handle.1234567891011121314151617181920212223242526272829303132333435363738394041/** * Definition for undirected graph. * struct Und">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-03-04T21:29:52.626Z">
+<meta property="og:updated_time" content="2018-03-04T23:23:28.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="subarray sum">
-<meta name="twitter:description" content="The problem is easy. An extra zero in the hash makes the problem easier. I did not find it when I wrote the code and handled a special case in my code.12345678910111213141516171819202122class Solution">
+<meta name="twitter:title" content="clone graph">
+<meta name="twitter:description" content="I used hash to save all nodes in the new graph, it is pretty easy to handle.1234567891011121314151617181920212223242526272829303132333435363738394041/** * Definition for undirected graph. * struct Und">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-subarray-sum" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-clone-graph" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/03/04/subarray-sum/" class="article-date">
-  <time datetime="2018-03-04T21:26:52.000Z" itemprop="datePublished">2018-03-04</time>
+    <a href="/leetlint/2018/03/04/clone-graph/" class="article-date">
+  <time datetime="2018-03-04T23:22:28.000Z" itemprop="datePublished">2018-03-04</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      subarray sum
+      clone graph
     </h1>
   
 
@@ -87,12 +87,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>The problem is easy. An extra zero in the hash makes the problem easier. I did not find it when I wrote the code and handled a special case in my code.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: A list of integers includes the index of the first number and the index of the last number</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; subarraySum(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        unordered_map&lt;int, int&gt; sumToIndex;</span><br><span class="line">        int sum = 0;</span><br><span class="line">        for(int i = 0; i &lt; nums.size(); ++i)&#123;</span><br><span class="line">            sum += nums[i];</span><br><span class="line">            auto iter = sumToIndex.find(sum);</span><br><span class="line">            if(sum == 0) return vector&lt;int&gt;&#123;0, i&#125;;</span><br><span class="line">            if(iter == sumToIndex.end())&#123;</span><br><span class="line">                sumToIndex[sum] = i;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                return vector&lt;int&gt;&#123;sumToIndex[sum]+1, i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return vector&lt;int&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+        <p>I used hash to save all nodes in the new graph, it is pretty easy to handle.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for undirected graph.</span><br><span class="line"> * struct UndirectedGraphNode &#123;</span><br><span class="line"> *     int label;</span><br><span class="line"> *     vector&lt;UndirectedGraphNode *&gt; neighbors;</span><br><span class="line"> *     UndirectedGraphNode(int x) : label(x) &#123;&#125;;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param node: A undirected graph node</span><br><span class="line">     * @return: A undirected graph node</span><br><span class="line">     */</span><br><span class="line">    UndirectedGraphNode* cloneGraph(UndirectedGraphNode* node) &#123;</span><br><span class="line">        if(!node) return nullptr;</span><br><span class="line">        queue&lt;UndirectedGraphNode*&gt; qNodes;</span><br><span class="line">        unordered_map&lt;int, UndirectedGraphNode*&gt; labelToNode;</span><br><span class="line">        qNodes.push(node);</span><br><span class="line">        UndirectedGraphNode* root = new UndirectedGraphNode(node-&gt;label);</span><br><span class="line">        labelToNode[node-&gt;label] = root;</span><br><span class="line">        while(!qNodes.empty())&#123; //generate the neighbor list, create node if necessary </span><br><span class="line">            //nodes in the queue are from old graph</span><br><span class="line">            //labelToNode are saving new nodes</span><br><span class="line">            UndirectedGraphNode* node = qNodes.front();</span><br><span class="line">            qNodes.pop();</span><br><span class="line">            UndirectedGraphNode* newNode = labelToNode[node-&gt;label];</span><br><span class="line">            for(int k = 0; k&lt; node-&gt;neighbors.size(); ++k )&#123;</span><br><span class="line">                UndirectedGraphNode* nNode = node-&gt;neighbors[k];   </span><br><span class="line">                if(!labelToNode[nNode-&gt;label])&#123;//not in the queue!</span><br><span class="line">                    labelToNode[nNode-&gt;label] = new UndirectedGraphNode(nNode-&gt;label);</span><br><span class="line">                    qNodes.push(nNode);</span><br><span class="line">                &#125;</span><br><span class="line">                newNode-&gt;neighbors.push_back(labelToNode[nNode-&gt;label]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/" data-id="cjedfai0g001ofsv4ui5duyru" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/" data-id="cjedfahzx000lfsv4hpph3gic" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -103,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/03/04/clone-graph/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          clone graph
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/03/03/toplogical-sort/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/03/04/subarray-sum/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">toplogical sort</div>
+      <div class="article-nav-title">subarray sum</div>
     </a>
   
 </nav>

@@ -65,6 +65,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-clone-graph" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/03/04/clone-graph/" class="article-date">
+  <time datetime="2018-03-04T23:22:28.000Z" itemprop="datePublished">2018-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/03/04/clone-graph/">clone graph</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I used hash to save all nodes in the new graph, it is pretty easy to handle.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for undirected graph.</span><br><span class="line"> * struct UndirectedGraphNode &#123;</span><br><span class="line"> *     int label;</span><br><span class="line"> *     vector&lt;UndirectedGraphNode *&gt; neighbors;</span><br><span class="line"> *     UndirectedGraphNode(int x) : label(x) &#123;&#125;;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param node: A undirected graph node</span><br><span class="line">     * @return: A undirected graph node</span><br><span class="line">     */</span><br><span class="line">    UndirectedGraphNode* cloneGraph(UndirectedGraphNode* node) &#123;</span><br><span class="line">        if(!node) return nullptr;</span><br><span class="line">        queue&lt;UndirectedGraphNode*&gt; qNodes;</span><br><span class="line">        unordered_map&lt;int, UndirectedGraphNode*&gt; labelToNode;</span><br><span class="line">        qNodes.push(node);</span><br><span class="line">        UndirectedGraphNode* root = new UndirectedGraphNode(node-&gt;label);</span><br><span class="line">        labelToNode[node-&gt;label] = root;</span><br><span class="line">        while(!qNodes.empty())&#123; //generate the neighbor list, create node if necessary </span><br><span class="line">            //nodes in the queue are from old graph</span><br><span class="line">            //labelToNode are saving new nodes</span><br><span class="line">            UndirectedGraphNode* node = qNodes.front();</span><br><span class="line">            qNodes.pop();</span><br><span class="line">            UndirectedGraphNode* newNode = labelToNode[node-&gt;label];</span><br><span class="line">            for(int k = 0; k&lt; node-&gt;neighbors.size(); ++k )&#123;</span><br><span class="line">                UndirectedGraphNode* nNode = node-&gt;neighbors[k];   </span><br><span class="line">                if(!labelToNode[nNode-&gt;label])&#123;//not in the queue!</span><br><span class="line">                    labelToNode[nNode-&gt;label] = new UndirectedGraphNode(nNode-&gt;label);</span><br><span class="line">                    qNodes.push(nNode);</span><br><span class="line">                &#125;</span><br><span class="line">                newNode-&gt;neighbors.push_back(labelToNode[nNode-&gt;label]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/" data-id="cjedfahzx000lfsv4hpph3gic" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-subarray-sum" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/leetlint/2018/03/04/subarray-sum/" class="article-date">
@@ -92,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/" data-id="cjedd9nj2001dsov4qx0utkpc" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/" data-id="cjedfai0g001ofsv4ui5duyru" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -133,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/03/toplogical-sort/" data-id="cjedd9njd001zsov43sw50v42" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/03/toplogical-sort/" data-id="cjedfai0i001sfsv4bc3o3tm2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -172,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjedd9nj9001psov4vlta9t88" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjedfai01000ufsv4s03zz62u" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -212,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjedd9nja001ssov4k6p2fxkc" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjedfai0l001zfsv4115bw6u2" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li></ul>
@@ -252,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/set-matrix-zero/" data-id="cjedd9nj5001isov41r22vh02" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/set-matrix-zero/" data-id="cjedfai0c001gfsv4riy0w6jn" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -291,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/rehashing/" data-id="cjedd9nj1001bsov4pu51uon0" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/rehashing/" data-id="cjedfai09001afsv4ljgbvt66" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -331,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/13/Single-Number-III/" data-id="cjedd9nid000dsov4395vinpe" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/13/Single-Number-III/" data-id="cjedfahzt000ffsv4qxt13p1y" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -371,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/11/word-ladder/" data-id="cjedd9njb001usov4zhsssgta" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/11/word-ladder/" data-id="cjedfai0j001vfsv4g1ugpv3v" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -412,47 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/04/wordbreak/" data-id="cjedd9njc001xsov4zi6sl53f" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Convert-Sorted-List-to-Balanced-BST" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/" class="article-date">
-  <time datetime="2018-02-04T03:06:19.000Z" itemprop="datePublished">2018-02-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/">Convert Sorted List to Balanced BST</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This problem is easy. I used recursion to solve it. Is there any better method to solve this problem? </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of ListNode</span><br><span class="line"> * class ListNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;next = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param head: The first node of linked list.</span><br><span class="line">     * @return: a tree node</span><br><span class="line">     */</span><br><span class="line">    TreeNode * sortedListToBST(ListNode * head) &#123;</span><br><span class="line">        // write your code here</span><br><span class="line">        int size = 0;</span><br><span class="line">        ListNode * node = head;</span><br><span class="line">        while(node)&#123;</span><br><span class="line">            node = node-&gt;next;</span><br><span class="line">            ++size;</span><br><span class="line">        &#125;</span><br><span class="line">        return sortBSTCore(head, size);</span><br><span class="line">    &#125;</span><br><span class="line">    ListNode* getNthListNode(ListNode* head, int n)</span><br><span class="line">    &#123;</span><br><span class="line">        int cnt = 0;</span><br><span class="line">        ListNode* node = head;</span><br><span class="line">        while(cnt &lt; n)&#123;</span><br><span class="line">            node=node-&gt;next;</span><br><span class="line">            ++cnt;</span><br><span class="line">        &#125;</span><br><span class="line">        return node;</span><br><span class="line">    &#125;</span><br><span class="line">    TreeNode* sortBSTCore(ListNode* head, int size)</span><br><span class="line">    &#123;</span><br><span class="line">        if(size==0) return nullptr;</span><br><span class="line">        int middle = size/2;</span><br><span class="line">        ListNode* node = getNthListNode(head, middle);</span><br><span class="line">        TreeNode* root = new TreeNode(node-&gt;val);</span><br><span class="line">        root-&gt;left=sortBSTCore(head, middle);</span><br><span class="line">        root-&gt;right=sortBSTCore(node-&gt;next, size-middle-1);</span><br><span class="line">        return root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/" data-id="cjedd9nhw0000sov4ni5s9jvd" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/04/wordbreak/" data-id="cjedfai0k001xfsv431xvvyfq" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -514,6 +513,10 @@
       <ul>
         
           <li>
+            <a href="/leetlint/2018/03/04/clone-graph/">clone graph</a>
+          </li>
+        
+          <li>
             <a href="/leetlint/2018/03/04/subarray-sum/">subarray sum</a>
           </li>
         
@@ -527,10 +530,6 @@
         
           <li>
             <a href="/leetlint/2018/02/16/word-search/">word search</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/02/14/set-matrix-zero/">set matrix zero</a>
           </li>
         
       </ul>
