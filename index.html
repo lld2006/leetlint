@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,46 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-subarray-sum-closest" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/03/05/subarray-sum-closest/" class="article-date">
+  <time datetime="2018-03-05T08:28:24.000Z" itemprop="datePublished">2018-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/03/05/subarray-sum-closest/">subarray sum closest</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This problem is relatively easy, I used the lower_bound function in map.  But some details still need to be taken care of.  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: A list of integers includes the index of the first number and the index of the last number</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; subarraySumClosest(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        // write your code here</span><br><span class="line">        int sum = 0, index = 0;</span><br><span class="line">        int minDist = numeric_limits&lt;int&gt;::max();</span><br><span class="line">        map&lt;int,int&gt; sumToIndex;</span><br><span class="line">        sumToIndex[0] = -1;</span><br><span class="line">        vector&lt;int&gt; minIndices;</span><br><span class="line">        while(index &lt; nums.size())&#123;</span><br><span class="line">            sum += nums[index];  </span><br><span class="line">            auto iter = sumToIndex.lower_bound(sum);</span><br><span class="line">            if(iter !=sumToIndex.end() &amp;&amp; iter-&gt;first==sum)&#123;</span><br><span class="line">                return vector&lt;int&gt;&#123;iter-&gt;second+1, index&#125;;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                if(iter != sumToIndex.end())&#123;</span><br><span class="line">                int dist = iter-&gt;first-sum;</span><br><span class="line">                if(dist&lt;=minDist)&#123;</span><br><span class="line">                    minDist = dist;</span><br><span class="line">                    minIndices = vector&lt;int&gt;&#123;iter-&gt;second+1, index&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                if(iter != sumToIndex.begin())&#123;</span><br><span class="line">                --iter;</span><br><span class="line">                int dist = sum-iter-&gt;first;</span><br><span class="line">                if(minDist &gt;= dist)&#123;</span><br><span class="line">                    minDist = dist;</span><br><span class="line">                    minIndices = vector&lt;int&gt;&#123;iter-&gt;second+1, index&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                sumToIndex[sum] = index;</span><br><span class="line">            &#125;</span><br><span class="line">            ++index;</span><br><span class="line">        &#125;</span><br><span class="line">        return minIndices;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/subarray-sum-closest/" data-id="cjedyvu5r001nxkv4pdgnp2dp" class="article-share-link">Compartir</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-clone-graph" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -92,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/" data-id="cjedfahzx000lfsv4hpph3gic" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/" data-id="cjedyvu53000pxkv42od4umh3" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -131,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/" data-id="cjedfai0g001ofsv4ui5duyru" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/" data-id="cjedyvu5z0022xkv4gmql8xki" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -172,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/03/toplogical-sort/" data-id="cjedfai0i001sfsv4bc3o3tm2" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/03/toplogical-sort/" data-id="cjedyvu5y0020xkv4ne652nrt" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -211,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjedfai01000ufsv4s03zz62u" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjedyvu55000uxkv4iww45vsh" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -251,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjedfai0l001zfsv4115bw6u2" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjedyvu5u001txkv43umfbzlu" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li></ul>
@@ -291,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/set-matrix-zero/" data-id="cjedfai0c001gfsv4riy0w6jn" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/set-matrix-zero/" data-id="cjedyvu5p001lxkv4ow6xvmcx" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -330,7 +370,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/rehashing/" data-id="cjedfai09001afsv4ljgbvt66" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/rehashing/" data-id="cjedyvu5j001bxkv4ldd6txjx" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -370,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/13/Single-Number-III/" data-id="cjedfahzt000ffsv4qxt13p1y" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/13/Single-Number-III/" data-id="cjedyvu4w000hxkv4b3fxjfnu" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -410,48 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/11/word-ladder/" data-id="cjedfai0j001vfsv4g1ugpv3v" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-wordbreak" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/02/04/wordbreak/" class="article-date">
-  <time datetime="2018-02-04T09:37:03.000Z" itemprop="datePublished">2018-02-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/02/04/wordbreak/">wordbreak</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/word-break/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/word-break/</a><br>This problem should be solved by using dictionary tree? I would still live with the hash_set.  It is still easy. I made a mistake when trying to init the max<em>size</em>, where I used int max_size_0 = 0 !</p>
-<p>After the bug is fixed, all case passed.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param s: A string</span><br><span class="line">     * @param dict: A dictionary of words dict</span><br><span class="line">     * @return: A boolean</span><br><span class="line">     */</span><br><span class="line">    //dictionary tree should be better than hash_set</span><br><span class="line">    bool wordBreak(string &amp;s, unordered_set&lt;string&gt; &amp;dict) &#123;</span><br><span class="line">        if(s.size() == 0) return true;</span><br><span class="line">        init(s, dict);</span><br><span class="line">        wordBreakHelper(0, s, dict);</span><br><span class="line">        return (flags[0] == 1) ;</span><br><span class="line">    &#125;</span><br><span class="line">    //Dict dictTree;</span><br><span class="line">    void init(string&amp;s, const unordered_set&lt;string&gt;&amp; dict)</span><br><span class="line">    &#123;</span><br><span class="line">        max_size_ = 0;</span><br><span class="line">        for(auto iter = dict.begin(); iter != dict.end(); ++iter)&#123;</span><br><span class="line">            if(iter-&gt;size() &gt; max_size_)</span><br><span class="line">                max_size_ = iter-&gt;size();</span><br><span class="line">        &#125;</span><br><span class="line">        flags.resize(s.size(), -1);</span><br><span class="line">    &#125;</span><br><span class="line">    bool wordBreakHelper(int start, string&amp; s, const unordered_set&lt;string&gt;&amp; dict)</span><br><span class="line">    &#123;</span><br><span class="line">        if(s.size() == start) return true;</span><br><span class="line">        if(flags[start]&gt;=0) return flags[start]; </span><br><span class="line">        int maxLen = min(max_size_, static_cast&lt;int&gt;(s.size()-start));</span><br><span class="line">        for(int i = 0; i&lt;maxLen; ++i)&#123;</span><br><span class="line">            string s1(s.substr(start, i+1));</span><br><span class="line">            if(dict.find(s1) != dict.end())&#123;</span><br><span class="line">                flags[start] = wordBreakHelper(start+s1.size(), s, dict);</span><br><span class="line">                if(flags[start] == 1) return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        flags[start] = false;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    int max_size_;</span><br><span class="line">    vector&lt;int&gt; flags;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/04/wordbreak/" data-id="cjedfai0k001xfsv431xvvyfq" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/11/word-ladder/" data-id="cjedyvu5t001rxkv4wcopsllc" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -467,7 +466,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><a class="page-number" href="/leetlint/page/4/">4</a><a class="extend next" rel="next" href="/leetlint/page/2/">weiter &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><a class="page-number" href="/leetlint/page/4/">4</a><a class="extend next" rel="next" href="/leetlint/page/2/">Siguiente &raquo;</a>
   </nav>
 
 </section>
@@ -489,7 +488,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nube de Tags</h3>
     <div class="widget tagcloud">
       <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-code/" style="font-size: 10px;">lint code</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a> <a href="/leetlint/tags/lintcode/" style="font-size: 15px;">lintcode</a>
     </div>
@@ -498,7 +497,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -508,9 +507,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/05/subarray-sum-closest/">subarray sum closest</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/03/04/clone-graph/">clone graph</a>
@@ -528,10 +531,6 @@
             <a href="/leetlint/2018/02/18/heapify/">heapify</a>
           </li>
         
-          <li>
-            <a href="/leetlint/2018/02/16/word-search/">word search</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -545,7 +544,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 lld2006<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
