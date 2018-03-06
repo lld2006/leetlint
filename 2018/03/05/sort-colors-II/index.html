@@ -5,20 +5,20 @@
   
 
   
-  <title>Validate Binary Search Tree | programming for fun</title>
+  <title>sort colors II | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This problem is relatively easy, but read the definition carefully is very important. I missed it the first time. The rest part are easy! 12345678910111213141516171819202122232425262728293031323334/**">
-<meta name="keywords" content="lint">
+  <meta name="description" content="Since it is in-place, I used quick sort to do it. I should notice that there are only k colors, which makes count sort a perfect match for this problem. Writing quicksort is not a very easy job, well,">
+<meta name="keywords" content="lintcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Validate Binary Search Tree">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/index.html">
+<meta property="og:title" content="sort colors II">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/03/05/sort-colors-II/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="This problem is relatively easy, but read the definition carefully is very important. I missed it the first time. The rest part are easy! 12345678910111213141516171819202122232425262728293031323334/**">
+<meta property="og:description" content="Since it is in-place, I used quick sort to do it. I should notice that there are only k colors, which makes count sort a perfect match for this problem. Writing quicksort is not a very easy job, well,">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-31T08:57:49.949Z">
+<meta property="og:updated_time" content="2018-03-06T07:36:22.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Validate Binary Search Tree">
-<meta name="twitter:description" content="This problem is relatively easy, but read the definition carefully is very important. I missed it the first time. The rest part are easy! 12345678910111213141516171819202122232425262728293031323334/**">
+<meta name="twitter:title" content="sort colors II">
+<meta name="twitter:description" content="Since it is in-place, I used quick sort to do it. I should notice that there are only k colors, which makes count sort a perfect match for this problem. Writing quicksort is not a very easy job, well,">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Validate-Binary-Search-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-sort-colors-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/01/31/Validate-Binary-Search-Tree/" class="article-date">
-  <time datetime="2018-01-31T08:55:38.000Z" itemprop="datePublished">2018-01-31</time>
+    <a href="/leetlint/2018/03/05/sort-colors-II/" class="article-date">
+  <time datetime="2018-03-06T07:27:31.000Z" itemprop="datePublished">2018-03-05</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Validate Binary Search Tree
+      sort colors II
     </h1>
   
 
@@ -87,16 +87,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This problem is relatively easy, but read the definition carefully is very important. I missed it the first time. The rest part are easy!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: The root of binary tree.</span><br><span class="line">     * @return: True if the binary tree is BST, or false</span><br><span class="line">     */</span><br><span class="line">    bool isValidBST(TreeNode * root) &#123;</span><br><span class="line">        return validHelper(root, numeric_limits&lt;long&gt;::min(), numeric_limits&lt;long&gt;::max());</span><br><span class="line">    &#125;</span><br><span class="line">    bool validHelper(TreeNode* node, long minV, long maxV)&#123;</span><br><span class="line">        // write your code here</span><br><span class="line">        if(node == nullptr) return true;</span><br><span class="line">        if(node-&gt;val &gt;= maxV || node-&gt;val &lt;= minV) return false;</span><br><span class="line">        bool leftValid = !node-&gt;left || (validHelper(node-&gt;left, minV, node-&gt;val));</span><br><span class="line">        if(!leftValid) return false;</span><br><span class="line">        bool rightValid = !node-&gt;right || (validHelper(node-&gt;right, node-&gt;val, maxV));</span><br><span class="line">        if(!rightValid) return false;</span><br><span class="line">        return true;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p>Since it is in-place, I used quick sort to do it. I should notice that there are only k colors, which makes count sort a perfect match for this problem. Writing quicksort is not a very easy job, well, not hard.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param colors: A list of integer</span><br><span class="line">     * @param k: An integer</span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void sortColors2(vector&lt;int&gt; &amp;colors, int k) &#123;</span><br><span class="line">        sortColors(0, colors.size(), colors);</span><br><span class="line">    &#125;</span><br><span class="line">    void sortColors(int begin, int end, vector&lt;int&gt;&amp; colors)</span><br><span class="line">    &#123;</span><br><span class="line">        if(end &lt;= begin+1) return;</span><br><span class="line">        int pivot = partition(begin, end, colors);</span><br><span class="line">        sortColors(begin, pivot, colors);</span><br><span class="line">        sortColors(pivot+1, end, colors);</span><br><span class="line">    &#125;</span><br><span class="line">    int partition(int begin, int end, vector&lt;int&gt;&amp; colors)</span><br><span class="line">    &#123;</span><br><span class="line">        int color = colors[end-1];</span><br><span class="line">        int lp = begin-1; </span><br><span class="line">        int gp = begin;</span><br><span class="line">        while(gp &lt; end-1)&#123;</span><br><span class="line">            if(colors[gp] &lt;= color)&#123;</span><br><span class="line">                ++lp;</span><br><span class="line">                swap(colors[lp], colors[gp]);</span><br><span class="line">            &#125;</span><br><span class="line">            ++gp;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(colors[lp+1], colors[end-1]);</span><br><span class="line">        return lp+1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjefccdv4000d7cv42i5y28an" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/sort-colors-II/" data-id="cjefccdvy001k7cv4yav7hhu0" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
 
     </footer>
   </div>
@@ -104,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/02/01/partition-list/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          partition list
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/03/05/subarray-sum-closest/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">binary tree maximum path sum</div>
+      <div class="article-nav-title">subarray sum closest</div>
     </a>
   
 </nav>
