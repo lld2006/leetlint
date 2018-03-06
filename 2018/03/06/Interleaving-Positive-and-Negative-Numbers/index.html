@@ -5,20 +5,20 @@
   
 
   
-  <title>A+B Problem | programming for fun</title>
+  <title> Interleaving Positive and Negative Numbers | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
-<meta name="keywords" content="coding">
+  <meta name="description" content="problem is easy, need to be very careful about the logic in the code.123456789101112131415161718192021222324252627282930313233343536class Solution &amp;#123;public:    /*     * @param A: An integer array.">
+<meta name="keywords" content="lintcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A+B Problem">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/21/test2/index.html">
+<meta property="og:title" content=" Interleaving Positive and Negative Numbers">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
+<meta property="og:description" content="problem is easy, need to be very careful about the logic in the code.123456789101112131415161718192021222324252627282930313233343536class Solution &amp;#123;public:    /*     * @param A: An integer array.">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-22T03:31:04.285Z">
+<meta property="og:updated_time" content="2018-03-06T08:48:14.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A+B Problem">
-<meta name="twitter:description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
+<meta name="twitter:title" content=" Interleaving Positive and Negative Numbers">
+<meta name="twitter:description" content="problem is easy, need to be very careful about the logic in the code.123456789101112131415161718192021222324252627282930313233343536class Solution &amp;#123;public:    /*     * @param A: An integer array.">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Interleaving-Positive-and-Negative-Numbers" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/01/21/test2/" class="article-date">
-  <time datetime="2018-01-22T02:55:19.000Z" itemprop="datePublished">2018-01-21</time>
+    <a href="/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" class="article-date">
+  <time datetime="2018-03-06T08:47:12.000Z" itemprop="datePublished">2018-03-06</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      A+B Problem
+       Interleaving Positive and Negative Numbers
     </h1>
   
 
@@ -87,46 +87,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.lintcode.com/en/problem/a-b-problem/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/a-b-problem/</a><br>The first problem of lintcode, I used bit operation to solve the problem.</p>
-<pre><code>class Solution {
-public:
-    /*
-     * @param a: The first integer
-     * @param b: The second integer
-     * @return: The sum of a and b
-     */
-    int aplusb(int a, int b) {
-        // write your code here, try to do it without arithmetic operators.
-        int tbit = 1; int carry = 0;
-        int ret = 0;
-        for ( int i = 0; i &lt; 32; ++i, tbit &lt;&lt;= 1 ) {
-            bool aset = a &amp; tbit;
-            bool bset = b &amp; tbit;
-            if ( aset &amp;&amp; bset ) {
-                ret |= (carry &lt;&lt;i);
-                carry = 1;
-            } else if ( (aset &amp;&amp; !bset)|(!aset &amp;&amp; bset) ) {
-                if ( carry == 0 ) {
-                    ret |= 1 &lt;&lt; i;
-                    carry = 0;
-                } else {
-                    carry = 1;
-                }
-            } else {
-                ret |= (carry &lt;&lt; i);
-                carry = 0;
-            }
-        }
-    }
-};
-</code></pre>
+        <p>problem is easy, need to be very careful about the logic in the code.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param A: An integer array.</span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void rerange(vector&lt;int&gt; &amp;A) &#123;</span><br><span class="line">        int neg = 0, pos = 0;</span><br><span class="line">        for(int i = 0; i&lt;A.size(); ++i)&#123;</span><br><span class="line">            if(A[i] &lt; 0)++neg;</span><br><span class="line">            if(A[i] &gt; 0)++pos;</span><br><span class="line">        &#125;</span><br><span class="line">        int index = 0;</span><br><span class="line">        int negIndex = -2, posIndex = -2;</span><br><span class="line">        if(neg&lt;pos)</span><br><span class="line">            negIndex = -1;</span><br><span class="line">        else</span><br><span class="line">            posIndex = -1;</span><br><span class="line">        while(index  &lt; A.size())&#123;</span><br><span class="line">            if(A[index] &gt; 0 &amp;&amp; ((index-posIndex)%2))&#123;</span><br><span class="line">                //positive value in negative pos, need to swap with positive pos negative val</span><br><span class="line">                posIndex += 2;</span><br><span class="line">                while(posIndex&lt;A.size() &amp;&amp; A[posIndex] &gt; 0)posIndex += 2;</span><br><span class="line">                if(posIndex &lt; A.size())</span><br><span class="line">                    swap(A[index], A[posIndex]);</span><br><span class="line">            &#125;else if(A[index]&lt;0 &amp;&amp; ((index-negIndex)%2))&#123;</span><br><span class="line">            //negative value in positive pos, need to swap with negative pos positive value</span><br><span class="line">                negIndex += 2;</span><br><span class="line">                while(negIndex &lt; A.size() &amp;&amp; A[negIndex] &lt; 0)negIndex += 2;</span><br><span class="line">                if(posIndex &lt; A.size())</span><br><span class="line">                    swap(A[index], A[negIndex]);</span><br><span class="line">            &#125;</span><br><span class="line">            ++index;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjefewprb001uz8v4gp0vyr15" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" data-id="cjefewpqe0005z8v4mgwn92wk" class="article-share-link">Teilen</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
 
     </footer>
   </div>
@@ -134,19 +103,10 @@ public:
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/01/23/next-permutation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          next permutation
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/01/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/03/05/sort-colors-II/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">sort colors II</div>
     </a>
   
 </nav>
