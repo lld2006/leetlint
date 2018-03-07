@@ -65,6 +65,46 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Validate-Binary-Search-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/31/Validate-Binary-Search-Tree/" class="article-date">
+  <time datetime="2018-01-31T08:55:38.000Z" itemprop="datePublished">2018-01-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/31/Validate-Binary-Search-Tree/">Validate Binary Search Tree</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This problem is relatively easy, but read the definition carefully is very important. I missed it the first time. The rest part are easy!</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: The root of binary tree.</span><br><span class="line">     * @return: True if the binary tree is BST, or false</span><br><span class="line">     */</span><br><span class="line">    bool isValidBST(TreeNode * root) &#123;</span><br><span class="line">        return validHelper(root, numeric_limits&lt;long&gt;::min(), numeric_limits&lt;long&gt;::max());</span><br><span class="line">    &#125;</span><br><span class="line">    bool validHelper(TreeNode* node, long minV, long maxV)&#123;</span><br><span class="line">        // write your code here</span><br><span class="line">        if(node == nullptr) return true;</span><br><span class="line">        if(node-&gt;val &gt;= maxV || node-&gt;val &lt;= minV) return false;</span><br><span class="line">        bool leftValid = !node-&gt;left || (validHelper(node-&gt;left, minV, node-&gt;val));</span><br><span class="line">        if(!leftValid) return false;</span><br><span class="line">        bool rightValid = !node-&gt;right || (validHelper(node-&gt;right, node-&gt;val, maxV));</span><br><span class="line">        if(!rightValid) return false;</span><br><span class="line">        return true;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/Validate-Binary-Search-Tree/" data-id="cjegtdht3000hqkv47180rxpn" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-binary-tree-maximum-path-sum" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/leetlint/2018/01/31/binary-tree-maximum-path-sum/" class="article-date">
@@ -93,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjefewpqm000iz8v45r08a8np" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/31/binary-tree-maximum-path-sum/" data-id="cjegtdht9000rqkv47veycwe3" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -133,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjefewpqo000kz8v4cvpswl9l" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/29/balanced-binary-tree/" data-id="cjegtdht1000fqkv48vocibzj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -173,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjefewpqj000az8v4mo4kyh29" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Lowest-Common-Ancestor/" data-id="cjegtdhst0005qkv4dctbd9eh" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -213,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjefewpr7001mz8v4jr4c9tej" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjegtdhtu001tqkv4y7ggrhy0" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -253,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjefewpr8001oz8v4m0hn3mxu" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjegtdhtq001lqkv46u7rbezp" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -294,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjefewpqd0004z8v4b9q3giq2" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjegtdhss0004qkv4nzs5mq91" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -334,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjefewpqz0015z8v43pgtuq5h" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjegtdhtf0011qkv45lgtcj3h" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -374,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjefewpqv000wz8v47ovqdsxe" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjegtdht8000pqkv4wlloadco" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -413,47 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjefewpqk000dz8v4igaqg8nq" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-nth-to-last-node-in-list" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/26/nth-to-last-node-in-list/" class="article-date">
-  <time datetime="2018-01-27T02:13:33.000Z" itemprop="datePublished">2018-01-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/26/nth-to-last-node-in-list/">nth to last node in list</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This problem is easy, one just need to know a basic algorithm technique, two pointers. Two pointer is widely used, for example, find loop in a list. </p>
-<figure class="highlight plain"><figcaption><span>[Nth to Last Node in List] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of ListNode</span><br><span class="line"> * class ListNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;next = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param head: The first node of linked list.</span><br><span class="line">     * @param n: An integer</span><br><span class="line">     * @return: Nth to last node of a singly linked list. </span><br><span class="line">     */</span><br><span class="line">    ListNode * nthToLast(ListNode * head, int n) &#123;</span><br><span class="line">        int cnt = 0;</span><br><span class="line">        ListNode* node = head, *prevNode = node;</span><br><span class="line">        while(node &amp;&amp; cnt &lt; n) &#123;node=node-&gt;next; ++cnt;&#125;</span><br><span class="line">        if(cnt != n) return NULL;</span><br><span class="line">        while(node)&#123;</span><br><span class="line">            node=node-&gt;next;</span><br><span class="line">            prevNode = prevNode-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        return prevNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjefewpqy0012z8v41wbv05ur" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjegtdht0000dqkv44wicb996" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -515,6 +515,10 @@
       <ul>
         
           <li>
+            <a href="/leetlint/2018/03/07/sort-colors/">sort colors</a>
+          </li>
+        
+          <li>
             <a href="/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/"> Interleaving Positive and Negative Numbers</a>
           </li>
         
@@ -528,10 +532,6 @@
         
           <li>
             <a href="/leetlint/2018/03/04/clone-graph/">clone graph</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/03/04/subarray-sum/">subarray sum</a>
           </li>
         
       </ul>

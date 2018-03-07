@@ -65,6 +65,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-sort-colors" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/03/07/sort-colors/" class="article-date">
+  <time datetime="2018-03-07T08:18:04.000Z" itemprop="datePublished">2018-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/03/07/sort-colors/">sort colors</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>It is an easy problem, but if only one pass is allowed, I did not figure it out.After I get a hint of two pointers, I solved it.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param nums: A list of integer which is 0, 1 or 2 </span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void sortColors(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        int pl = 0, pr = nums.size()-1;</span><br><span class="line">        int i = 0;</span><br><span class="line">        while(i&lt;=pr)&#123;</span><br><span class="line">            while(nums[i]==2 &amp;&amp; i &lt;pr)&#123;</span><br><span class="line">                swap(nums[i], nums[pr]);</span><br><span class="line">                --pr;</span><br><span class="line">            &#125;</span><br><span class="line">            if(nums[i]== 0) &#123;</span><br><span class="line">                swap(nums[i], nums[pl]);</span><br><span class="line">                ++pl;</span><br><span class="line">            &#125;</span><br><span class="line">            ++i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/" data-id="cjegtdhtn001hqkv46msjqls3" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Interleaving-Positive-and-Negative-Numbers" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" class="article-date">
@@ -92,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" data-id="cjefewpqe0005z8v4mgwn92wk" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" data-id="cjegtdhsq0003qkv4x4h5ei3r" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -131,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/sort-colors-II/" data-id="cjefewpr9001qz8v4eyco6m7j" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/sort-colors-II/" data-id="cjegtdhtt001rqkv4rkldgzez" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -171,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/subarray-sum-closest/" data-id="cjefewprc001wz8v4q1bkcc8b" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/subarray-sum-closest/" data-id="cjegtdhty0020qkv4ujs7boap" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -210,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/" data-id="cjefewpqt000sz8v47040rd1g" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/" data-id="cjegtdhtb000vqkv4kbxuokip" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -249,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/" data-id="cjefewpra001sz8v4jixkrtre" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/" data-id="cjegtdhts001pqkv4cpzcd64o" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -290,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/03/toplogical-sort/" data-id="cjefewpre001zz8v4usyutsa1" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/03/toplogical-sort/" data-id="cjegtdhtx001xqkv412igb6ms" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -329,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjefewpqu000uz8v4lyk905db" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjegtdhtc000xqkv40p5fmu6i" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -369,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjefewprh0025z8v4un2lvbkl" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjegtdhtz0022qkv4zbolom3d" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li></ul>
@@ -409,46 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/set-matrix-zero/" data-id="cjefewpr6001kz8v4umtf4rxz" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-rehashing" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/02/14/rehashing/" class="article-date">
-  <time datetime="2018-02-14T08:49:56.000Z" itemprop="datePublished">2018-02-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/02/14/rehashing/">rehashing</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/rehashing/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/rehashing/</a><br>Problem is really easy, but I think the order of node in the linklist should not matter.  The judge does.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of ListNode</span><br><span class="line"> * class ListNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;next = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param hashTable: A list of The first node of linked list</span><br><span class="line">     * @return: A list of The first node of linked list which have twice size</span><br><span class="line">     */    </span><br><span class="line">    vector&lt;ListNode*&gt; rehashing(vector&lt;ListNode*&gt; hashTable) &#123;</span><br><span class="line">        vector&lt;ListNode*&gt; newTable(hashTable.size()*2, nullptr);</span><br><span class="line">        int size = newTable.size();</span><br><span class="line">        for(int i = 0; i&lt;hashTable.size(); ++i)&#123;</span><br><span class="line">            ListNode* node = hashTable[i];</span><br><span class="line">            ListNode* tNode=nullptr, *tNode2=nullptr;</span><br><span class="line">            if(!node) continue;</span><br><span class="line">            while(node)&#123;</span><br><span class="line">                tNode = node;</span><br><span class="line">                node =node-&gt;next;</span><br><span class="line">                tNode-&gt;next = nullptr;</span><br><span class="line">                int hval = tNode-&gt;val%size;</span><br><span class="line">                if(hval &lt; 0) hval += size;</span><br><span class="line">                tNode2 = newTable[hval];</span><br><span class="line">                while(tNode2 &amp;&amp; tNode2-&gt;next)tNode2 = tNode2-&gt;next;</span><br><span class="line">                if(tNode2)</span><br><span class="line">                    tNode2-&gt;next = tNode;</span><br><span class="line">                else</span><br><span class="line">                    newTable[hval] = tNode;</span><br><span class="line">            &#125;   </span><br><span class="line">        &#125;</span><br><span class="line">        return newTable;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/rehashing/" data-id="cjefewpr4001gz8v4zhkd61ff" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/set-matrix-zero/" data-id="cjegtdhtr001nqkv44mv4zm8j" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -510,6 +510,10 @@
       <ul>
         
           <li>
+            <a href="/leetlint/2018/03/07/sort-colors/">sort colors</a>
+          </li>
+        
+          <li>
             <a href="/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/"> Interleaving Positive and Negative Numbers</a>
           </li>
         
@@ -523,10 +527,6 @@
         
           <li>
             <a href="/leetlint/2018/03/04/clone-graph/">clone graph</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/03/04/subarray-sum/">subarray sum</a>
           </li>
         
       </ul>

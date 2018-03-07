@@ -5,20 +5,20 @@
   
 
   
-  <title>Single Number III | programming for fun</title>
+  <title>sort colors | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http://www.lintcode.com/en/problem/single-number-iii/The idea behind this problem is the key to solve it. Just to reduce it to two of the Single Number problem. But it is not easy to see the clue. The">
-<meta name="keywords" content="lint">
+  <meta name="description" content="It is an easy problem, but if only one pass is allowed, I did not figure it out.After I get a hint of two pointers, I solved it.12345678910111213141516171819202122class Solution &amp;#123;public:    /**">
+<meta name="keywords" content="lintcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Single Number III">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/02/13/Single-Number-III/index.html">
+<meta property="og:title" content="sort colors">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="http://www.lintcode.com/en/problem/single-number-iii/The idea behind this problem is the key to solve it. Just to reduce it to two of the Single Number problem. But it is not easy to see the clue. The">
+<meta property="og:description" content="It is an easy problem, but if only one pass is allowed, I did not figure it out.After I get a hint of two pointers, I solved it.12345678910111213141516171819202122class Solution &amp;#123;public:    /**">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-02-14T07:04:58.026Z">
+<meta property="og:updated_time" content="2018-03-07T08:20:59.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Single Number III">
-<meta name="twitter:description" content="http://www.lintcode.com/en/problem/single-number-iii/The idea behind this problem is the key to solve it. Just to reduce it to two of the Single Number problem. But it is not easy to see the clue. The">
+<meta name="twitter:title" content="sort colors">
+<meta name="twitter:description" content="It is an easy problem, but if only one pass is allowed, I did not figure it out.After I get a hint of two pointers, I solved it.12345678910111213141516171819202122class Solution &amp;#123;public:    /**">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Single-Number-III" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-sort-colors" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/02/13/Single-Number-III/" class="article-date">
-  <time datetime="2018-02-14T07:00:39.000Z" itemprop="datePublished">2018-02-13</time>
+    <a href="/leetlint/2018/03/07/sort-colors/" class="article-date">
+  <time datetime="2018-03-07T08:18:04.000Z" itemprop="datePublished">2018-03-07</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Single Number III
+      sort colors
     </h1>
   
 
@@ -87,16 +87,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.lintcode.com/en/problem/single-number-iii/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/single-number-iii/</a><br>The idea behind this problem is the key to solve it. Just to reduce it to two of the Single Number problem. But it is not easy to see the clue. The key is that for these two numbers, they differ at least in one bit. Find this bit and split all numbers into two groups, one with that bit 1 and one with that bit 0. The rest is very easy.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param A : An integer array</span><br><span class="line">     * @return : Two integers</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; singleNumberIII(vector&lt;int&gt; &amp;A) &#123;</span><br><span class="line">        int result = 0;</span><br><span class="line">        for(int k = 0; k&lt;A.size(); ++k)&#123;</span><br><span class="line">            result ^= A[k];</span><br><span class="line">        &#125;</span><br><span class="line">        int bit = 1; </span><br><span class="line">        while((bit &amp; result) == 0) bit&lt;&lt;=1;</span><br><span class="line">        int a = 0, b=0;</span><br><span class="line">        for(int k = 0; k&lt; A.size(); ++k)&#123;</span><br><span class="line">            if(A[k] &amp; bit) </span><br><span class="line">                a ^= A[k];</span><br><span class="line">            else</span><br><span class="line">                b ^= A[k];</span><br><span class="line">        &#125;</span><br><span class="line">        return a&lt;b? vector&lt;int&gt;&#123;a, b&#125; : vector&lt;int&gt;&#123;b,a&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p>It is an easy problem, but if only one pass is allowed, I did not figure it out.After I get a hint of two pointers, I solved it.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param nums: A list of integer which is 0, 1 or 2 </span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void sortColors(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        int pl = 0, pr = nums.size()-1;</span><br><span class="line">        int i = 0;</span><br><span class="line">        while(i&lt;=pr)&#123;</span><br><span class="line">            while(nums[i]==2 &amp;&amp; i &lt;pr)&#123;</span><br><span class="line">                swap(nums[i], nums[pr]);</span><br><span class="line">                --pr;</span><br><span class="line">            &#125;</span><br><span class="line">            if(nums[i]== 0) &#123;</span><br><span class="line">                swap(nums[i], nums[pl]);</span><br><span class="line">                ++pl;</span><br><span class="line">            &#125;</span><br><span class="line">            ++i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/13/Single-Number-III/" data-id="cjegtdht5000jqkv4969410zc" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/" data-id="cjegtdhtn001hqkv46msjqls3" class="article-share-link">Teilen</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
 
     </footer>
   </div>
@@ -104,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/02/14/rehashing/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          rehashing
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/02/11/word-ladder/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">word ladder</div>
+      <div class="article-nav-title"> Interleaving Positive and Negative Numbers</div>
     </a>
   
 </nav>
