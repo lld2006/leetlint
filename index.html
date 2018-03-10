@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Combinations" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/03/10/Combinations/" class="article-date">
+  <time datetime="2018-03-10T23:15:18.000Z" itemprop="datePublished">2018-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/03/10/Combinations/">Combinations</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Problem is not hard. The easiest way is to solve it recursively.  But one need to be very careful about the termination condition.  especially when k = 0.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param n: Given the range of numbers</span><br><span class="line">     * @param k: Given the numbers of combinations</span><br><span class="line">     * @return: All the combinations of k numbers out of 1..n</span><br><span class="line">     */</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; combine(int n, int k) &#123;</span><br><span class="line">        if( k==0) return vector&lt;vector&lt;int&gt;&gt;(1, vector&lt;int&gt;());</span><br><span class="line">        if( n&lt;k) return vector&lt;vector&lt;int&gt;&gt;();</span><br><span class="line">        if(n == k) &#123;</span><br><span class="line">            vector&lt;vector&lt;int&gt;&gt; ret;</span><br><span class="line">            ret.push_back(vector&lt;int&gt;());</span><br><span class="line">            ret[0].reserve(n);</span><br><span class="line">            for(int j =1; j&lt;=n; ++j)&#123;</span><br><span class="line">                ret[0].push_back(j);</span><br><span class="line">            &#125;   </span><br><span class="line">            return ret;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; results, r2;</span><br><span class="line">        results = combine(n-1, k); //n not selected</span><br><span class="line">        r2 = combine(n-1, k-1);</span><br><span class="line">        for(int j = 0; j&lt;r2.size(); ++j)&#123;</span><br><span class="line">            r2[j].push_back(n);</span><br><span class="line">            results.push_back(r2[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        sort(results.begin(), results.end());</span><br><span class="line">        return results;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/Combinations/" data-id="cjelzq8jd00032cv4oehx4pf5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-maxSubarray-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -92,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/08/maxSubarray-II/" data-id="cjeiba79u000um8v4omhu4dyh" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/08/maxSubarray-II/" data-id="cjelzq8l0001q2cv4d3uu731k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -131,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/" data-id="cjeiba7aj0027m8v4f0p70xb0" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/" data-id="cjelzq8l3001u2cv4wb0cs0dm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -170,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" data-id="cjeiba79i000jm8v4ug26cpmb" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" data-id="cjelzq8jh00082cv4upggka82" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -209,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/sort-colors-II/" data-id="cjeiba7ad001um8v4exzspnva" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/sort-colors-II/" data-id="cjelzq8l1001s2cv48tpxm9lo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -249,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/subarray-sum-closest/" data-id="cjeiba7af001ym8v4jzp8ijev" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/subarray-sum-closest/" data-id="cjelzq8l5001y2cv4z8np5fm4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -288,7 +327,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/" data-id="cjeiba79l000qm8v4rm17nux7" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/" data-id="cjelzq8kk000z2cv4k1r2euvz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -327,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/" data-id="cjeiba7ac001sm8v4h9zecgjk" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/subarray-sum/" data-id="cjelzq8l700222cv4p60h3l4n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -368,7 +407,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/03/toplogical-sort/" data-id="cjeiba7ag0021m8v4jjfdfjbz" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/03/toplogical-sort/" data-id="cjelzq8la00272cv4k6s6rhv6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -407,50 +446,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjeiba79v000wm8v4pm9b5sfp" class="article-share-link">Compartir</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjelzq8km00132cv412ontg40" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-word-search" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/02/16/word-search/" class="article-date">
-  <time datetime="2018-02-16T08:37:30.000Z" itemprop="datePublished">2018-02-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/02/16/word-search/">word search</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This problem is easy. I just need to change my habit a little bit, read the problem carefully. I assumed that diagonally adjacent is also called neighbor since I did not find a solution for the first example on first glance! </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param board: A list of lists of character</span><br><span class="line">     * @param word: A string</span><br><span class="line">     * @return: A boolean</span><br><span class="line">     */</span><br><span class="line">    bool exist(vector&lt;vector&lt;char&gt;&gt; &amp;board, string &amp;word) &#123;</span><br><span class="line">        if(board.empty()|| board[0].empty()) return false;</span><br><span class="line">        flags.resize(board.size(), vector&lt;bool&gt;( board[0].size(), false));</span><br><span class="line">        return existCore(board, word, 0, 0, 0);</span><br><span class="line">    &#125;</span><br><span class="line">    bool existCore(const vector&lt;vector&lt;char&gt;&gt;&amp; board, const string&amp; word, int x, int y, int pos)&#123;</span><br><span class="line">        if(pos == word.size()) return true;</span><br><span class="line">        bool found = false;</span><br><span class="line">        if(pos ==0)&#123;</span><br><span class="line">            for(int row = 0; row&lt; board.size(); ++row)&#123;</span><br><span class="line">                for(int col = 0; col &lt; board[0].size(); ++col)&#123;</span><br><span class="line">                    if(word[0] == board[row][col])&#123;</span><br><span class="line">                        flags[row][col] = true;</span><br><span class="line">                        found = existCore(board, word, row, col, 1);</span><br><span class="line">                        flags[row][col] = false;</span><br><span class="line">                        if(found) return true;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            int rowStart = max(x-1, 0);</span><br><span class="line">            int colStart = max(y-1, 0);</span><br><span class="line">            int rowEnd = min(x+2, static_cast&lt;int&gt;(board.size()));</span><br><span class="line">            int colEnd = min(y+2, static_cast&lt;int&gt;(board[0].size()));</span><br><span class="line">            for(int row = rowStart; row&lt; rowEnd; ++row )&#123;</span><br><span class="line">                for(int col = colStart; col &lt; colEnd; ++col)&#123;</span><br><span class="line">                    if(flags[row][col]) continue;</span><br><span class="line">                    if(abs(row-x)+abs(col-y) != 1) continue;</span><br><span class="line">                    if(board[row][col] != word[pos]) continue;</span><br><span class="line">                    flags[row][col] = true;</span><br><span class="line">                    found = existCore(board, word, row, col, pos+1);</span><br><span class="line">                    flags[row][col]=false;</span><br><span class="line">                    if(found) return true;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;vector&lt;bool&gt;&gt; flags;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjeiba7aj0025m8v4qd70p6iq" class="article-share-link">Compartir</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li></ul>
 
     </footer>
   </div>
@@ -463,7 +462,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><a class="page-number" href="/leetlint/page/4/">4</a><a class="extend next" rel="next" href="/leetlint/page/2/">Siguiente &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -485,7 +484,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nube de Tags</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-code/" style="font-size: 10px;">lint code</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a> <a href="/leetlint/tags/lintcode/" style="font-size: 15px;">lintcode</a>
     </div>
@@ -494,7 +493,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -504,9 +503,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/10/Combinations/">Combinations</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/03/08/maxSubarray-II/">maxSubarray II</a>
@@ -524,10 +527,6 @@
             <a href="/leetlint/2018/03/05/sort-colors-II/">sort colors II</a>
           </li>
         
-          <li>
-            <a href="/leetlint/2018/03/05/subarray-sum-closest/">subarray sum closest</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -541,7 +540,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 lld2006<br>
-      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

@@ -5,20 +5,18 @@
   
 
   
-  <title>A+B Problem | programming for fun</title>
+  <title>programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
-<meta name="keywords" content="coding">
-<meta property="og:type" content="article">
-<meta property="og:title" content="A+B Problem">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/21/test2/index.html">
+  <meta name="description" content="coding to make progress">
+<meta property="og:type" content="website">
+<meta property="og:title" content="programming for fun">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/page/5/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
+<meta property="og:description" content="coding to make progress">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-22T03:31:04.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A+B Problem">
-<meta name="twitter:description" content="http://www.lintcode.com/en/problem/a-b-problem/The first problem of lintcode, I used bit operation to solve the problem. class Solution { public:     /*      * @param a: The first integer      * @para">
+<meta name="twitter:title" content="programming for fun">
+<meta name="twitter:description" content="coding to make progress">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +63,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/01/21/test2/" class="article-date">
-  <time datetime="2018-01-22T02:55:19.000Z" itemprop="datePublished">2018-01-21</time>
+    <a href="/leetlint/2018/01/21/hello-world/" class="article-date">
+  <time datetime="2018-01-21T10:03:38.623Z" itemprop="datePublished">2018-01-21</time>
 </a>
     
   </div>
@@ -78,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      A+B Problem
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/21/hello-world/">Hello World</a>
     </h1>
   
 
@@ -87,72 +87,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="http://www.lintcode.com/en/problem/a-b-problem/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/a-b-problem/</a><br>The first problem of lintcode, I used bit operation to solve the problem.</p>
-<pre><code>class Solution {
-public:
-    /*
-     * @param a: The first integer
-     * @param b: The second integer
-     * @return: The sum of a and b
-     */
-    int aplusb(int a, int b) {
-        // write your code here, try to do it without arithmetic operators.
-        int tbit = 1; int carry = 0;
-        int ret = 0;
-        for ( int i = 0; i &lt; 32; ++i, tbit &lt;&lt;= 1 ) {
-            bool aset = a &amp; tbit;
-            bool bset = b &amp; tbit;
-            if ( aset &amp;&amp; bset ) {
-                ret |= (carry &lt;&lt;i);
-                carry = 1;
-            } else if ( (aset &amp;&amp; !bset)|(!aset &amp;&amp; bset) ) {
-                if ( carry == 0 ) {
-                    ret |= 1 &lt;&lt; i;
-                    carry = 0;
-                } else {
-                    carry = 1;
-                }
-            } else {
-                ret |= (carry &lt;&lt; i);
-                carry = 0;
-            }
-        }
-    }
-};
-</code></pre>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjelzq8l600202cv48wjnsfw3" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjelzq8kl00112cv4o22uxfck" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
-
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/leetlint/2018/01/23/next-permutation/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          next permutation
-        
-      </div>
-    </a>
-  
-  
-    <a href="/leetlint/2018/01/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
+</article>
+
 
   
-</article>
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/leetlint/page/4/">&laquo; Prev</a><a class="page-number" href="/leetlint/">1</a><span class="space">&hellip;</span><a class="page-number" href="/leetlint/page/3/">3</a><a class="page-number" href="/leetlint/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
 
 </section>
         
