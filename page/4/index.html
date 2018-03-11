@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,46 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-single-number-II" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/28/single-number-II/" class="article-date">
+  <time datetime="2018-01-28T09:04:06.000Z" itemprop="datePublished">2018-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/28/single-number-II/">single number II</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This problem is hard for me, and I found a solution online. It is quite straight forward, just mark all bits according to number of occurrence on each bit, i.e., once, twice or three times. Then at last, two should be zero, three does not matter and we just need one. See code for detail.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">	/**</span><br><span class="line">	 * @param A : An integer array</span><br><span class="line">	 * @return : An integer </span><br><span class="line">	 */</span><br><span class="line">    int singleNumberII(vector&lt;int&gt; &amp;A) &#123;</span><br><span class="line">        int one = 0; //appeared once</span><br><span class="line">        int two = 0; //appeared twice</span><br><span class="line">        int three = 0; //appeared three times!</span><br><span class="line">        for(int i = 0; i &lt; A.size(); ++i)&#123;</span><br><span class="line">            int num = A[i];</span><br><span class="line">             //if it appeared twice on one bit, &amp; a 1 on that bit gives a three!</span><br><span class="line">             //once a bit reaches 3, it is reset as 0 when the next number comes in</span><br><span class="line">             //so we donot need a |</span><br><span class="line">            three = two &amp; num;</span><br><span class="line">            //those bits marked as one now become two</span><br><span class="line">            two |= one &amp; num;</span><br><span class="line">            // we need to reset those bits that is just converted to three!</span><br><span class="line">            two &amp;= ~three;</span><br><span class="line">            //one bit needs to or with all &apos;1&apos; bits in number</span><br><span class="line">            one |=num;</span><br><span class="line">            //&apos;1&apos; one bits just promote 1------&gt;2 2-------&gt;3 and 0-----------------&gt;1</span><br><span class="line">            //                          now in 2   now in 3      new or already in 1</span><br><span class="line">            one &amp;=~(two | three); //kick out those bits that has promoted to 2 or 3</span><br><span class="line">        &#125;</span><br><span class="line">        return one;    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number-II/" data-id="cjemj1g5b0020pkv4pc4alyrk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-single-number" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjemg03wt001y60v41mch7vbm" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/single-number/" data-id="cjemj1g5c0022pkv4s1hdj70z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -134,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjemg03va000060v4dg4313wh" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjemj1g4i000ipkv4n8xo19j1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -174,7 +214,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjemg03we001660v4wz24f8jg" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjemj1g4x0016pkv4ee021yg5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -214,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjemg03w9000w60v44nsfxu8q" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjemj1g4s000wpkv4i76iqzhq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -253,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjemg03vq000a60v40f5mgtq8" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjemj1g4h000fpkv4fa97qifb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -293,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjemg03wp001q60v4a09d8pgq" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjemj1g51001epkv4ajwnekd8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -333,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjemg03w7000s60v49jnta1vn" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjemj1g4o000qpkv4flxqvjpo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -373,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjemg03w5000o60v4rj4nx5lq" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjemj1g4m000mpkv4zcip6fi8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -413,50 +453,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjemg03vf000160v4kc3xohqj" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjemj1g400000pkv4y8apfpib" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-new-post-not-generated-by-hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/24/new-post-not-generated-by-hexo/" class="article-date">
-  <time datetime="2018-01-24T08:03:10.000Z" itemprop="datePublished">2018-01-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/24/new-post-not-generated-by-hexo/">new post not generated by hexo</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Googled for quite some time and still not found any clue. Finally I found a<br>command very useful “hexo generate –debug”. </p>
-<p>I found an error message with this command and I missed a white space in tag line. It should be “tags: math” instead of “tags:math”.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjemg03wg001a60v4r1hdzh9g" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li></ul>
 
     </footer>
   </div>
@@ -469,7 +469,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/leetlint/page/3/">&laquo; zurück</a><a class="page-number" href="/leetlint/">1</a><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/5/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/leetlint/page/3/">&laquo; Prev</a><a class="page-number" href="/leetlint/">1</a><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -500,7 +500,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -510,9 +510,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/11/remove-element/">remove element</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/03/10/minimum-depth-of-binary-tree/">minimum depth of binary tree</a>
@@ -528,10 +532,6 @@
         
           <li>
             <a href="/leetlint/2018/03/10/Combinations/">Combinations</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/03/08/maxSubarray-II/">maxSubarray II</a>
           </li>
         
       </ul>

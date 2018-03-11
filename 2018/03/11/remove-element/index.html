@@ -5,20 +5,20 @@
   
 
   
-  <title>first bad version | programming for fun</title>
+  <title>remove element | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This is an easy problem. One just need to understand how to right lower_bound to never make mistakes in binary search. [bad version] [lang: c++]123456789101112131415161718192021222324252627/** * class">
-<meta name="keywords" content="lint">
+  <meta name="description" content="The problem is easy. I still need to be careful about the off by one problem. In the while loop, two choices may be taken, first increase the index then opearte on the data; second first operate on th">
+<meta name="keywords" content="lintcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="first bad version">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/index.html">
+<meta property="og:title" content="remove element">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/03/11/remove-element/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="This is an easy problem. One just need to understand how to right lower_bound to never make mistakes in binary search. [bad version] [lang: c++]123456789101112131415161718192021222324252627/** * class">
+<meta property="og:description" content="The problem is easy. I still need to be careful about the off by one problem. In the while loop, two choices may be taken, first increase the index then opearte on the data; second first operate on th">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-01-27T23:17:19.598Z">
+<meta property="og:updated_time" content="2018-03-11T08:18:20.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="first bad version">
-<meta name="twitter:description" content="This is an easy problem. One just need to understand how to right lower_bound to never make mistakes in binary search. [bad version] [lang: c++]123456789101112131415161718192021222324252627/** * class">
+<meta name="twitter:title" content="remove element">
+<meta name="twitter:description" content="The problem is easy. I still need to be careful about the off by one problem. In the while loop, two choices may be taken, first increase the index then opearte on the data; second first operate on th">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-first-bad-version" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-remove-element" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/01/27/first-bad-version/" class="article-date">
-  <time datetime="2018-01-27T23:14:46.000Z" itemprop="datePublished">2018-01-27</time>
+    <a href="/leetlint/2018/03/11/remove-element/" class="article-date">
+  <time datetime="2018-03-11T08:13:49.000Z" itemprop="datePublished">2018-03-11</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      first bad version
+      remove element
     </h1>
   
 
@@ -87,16 +87,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This is an easy problem. One just need to understand how to right lower_bound to never make mistakes in binary search.</p>
-<figure class="highlight plain"><figcaption><span>[bad version] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * class SVNRepo &#123;</span><br><span class="line"> *     public:</span><br><span class="line"> *     static bool isBadVersion(int k);</span><br><span class="line"> * &#125;</span><br><span class="line"> * you can use SVNRepo::isBadVersion(k) to judge whether </span><br><span class="line"> * the kth code version is bad or not.</span><br><span class="line">*/</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param n: An integer</span><br><span class="line">     * @return: An integer which is the first bad version.</span><br><span class="line">     */</span><br><span class="line">    int findFirstBadVersion(int n) &#123;</span><br><span class="line">        int mid, low = 0, high = n;</span><br><span class="line">        while(high - low &gt; 1)&#123;</span><br><span class="line">            mid = low + (high-low)/2;</span><br><span class="line">            if(SVNRepo::isBadVersion(mid))&#123;</span><br><span class="line">                high = mid;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return high;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p>The problem is easy. I still need to be careful about the off by one problem. In the while loop, two choices may be taken, first increase the index then opearte on the data; second first operate on the data then increase the index;  I feel more comfortible with the second one. since it is easier to write the condition in while(cond). I saw some of the code in CLRS use the first method, need to be very careful!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param A: A list of integers</span><br><span class="line">     * @param elem: An integer</span><br><span class="line">     * @return: The new length after remove</span><br><span class="line">     */</span><br><span class="line">    int removeElement(vector&lt;int&gt; &amp;A, int elem) &#123;</span><br><span class="line">        int left = 0, right=0;</span><br><span class="line">        while(right &lt; static_cast&lt;int&gt;(A.size()))&#123;</span><br><span class="line">            if(A[right] != elem)&#123;</span><br><span class="line">                A[left++] = A[right];</span><br><span class="line">            &#125;</span><br><span class="line">            ++right;</span><br><span class="line">        &#125;</span><br><span class="line">        return left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjemj1g4s000wpkv4i76iqzhq" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/11/remove-element/" data-id="cjemj1g57001spkv4c6w406fh" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
 
     </footer>
   </div>
@@ -104,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/01/27/longest-common-substring/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          longest common substring
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/01/27/Rogue-Knight-Sven/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/03/10/minimum-depth-of-binary-tree/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Rogue Knight Sven</div>
+      <div class="article-nav-title">minimum depth of binary tree</div>
     </a>
   
 </nav>

@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-remove-element" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/03/11/remove-element/" class="article-date">
+  <time datetime="2018-03-11T08:13:49.000Z" itemprop="datePublished">2018-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/03/11/remove-element/">remove element</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The problem is easy. I still need to be careful about the off by one problem. In the while loop, two choices may be taken, first increase the index then opearte on the data; second first operate on the data then increase the index;  I feel more comfortible with the second one. since it is easier to write the condition in while(cond). I saw some of the code in CLRS use the first method, need to be very careful!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param A: A list of integers</span><br><span class="line">     * @param elem: An integer</span><br><span class="line">     * @return: The new length after remove</span><br><span class="line">     */</span><br><span class="line">    int removeElement(vector&lt;int&gt; &amp;A, int elem) &#123;</span><br><span class="line">        int left = 0, right=0;</span><br><span class="line">        while(right &lt; static_cast&lt;int&gt;(A.size()))&#123;</span><br><span class="line">            if(A[right] != elem)&#123;</span><br><span class="line">                A[left++] = A[right];</span><br><span class="line">            &#125;</span><br><span class="line">            ++right;</span><br><span class="line">        &#125;</span><br><span class="line">        return left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/11/remove-element/" data-id="cjemj1g57001spkv4c6w406fh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-minimum-depth-of-binary-tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -92,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/minimum-depth-of-binary-tree/" data-id="cjemg03wf001860v4epu63c2m" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/minimum-depth-of-binary-tree/" data-id="cjemj1g4z001apkv4yxn6foox" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -131,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/combination-sum/" data-id="cjemg03w8000u60v46j5mmurb" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/combination-sum/" data-id="cjemj1g4t000ypkv4evy8cmbs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -174,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/combination-sum-II/" data-id="cjemg03wc001260v4bn295gah" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/combination-sum-II/" data-id="cjemj1g4u0010pkv4yz7a7m16" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -213,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/Combinations/" data-id="cjemg03vj000360v4rihp4d0g" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/Combinations/" data-id="cjemj1g440001pkv45cyxf5fo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -252,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/08/maxSubarray-II/" data-id="cjemg03wi001c60v4lthbxzzo" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/08/maxSubarray-II/" data-id="cjemj1g4w0014pkv4b4qbr2ch" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -291,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/" data-id="cjemg03wv002260v4rnjrpkl3" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/" data-id="cjemj1g5d0024pkv4m8lnldwt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -330,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" data-id="cjemg03vm000560v4ue2ti1re" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" data-id="cjemj1g4a0005pkv4k4r0o6lc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -369,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/sort-colors-II/" data-id="cjemg03wu002060v43qf4xmvy" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/sort-colors-II/" data-id="cjemj1g5a001ypkv4z3zpu2vg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -409,46 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/subarray-sum-closest/" data-id="cjemg03wy002860v4w8oysgee" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-clone-graph" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/03/04/clone-graph/" class="article-date">
-  <time datetime="2018-03-04T23:22:28.000Z" itemprop="datePublished">2018-03-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/03/04/clone-graph/">clone graph</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I used hash to save all nodes in the new graph, it is pretty easy to handle.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for undirected graph.</span><br><span class="line"> * struct UndirectedGraphNode &#123;</span><br><span class="line"> *     int label;</span><br><span class="line"> *     vector&lt;UndirectedGraphNode *&gt; neighbors;</span><br><span class="line"> *     UndirectedGraphNode(int x) : label(x) &#123;&#125;;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param node: A undirected graph node</span><br><span class="line">     * @return: A undirected graph node</span><br><span class="line">     */</span><br><span class="line">    UndirectedGraphNode* cloneGraph(UndirectedGraphNode* node) &#123;</span><br><span class="line">        if(!node) return nullptr;</span><br><span class="line">        queue&lt;UndirectedGraphNode*&gt; qNodes;</span><br><span class="line">        unordered_map&lt;int, UndirectedGraphNode*&gt; labelToNode;</span><br><span class="line">        qNodes.push(node);</span><br><span class="line">        UndirectedGraphNode* root = new UndirectedGraphNode(node-&gt;label);</span><br><span class="line">        labelToNode[node-&gt;label] = root;</span><br><span class="line">        while(!qNodes.empty())&#123; //generate the neighbor list, create node if necessary </span><br><span class="line">            //nodes in the queue are from old graph</span><br><span class="line">            //labelToNode are saving new nodes</span><br><span class="line">            UndirectedGraphNode* node = qNodes.front();</span><br><span class="line">            qNodes.pop();</span><br><span class="line">            UndirectedGraphNode* newNode = labelToNode[node-&gt;label];</span><br><span class="line">            for(int k = 0; k&lt; node-&gt;neighbors.size(); ++k )&#123;</span><br><span class="line">                UndirectedGraphNode* nNode = node-&gt;neighbors[k];   </span><br><span class="line">                if(!labelToNode[nNode-&gt;label])&#123;//not in the queue!</span><br><span class="line">                    labelToNode[nNode-&gt;label] = new UndirectedGraphNode(nNode-&gt;label);</span><br><span class="line">                    qNodes.push(nNode);</span><br><span class="line">                &#125;</span><br><span class="line">                newNode-&gt;neighbors.push_back(labelToNode[nNode-&gt;label]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/04/clone-graph/" data-id="cjemg03wa000y60v418mrrypy" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/subarray-sum-closest/" data-id="cjemj1g5e0026pkv42out978z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -464,7 +464,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/2/">weiter &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -495,7 +495,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -505,9 +505,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/11/remove-element/">remove element</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/03/10/minimum-depth-of-binary-tree/">minimum depth of binary tree</a>
@@ -523,10 +527,6 @@
         
           <li>
             <a href="/leetlint/2018/03/10/Combinations/">Combinations</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/03/08/maxSubarray-II/">maxSubarray II</a>
           </li>
         
       </ul>
