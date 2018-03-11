@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,46 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-longest-common-substring" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/27/longest-common-substring/" class="article-date">
+  <time datetime="2018-01-27T23:37:30.000Z" itemprop="datePublished">2018-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/27/longest-common-substring/">longest common substring</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This is an easy dynamic programming problem. Once one understood how to solve the longest common subsequence, the longest substring is much easier. </p>
+<figure class="highlight plain"><figcaption><span>[longest common substring] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param A: A string</span><br><span class="line">     * @param B: A string</span><br><span class="line">     * @return: the length of the longest common substring.</span><br><span class="line">     */</span><br><span class="line">    int longestCommonSubstring(string &amp;A, string &amp;B) &#123;</span><br><span class="line">        int sa = A.size(), sb=B.size();</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; vcnt=vector&lt;vector&lt;int&gt;&gt;(sa+1, vector&lt;int&gt;(sb+1, 0));</span><br><span class="line">        int maxMatch = 0;</span><br><span class="line">        for(int row = 1; row &lt;= sa; ++row)&#123;</span><br><span class="line">            for(int col = 1; col&lt;=sb;++col)&#123;</span><br><span class="line">                if(A[row-1]==B[col-1]) vcnt[row][col] = vcnt[row-1][col-1] + 1;</span><br><span class="line">                if(vcnt[row][col] &gt; maxMatch)&#123;</span><br><span class="line">                    maxMatch = vcnt[row][col];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return maxMatch;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjem5sdc4001b2kv4gdcxxnzg" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-first-bad-version" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjelzq8kj000x2cv4o3nyu5ho" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjem5sdbw000w2kv4je6yszm1" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -132,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjelzq8k1000j2cv4ubq9awlm" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjem5sdbf000f2kv4d0t00lpt" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -172,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjelzq8ks001b2cv424dlaci7" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjem5sdc5001d2kv4gwwgwt5y" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -212,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjelzq8k8000r2cv4nsm28s4t" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjem5sdbu000s2kv4jzbtiw4i" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -252,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjelzq8kg000t2cv4mbpf6jlm" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjem5sdbj000k2kv4ah6mo4gd" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -292,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjelzq8j500002cv4ze0lev1p" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjem5sdax00002kv468c2stqx" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -332,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjelzq8ko00162cv45gtplx7n" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjem5sdc100142kv42ly6affn" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li></ul>
@@ -371,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjelzq8ku001g2cv4i45m5cwj" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjem5sdc6001g2kv4t4nzef92" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -412,80 +452,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjelzq8kp00182cv4lpgcvt8z" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjem5sdc200162kv4avrthy3w" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/21/test2/" class="article-date">
-  <time datetime="2018-01-22T02:55:19.000Z" itemprop="datePublished">2018-01-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/21/test2/">A+B Problem</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/a-b-problem/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/a-b-problem/</a><br>The first problem of lintcode, I used bit operation to solve the problem.</p>
-<pre><code>class Solution {
-public:
-    /*
-     * @param a: The first integer
-     * @param b: The second integer
-     * @return: The sum of a and b
-     */
-    int aplusb(int a, int b) {
-        // write your code here, try to do it without arithmetic operators.
-        int tbit = 1; int carry = 0;
-        int ret = 0;
-        for ( int i = 0; i &lt; 32; ++i, tbit &lt;&lt;= 1 ) {
-            bool aset = a &amp; tbit;
-            bool bset = b &amp; tbit;
-            if ( aset &amp;&amp; bset ) {
-                ret |= (carry &lt;&lt;i);
-                carry = 1;
-            } else if ( (aset &amp;&amp; !bset)|(!aset &amp;&amp; bset) ) {
-                if ( carry == 0 ) {
-                    ret |= 1 &lt;&lt; i;
-                    carry = 0;
-                } else {
-                    carry = 1;
-                }
-            } else {
-                ret |= (carry &lt;&lt; i);
-                carry = 0;
-            }
-        }
-    }
-};
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjelzq8l600202cv48wjnsfw3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
 
     </footer>
   </div>
@@ -498,7 +468,7 @@ public:
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/leetlint/page/3/">&laquo; Prev</a><a class="page-number" href="/leetlint/">1</a><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/leetlint/page/3/">&laquo; zurück</a><a class="page-number" href="/leetlint/">1</a><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/5/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -529,7 +499,7 @@ public:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -539,9 +509,13 @@ public:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/10/combination-sum-II/">combination sum II</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/03/10/Combinations/">Combinations</a>
@@ -557,10 +531,6 @@ public:
         
           <li>
             <a href="/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/"> Interleaving Positive and Negative Numbers</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/03/05/sort-colors-II/">sort colors II</a>
           </li>
         
       </ul>

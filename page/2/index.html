@@ -54,7 +54,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-heapify" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/02/18/heapify/" class="article-date">
+  <time datetime="2018-02-18T08:20:33.000Z" itemprop="datePublished">2018-02-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/02/18/heapify/">heapify</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.lintcode.com/en/problem/heapify/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/heapify/</a><br>The problem is not hard; it can be found in CLRS. I did not follow what the bookdid and made a mistake. When the maximum or minimum needs to be found, it is always helpful to set it to some value instead of a meaningless one.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param A: Given an integer array</span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void heapify(vector&lt;int&gt;&amp; A, int k)&#123;</span><br><span class="line">        int left  = 2*k+1;</span><br><span class="line">        int right = 2*k+2;</span><br><span class="line">        int size = A.size();</span><br><span class="line">        int pos = -1;</span><br><span class="line">        if(left &lt; size &amp;&amp; A[left] &lt; A[k])&#123;</span><br><span class="line">            pos = left;</span><br><span class="line">        &#125;</span><br><span class="line">        if(right &lt; size &amp;&amp; A[right] &lt; A[left] &amp;&amp; A[right] &lt; A[k])&#123;</span><br><span class="line">            pos = right;</span><br><span class="line">        &#125;</span><br><span class="line">        if(pos &gt; k)&#123;</span><br><span class="line">            swap(A[pos], A[k]);</span><br><span class="line">            heapify(A, pos);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    void heapify(vector&lt;int&gt; &amp;A) &#123;</span><br><span class="line">        int size = A.size();</span><br><span class="line">        int start = (size-2)/2;</span><br><span class="line">        for(int k = start; k&gt;=0; --k)&#123;</span><br><span class="line">            heapify(A, k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/18/heapify/" data-id="cjem5sdbz00102kv4ojcjqwxs" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-word-search" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjelzq8la00292cv4th8uy34b" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/16/word-search/" data-id="cjem5sdcn002b2kv4wqfn158s" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li></ul>
@@ -133,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/set-matrix-zero/" data-id="cjelzq8l4001w2cv411nmmytk" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/set-matrix-zero/" data-id="cjem5sdcd001s2kv4cbv6dmpo" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -172,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/rehashing/" data-id="cjelzq8kw001i2cv4nndk7squ" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/14/rehashing/" data-id="cjem5sdc7001i2kv42diiqnhy" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -212,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/13/Single-Number-III/" data-id="cjelzq8k5000n2cv4292pt6k5" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/13/Single-Number-III/" data-id="cjem5sdbh000i2kv4axse3l44" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -252,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/11/word-ladder/" data-id="cjelzq8l900252cv4s164osl6" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/11/word-ladder/" data-id="cjem5sdcm00292kv4zvd1p90y" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -293,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/04/wordbreak/" data-id="cjelzq8lb002b2cv4o66cg622" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/04/wordbreak/" data-id="cjem5sdco002d2kv4sl87qlsr" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -333,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/" data-id="cjelzq8je00042cv4ecwe0y46" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Convert-Sorted-List-to-Balanced-BST/" data-id="cjem5sdb200012kv4ux43v7a7" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -373,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Copy-List-with-Random-Pointer/" data-id="cjelzq8j900012cv4naqj5kt5" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Copy-List-with-Random-Pointer/" data-id="cjem5sdb700042kv4htcw999q" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -412,46 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" data-id="cjelzq8kt001d2cv42u0wy6gm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Remove-Duplicates-from-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" class="article-date">
-  <time datetime="2018-02-03T08:29:32.000Z" itemprop="datePublished">2018-02-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/">Remove Duplicates from Sorted Array</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This problem is easy, just need two numbers, the first is the last index<br>of non-duplicated number vector and the second is an index to iterate the whole vectors.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: An ineger array</span><br><span class="line">     * @return: An integer</span><br><span class="line">     */</span><br><span class="line">    int removeDuplicates(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        if(nums.empty()) return 0;</span><br><span class="line">        int left = 0, right = 0;</span><br><span class="line">        while(right &lt; nums.size())&#123;</span><br><span class="line">            while(right &lt; nums.size() &amp;&amp; nums[right] == nums[left]) ++right;</span><br><span class="line">            if(right &lt; nums.size())</span><br><span class="line">                nums[++left] = nums[right++];</span><br><span class="line">        &#125;</span><br><span class="line">        nums.resize(left+1);</span><br><span class="line">        return left+1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" data-id="cjelzq8k0000i2cv4rlsdlegl" class="article-share-link">Share</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" data-id="cjem5sdc8001k2kv4axa8wpv0" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -467,7 +467,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/leetlint/">&laquo; Prev</a><a class="page-number" href="/leetlint/">1</a><span class="page-number current">2</span><a class="page-number" href="/leetlint/page/3/">3</a><a class="page-number" href="/leetlint/page/4/">4</a><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/leetlint/">&laquo; zurück</a><a class="page-number" href="/leetlint/">1</a><span class="page-number current">2</span><a class="page-number" href="/leetlint/page/3/">3</a><a class="page-number" href="/leetlint/page/4/">4</a><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/3/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -498,7 +498,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -508,9 +508,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/10/combination-sum-II/">combination sum II</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/03/10/Combinations/">Combinations</a>
@@ -526,10 +530,6 @@
         
           <li>
             <a href="/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/"> Interleaving Positive and Negative Numbers</a>
-          </li>
-        
-          <li>
-            <a href="/leetlint/2018/03/05/sort-colors-II/">sort colors II</a>
           </li>
         
       </ul>
