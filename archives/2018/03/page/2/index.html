@@ -5,20 +5,18 @@
   
 
   
-  <title>sort colors | programming for fun</title>
+  <title>Archivos: 2018/3 | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="It is an easy problem, but if only one pass is allowed, I did not figure it out.After I get a hint of two pointers, I solved it.12345678910111213141516171819202122class Solution &amp;#123;public:    /**">
-<meta name="keywords" content="lintcode">
-<meta property="og:type" content="article">
-<meta property="og:title" content="sort colors">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/index.html">
+  <meta name="description" content="coding to make progress">
+<meta property="og:type" content="website">
+<meta property="og:title" content="programming for fun">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/archives/2018/03/page/2/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="It is an easy problem, but if only one pass is allowed, I did not figure it out.After I get a hint of two pointers, I solved it.12345678910111213141516171819202122class Solution &amp;#123;public:    /**">
+<meta property="og:description" content="coding to make progress">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-03-07T08:20:59.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sort colors">
-<meta name="twitter:description" content="It is an easy problem, but if only one pass is allowed, I did not figure it out.After I get a hint of two pointers, I solved it.12345678910111213141516171819202122class Solution &amp;#123;public:    /**">
+<meta name="twitter:title" content="programming for fun">
+<meta name="twitter:description" content="coding to make progress">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,63 +63,45 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-sort-colors" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/03/07/sort-colors/" class="article-date">
-  <time datetime="2018-03-07T08:18:04.000Z" itemprop="datePublished">2018-03-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      sort colors
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/leetlint/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/leetlint/2018/03/03/toplogical-sort/" class="archive-article-date">
+  <time datetime="2018-03-04T02:22:49.000Z" itemprop="datePublished">Mar 3</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/leetlint/2018/03/03/toplogical-sort/">toplogical sort</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>It is an easy problem, but if only one pass is allowed, I did not figure it out.After I get a hint of two pointers, I solved it.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param nums: A list of integer which is 0, 1 or 2 </span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void sortColors(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        int pl = 0, pr = nums.size()-1;</span><br><span class="line">        int i = 0;</span><br><span class="line">        while(i&lt;=pr)&#123;</span><br><span class="line">            while(nums[i]==2 &amp;&amp; i &lt;pr)&#123;</span><br><span class="line">                swap(nums[i], nums[pr]);</span><br><span class="line">                --pr;</span><br><span class="line">            &#125;</span><br><span class="line">            if(nums[i]== 0) &#123;</span><br><span class="line">                swap(nums[i], nums[pl]);</span><br><span class="line">                ++pl;</span><br><span class="line">            &#125;</span><br><span class="line">            ++i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/" data-id="cjemcfunl0020akv4d8pgd32c" class="article-share-link">Compartir</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/leetlint/2018/03/08/maxSubarray-II/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Nuevo</strong>
-      <div class="article-nav-title">
-        
-          maxSubarray II
-        
-      </div>
-    </a>
-  
-  
-    <a href="/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Viejo</strong>
-      <div class="article-nav-title"> Interleaving Positive and Negative Numbers</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/leetlint/archives/2018/03/">&laquo; Previo</a><a class="page-number" href="/leetlint/archives/2018/03/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
         

@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,47 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Dat-Stream-Median" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/28/Dat-Stream-Median/" class="article-date">
+  <time datetime="2018-01-28T08:17:11.000Z" itemprop="datePublished">2018-01-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/28/Dat-Stream-Median/">Dat Stream Median</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.lintcode.com/en/problem/data-stream-median/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/data-stream-median/</a><br>I solved a similar problem in Project Euler like this problem. I used two multiset to solve this problem. But this time, I made several mistakes in the criteria how to insert and erase the elements in the two set. It should be quite straight forward. And I do not remember how to convert a reverse_iterator to a forward iterator and checked it online again.</p>
+<p>Is there any other approches to solve this problem?</p>
+<figure class="highlight plain"><figcaption><span>[Data Stream Median] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: the median of numbers</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; medianII(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        vector&lt;int&gt; result;</span><br><span class="line">        multiset&lt;int&gt; slow, shigh;//maximum diff is one number Nslow&gt; Nshigh</span><br><span class="line">        for(int i = 0; i&lt;nums.size(); ++i)&#123;</span><br><span class="line">            int val = nums[i];</span><br><span class="line">            if(slow.size() &gt; shigh.size())&#123;</span><br><span class="line">                if(*slow.rbegin() &lt;= val)&#123;//no need to check if shigh is empty</span><br><span class="line">                    shigh.insert(val);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    auto iter = --slow.rbegin().base(); //this is iterator conversion</span><br><span class="line">                    shigh.insert(*iter);</span><br><span class="line">                    slow.erase(iter);</span><br><span class="line">                    slow.insert(val);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;else&#123;//equal size</span><br><span class="line">                if(slow.empty() || *shigh.begin()&gt;=val)&#123;//slow is empty is a special case or I can directly insert the first element to slow to avoid checking it</span><br><span class="line">                    slow.insert(val);</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    slow.insert(*shigh.begin());</span><br><span class="line">                    shigh.erase(shigh.begin());</span><br><span class="line">                    shigh.insert(val);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            result.push_back(*slow.rbegin());</span><br><span class="line">        &#125;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/28/Dat-Stream-Median/" data-id="cjemcfuml000aakv4ffidj8tl" class="article-share-link">Compartir</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-longest-common-substring" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjem5sdc4001b2kv4gdcxxnzg" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/longest-common-substring/" data-id="cjemcfun60016akv4l6o2c8xi" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -133,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjem5sdbw000w2kv4je6yszm1" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/first-bad-version/" data-id="cjemcfun20010akv428e5jhgi" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -172,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjem5sdbf000f2kv4d0t00lpt" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/27/Rogue-Knight-Sven/" data-id="cjemcfump000fakv453sophnc" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -212,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjem5sdc5001d2kv4gwwgwt5y" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/nth-to-last-node-in-list/" data-id="cjemcfunb001fakv4zttw9fzb" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -252,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjem5sdbu000s2kv4jzbtiw4i" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-zigzag-level-order-traversal/" data-id="cjemcfun0000wakv4qxeywkjc" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -292,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjem5sdbj000k2kv4ah6mo4gd" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjemcfumx000qakv4qg80exbt" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -332,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjem5sdax00002kv468c2stqx" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjemcfum80000akv4xsn6xfzw" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -372,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjem5sdc100142kv42ly6affn" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjemcfun70018akv41h3t2p16" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li></ul>
@@ -411,51 +452,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjem5sdc6001g2kv4t4nzef92" class="article-share-link">Teilen</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjemcfund001kakv4nzeje24q" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-next-permutation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/01/23/next-permutation/" class="article-date">
-  <time datetime="2018-01-23T08:21:30.000Z" itemprop="datePublished">2018-01-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/01/23/next-permutation/">next permutation</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="http://www.lintcode.com/en/problem/next-permutation/" target="_blank" rel="noopener">http://www.lintcode.com/en/problem/next-permutation/</a><br>I know how to solve this problem for a long time, but still I made some mistakes while I am implementing it.<br>The algorithm is pretty straight forward. One first need to find the maximum value k that nums[k] &lt; nums[p] where k &lt; p. The second step is to find the minimum value for all p &gt; k. If duplicate is found, then find the last one.  Third step,<br>swap nums[k] and nums[p], after that reverse all numbers on the right side of k.<br>The first error is in line 36, I forgot to incrementing and decrementing j and k.<br>The second error is that I did not think carefully about duplicate on line 24.<br>The third problem is  that I need to swap all numbers on the right side of k, still on line 36.</p>
-<p>I need to check the STL implementations to see how to reduce line of code.<br><figure class="highlight plain"><figcaption><span>[next permutation] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: A list of integers</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; nextPermutation(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        int size = nums.size() ;</span><br><span class="line">        int pos = size - 1;</span><br><span class="line">        int maxSoFar = nums[pos];</span><br><span class="line">        int index = pos;</span><br><span class="line">        int firstOrdered = size;</span><br><span class="line">        bool found = false;</span><br><span class="line">        while( pos &gt; 0)&#123;</span><br><span class="line">            if(nums[pos-1] &gt;= maxSoFar)&#123;</span><br><span class="line">                --pos;</span><br><span class="line">                maxSoFar = nums[pos];</span><br><span class="line">                index = pos;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                found = true;</span><br><span class="line">                firstOrdered = pos - 1;</span><br><span class="line">                int k = pos;</span><br><span class="line">                while(k &lt; size)&#123;</span><br><span class="line">                    if(nums[k] &gt; nums[firstOrdered] &amp;&amp; nums[k] &lt;= maxSoFar)&#123;</span><br><span class="line">                        index = k;</span><br><span class="line">                        maxSoFar = nums[k];</span><br><span class="line">                    &#125;</span><br><span class="line">                    ++k;</span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(found)&#123;</span><br><span class="line">            swap(nums[firstOrdered], nums[index]);</span><br><span class="line">            int j = firstOrdered+1, k = size-1;</span><br><span class="line">            while(j &lt; k) swap(nums[j++], nums[k--]);</span><br><span class="line">            return nums;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            reverse(nums.begin(), nums.end());</span><br><span class="line">            return nums;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>Updated: the old code is too ugly, I think it over after I solved the previous permutation problem. The steps should be quite clear.<br>I rewrote the code as follows:<br><figure class="highlight plain"><figcaption><span>[next permutation] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: A list of integers</span><br><span class="line">     * @return: A list of integers</span><br><span class="line">     */</span><br><span class="line">    vector&lt;int&gt; nextPermutation(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        int size = nums.size() ;</span><br><span class="line">        int pos = nums.size()- 1;</span><br><span class="line">        while( pos &gt; 0 &amp;&amp; nums[pos-1] &gt;= nums[pos])--pos;</span><br><span class="line">        --pos;</span><br><span class="line">        int left = pos+1, right = size -1;</span><br><span class="line">        while(left &lt; right)swap(nums[left++], nums[right--]);</span><br><span class="line">        if(pos &lt; 0) return nums;</span><br><span class="line">        int k = size -1;</span><br><span class="line">        while( nums[k] &gt; nums[pos])--k;</span><br><span class="line">        swap(nums[k+1], nums[pos]);</span><br><span class="line">        return nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjem5sdc200162kv4avrthy3w" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li></ul>
 
     </footer>
   </div>
@@ -468,7 +468,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/leetlint/page/3/">&laquo; zurück</a><a class="page-number" href="/leetlint/">1</a><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/5/">weiter &raquo;</a>
+    <a class="extend prev" rel="prev" href="/leetlint/page/3/">&laquo; Previo</a><a class="page-number" href="/leetlint/">1</a><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/5/">Siguiente &raquo;</a>
   </nav>
 
 </section>
@@ -490,7 +490,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nube de Tags</h3>
     <div class="widget tagcloud">
       <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-code/" style="font-size: 10px;">lint code</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a> <a href="/leetlint/tags/lintcode/" style="font-size: 15px;">lintcode</a>
     </div>
@@ -499,7 +499,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -509,9 +509,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/10/combination-sum/">combination sum</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/03/10/combination-sum-II/">combination sum II</a>
@@ -529,10 +533,6 @@
             <a href="/leetlint/2018/03/07/sort-colors/">sort colors</a>
           </li>
         
-          <li>
-            <a href="/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/"> Interleaving Positive and Negative Numbers</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -546,7 +546,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 lld2006<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
