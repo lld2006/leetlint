@@ -5,20 +5,20 @@
   
 
   
-  <title>Remove Duplicates from Sorted Array | programming for fun</title>
+  <title>rotate image | programming for fun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This problem is easy, just need two numbers, the first is the last indexof non-duplicated number vector and the second is an index to iterate the whole vectors.123456789101112131415161718class Solutio">
-<meta name="keywords" content="lint">
+  <meta name="description" content="The problem is not difficult but there is a special case that needs to be taken care of. I missed it in the first time. I fixed it after I realized that I rotate some elements twice.123456789101112131">
+<meta name="keywords" content="lintcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Remove Duplicates from Sorted Array">
-<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/index.html">
+<meta property="og:title" content="rotate image">
+<meta property="og:url" content="http://lld2006.github.io/leetlint/2018/03/12/rotate-image/index.html">
 <meta property="og:site_name" content="programming for fun">
-<meta property="og:description" content="This problem is easy, just need two numbers, the first is the last indexof non-duplicated number vector and the second is an index to iterate the whole vectors.123456789101112131415161718class Solutio">
+<meta property="og:description" content="The problem is not difficult but there is a special case that needs to be taken care of. I missed it in the first time. I fixed it after I realized that I rotate some elements twice.123456789101112131">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2018-02-03T08:32:19.289Z">
+<meta property="og:updated_time" content="2018-03-12T07:34:39.134Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Remove Duplicates from Sorted Array">
-<meta name="twitter:description" content="This problem is easy, just need two numbers, the first is the last indexof non-duplicated number vector and the second is an index to iterate the whole vectors.123456789101112131415161718class Solutio">
+<meta name="twitter:title" content="rotate image">
+<meta name="twitter:description" content="The problem is not difficult but there is a special case that needs to be taken care of. I missed it in the first time. I fixed it after I realized that I rotate some elements twice.123456789101112131">
   
     <link rel="alternate" href="/leetlint/atom.xml" title="programming for fun" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Remove-Duplicates-from-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-rotate-image" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" class="article-date">
-  <time datetime="2018-02-03T08:29:32.000Z" itemprop="datePublished">2018-02-03</time>
+    <a href="/leetlint/2018/03/12/rotate-image/" class="article-date">
+  <time datetime="2018-03-12T07:27:14.000Z" itemprop="datePublished">2018-03-12</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Remove Duplicates from Sorted Array
+      rotate image
     </h1>
   
 
@@ -87,15 +87,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This problem is easy, just need two numbers, the first is the last index<br>of non-duplicated number vector and the second is an index to iterate the whole vectors.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param nums: An ineger array</span><br><span class="line">     * @return: An integer</span><br><span class="line">     */</span><br><span class="line">    int removeDuplicates(vector&lt;int&gt; &amp;nums) &#123;</span><br><span class="line">        if(nums.empty()) return 0;</span><br><span class="line">        int left = 0, right = 0;</span><br><span class="line">        while(right &lt; nums.size())&#123;</span><br><span class="line">            while(right &lt; nums.size() &amp;&amp; nums[right] == nums[left]) ++right;</span><br><span class="line">            if(right &lt; nums.size())</span><br><span class="line">                nums[++left] = nums[right++];</span><br><span class="line">        &#125;</span><br><span class="line">        nums.resize(left+1);</span><br><span class="line">        return left+1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+        <p>The problem is not difficult but there is a special case that needs to be taken care of. I missed it in the first time. I fixed it after I realized that I rotate some elements twice.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param matrix: a lists of integers</span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void rotate(vector&lt;vector&lt;int&gt;&gt; &amp;matrix) &#123;</span><br><span class="line">        if(matrix.size()&lt;=1) return;</span><br><span class="line">        int size = (matrix.size()-2)/2;</span><br><span class="line">        int n = matrix.size()-1;</span><br><span class="line">        for(int i = 0; i &lt;= size; ++i)&#123;</span><br><span class="line">            for(int j = 0; j &lt;= size; ++j)&#123;</span><br><span class="line">                int tmp = matrix[i][j]; </span><br><span class="line">                matrix[i][j] = matrix[n-j][i];</span><br><span class="line">                matrix[n-j][i] = matrix[n-i][n-j];</span><br><span class="line">                matrix[n-i][n-j] = matrix[j][n-i];</span><br><span class="line">                matrix[j][n-i] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(matrix.size() &amp; 1)&#123;</span><br><span class="line">            int nm = (matrix.size()-1)/2;</span><br><span class="line">            for(int j = 0; j &lt;nm; ++j)&#123;</span><br><span class="line">                int tmp = matrix[nm][j];</span><br><span class="line">                matrix[nm][j] = matrix[n-j][nm];</span><br><span class="line">                matrix[n-j][nm] = matrix[nm][n-j];</span><br><span class="line">                matrix[nm][n-j] = matrix[j][nm];</span><br><span class="line">                matrix[j][nm] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/02/03/Remove-Duplicates-from-Sorted-Array/" data-id="cjenwx69g0005ewv40emdnsbx" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/12/rotate-image/" data-id="cjenwx6ag001tewv4itlbhjiz" class="article-share-link">Partager</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
 
     </footer>
   </div>
@@ -103,19 +103,10 @@
     
 <nav id="article-nav">
   
-    <a href="/leetlint/2018/02/03/remove-duplicates-from-sorted-array-II/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
-      <div class="article-nav-title">
-        
-          remove duplicates from sorted array II
-        
-      </div>
-    </a>
   
-  
-    <a href="/leetlint/2018/02/03/reorder-list/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/leetlint/2018/03/11/remove-element/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">reorder list</div>
+      <div class="article-nav-title">remove element</div>
     </a>
   
 </nav>
