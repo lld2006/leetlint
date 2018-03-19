@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,46 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-binary-tree-level-order-traversal" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/01/26/binary-tree-level-order-traversal/" class="article-date">
+  <time datetime="2018-01-27T00:38:41.000Z" itemprop="datePublished">2018-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/01/26/binary-tree-level-order-traversal/">binary tree level order traversal</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This problem is easy, but how can I solve it with DFS? TODO<br>Errors in the first version, missed to pop out the top node in the queue.<br>2 return the vector;</p>
+<figure class="highlight plain"><figcaption><span>[binary tree level order traversal] [lang: c++]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition of TreeNode:</span><br><span class="line"> * class TreeNode &#123;</span><br><span class="line"> * public:</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left, *right;</span><br><span class="line"> *     TreeNode(int val) &#123;</span><br><span class="line"> *         this-&gt;val = val;</span><br><span class="line"> *         this-&gt;left = this-&gt;right = NULL;</span><br><span class="line"> *     &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /*</span><br><span class="line">     * @param root: A Tree</span><br><span class="line">     * @return: Level order a list of lists of integer</span><br><span class="line">     */</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode * root) &#123;</span><br><span class="line">        queue&lt;TreeNode*&gt; nodes;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; results;</span><br><span class="line">        if(root==NULL) return results;</span><br><span class="line">        nodes.push(root);</span><br><span class="line">        int levelCount = 1;</span><br><span class="line">        while(levelCount)&#123;</span><br><span class="line">            results.push_back(vector&lt;int&gt;());</span><br><span class="line">            vector&lt;int&gt;&amp; v=results.back();</span><br><span class="line">            int newCount = 0;</span><br><span class="line">            int count = 0;</span><br><span class="line">            while(count != levelCount)&#123;</span><br><span class="line">                TreeNode* node = nodes.front();</span><br><span class="line">                v.push_back(node-&gt;val);</span><br><span class="line">                ++count;</span><br><span class="line">                if(node-&gt;left) &#123;nodes.push(node-&gt;left); ++newCount;&#125;</span><br><span class="line">                if(node-&gt;right) &#123;nodes.push(node-&gt;right);++newCount;&#125;</span><br><span class="line">                nodes.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            levelCount = newCount;</span><br><span class="line">        &#125;</span><br><span class="line">        return results;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/binary-tree-level-order-traversal/" data-id="cjexlw3a5000oswv4uz889bgj" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-4sum" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjenwx6950000ewv4vi4qh5ac" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/26/4sum/" data-id="cjexlw39n0001swv4p224l46q" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -133,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjenwx6a60017ewv4g9d1tx0n" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/24/new-post-not-generated-by-hexo/" data-id="cjexlw3aj001gswv4c1ythyoo" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li></ul>
@@ -172,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjenwx6ac001lewv41fx2xdox" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/prev-permutation/" data-id="cjexlw3ao001sswv4d6serxxi" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint/">lint</a></li></ul>
@@ -213,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjenwx6a9001eewv4ruo0fq9w" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/23/next-permutation/" data-id="cjexlw3al001lswv4w0uo46mq" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li></ul>
@@ -283,7 +323,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjenwx6aq002dewv47x0chbkn" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/test2/" data-id="cjexlw3b0002eswv415fc8rdm" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/coding/">coding</a></li></ul>
@@ -330,7 +370,7 @@ public:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjenwx6a50015ewv4smky5pfn" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/01/21/hello-world/" data-id="cjexlw3ad0014swv4xi1160me" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -344,7 +384,7 @@ public:
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/leetlint/page/4/">&laquo; Précédent</a><a class="page-number" href="/leetlint/">1</a><span class="space">&hellip;</span><a class="page-number" href="/leetlint/page/3/">3</a><a class="page-number" href="/leetlint/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/leetlint/page/4/">&laquo; zurück</a><a class="page-number" href="/leetlint/">1</a><span class="space">&hellip;</span><a class="page-number" href="/leetlint/page/3/">3</a><a class="page-number" href="/leetlint/page/4/">4</a><span class="page-number current">5</span>
   </nav>
 
 </section>
@@ -356,7 +396,7 @@ public:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/coding/">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
     </div>
@@ -366,7 +406,7 @@ public:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-code/" style="font-size: 10px;">lint code</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a> <a href="/leetlint/tags/lintcode/" style="font-size: 15px;">lintcode</a>
     </div>
@@ -375,7 +415,7 @@ public:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -385,9 +425,13 @@ public:
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/18/reverse-linked-list/">reverse linked list</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/03/12/rotate-image/">rotate image</a>
@@ -405,10 +449,6 @@ public:
             <a href="/leetlint/2018/03/10/combination-sum/">combination sum</a>
           </li>
         
-          <li>
-            <a href="/leetlint/2018/03/10/combination-sum-II/">combination sum II</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -422,7 +462,7 @@ public:
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 lld2006<br>
-      Propulsé par <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

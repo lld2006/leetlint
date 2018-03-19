@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/leetlint/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://lld2006.github.io/leetlint"></form>
@@ -64,6 +64,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-reverse-linked-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/leetlint/2018/03/18/reverse-linked-list/" class="article-date">
+  <time datetime="2018-03-19T02:17:47.000Z" itemprop="datePublished">2018-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/leetlint/2018/03/18/reverse-linked-list/">reverse linked list</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The problem is not hard. But One key concept for it is that three pointers are needed to reverse a linked list. I actually followed this idea the first time  I submitted it, but this time the code is cleaner.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param head: The first node of linked list.</span><br><span class="line">     * @return: The new head of reversed linked list.</span><br><span class="line">     */</span><br><span class="line">    ListNode *reverse(ListNode * head) &#123;</span><br><span class="line">        if(head == nullptr) return head;</span><br><span class="line">        ListNode* curr = head, *prev = nullptr;</span><br><span class="line">        ListNode*  next=nullptr;</span><br><span class="line">        while(curr)&#123;</span><br><span class="line">            next = curr-&gt;next;</span><br><span class="line">            curr-&gt;next = prev;</span><br><span class="line">            prev = curr;</span><br><span class="line">            curr = next;</span><br><span class="line">        &#125;</span><br><span class="line">        return prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/18/reverse-linked-list/" data-id="cjexlw3am001nswv4gah7ckwn" class="article-share-link">Teilen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-rotate-image" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -92,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/12/rotate-image/" data-id="cjenwx6ag001tewv4itlbhjiz" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/12/rotate-image/" data-id="cjexlw3ap001uswv4c4o61usj" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -131,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/11/remove-element/" data-id="cjenwx6al0023ewv4o7wzhdx3" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/11/remove-element/" data-id="cjexlw3aq001wswv4lyzsdulc" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -170,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/minimum-depth-of-binary-tree/" data-id="cjenwx6af001rewv4vhttgez9" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/minimum-depth-of-binary-tree/" data-id="cjexlw3ah001cswv4yygl83p0" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -209,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/combination-sum/" data-id="cjenwx6a70019ewv47u31beaj" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/combination-sum/" data-id="cjexlw3a9000wswv4906ogena" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -252,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/combination-sum-II/" data-id="cjenwx69z000vewv4rf3p71u4" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/combination-sum-II/" data-id="cjexlw3ab0010swv4fxyug3s7" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -291,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/Combinations/" data-id="cjenwx69a0001ewv4i9fcdym5" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/10/Combinations/" data-id="cjexlw39j0000swv4wc84t8t8" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -330,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/08/maxSubarray-II/" data-id="cjenwx6a20011ewv4c3pmeizl" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/08/maxSubarray-II/" data-id="cjexlw3ae0016swv46l92cl0a" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -369,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/" data-id="cjenwx6ak0021ewv468se38k7" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/07/sort-colors/" data-id="cjexlw3au0022swv4r14ayzn7" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -408,46 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" data-id="cjenwx69j000aewv4yhwkoqaq" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-sort-colors-II" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/leetlint/2018/03/05/sort-colors-II/" class="article-date">
-  <time datetime="2018-03-06T07:27:31.000Z" itemprop="datePublished">2018-03-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/leetlint/2018/03/05/sort-colors-II/">sort colors II</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Since it is in-place, I used quick sort to do it. I should notice that there are only k colors, which makes count sort a perfect match for this problem. Writing quicksort is not a very easy job, well, not hard.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    /**</span><br><span class="line">     * @param colors: A list of integer</span><br><span class="line">     * @param k: An integer</span><br><span class="line">     * @return: nothing</span><br><span class="line">     */</span><br><span class="line">    void sortColors2(vector&lt;int&gt; &amp;colors, int k) &#123;</span><br><span class="line">        sortColors(0, colors.size(), colors);</span><br><span class="line">    &#125;</span><br><span class="line">    void sortColors(int begin, int end, vector&lt;int&gt;&amp; colors)</span><br><span class="line">    &#123;</span><br><span class="line">        if(end &lt;= begin+1) return;</span><br><span class="line">        int pivot = partition(begin, end, colors);</span><br><span class="line">        sortColors(begin, pivot, colors);</span><br><span class="line">        sortColors(pivot+1, end, colors);</span><br><span class="line">    &#125;</span><br><span class="line">    int partition(int begin, int end, vector&lt;int&gt;&amp; colors)</span><br><span class="line">    &#123;</span><br><span class="line">        int color = colors[end-1];</span><br><span class="line">        int lp = begin-1; </span><br><span class="line">        int gp = begin;</span><br><span class="line">        while(gp &lt; end-1)&#123;</span><br><span class="line">            if(colors[gp] &lt;= color)&#123;</span><br><span class="line">                ++lp;</span><br><span class="line">                swap(colors[lp], colors[gp]);</span><br><span class="line">            &#125;</span><br><span class="line">            ++gp;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(colors[lp+1], colors[end-1]);</span><br><span class="line">        return lp+1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://lld2006.github.io/leetlint/2018/03/05/sort-colors-II/" data-id="cjenwx6an0027ewv47yg57me3" class="article-share-link">Partager</a>
+      <a data-url="http://lld2006.github.io/leetlint/2018/03/06/Interleaving-Positive-and-Negative-Numbers/" data-id="cjexlw39s0005swv47ukv73uu" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
@@ -463,7 +463,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/2/">Suivant &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/leetlint/page/2/">2</a><a class="page-number" href="/leetlint/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/leetlint/page/5/">5</a><a class="extend next" rel="next" href="/leetlint/page/2/">weiter &raquo;</a>
   </nav>
 
 </section>
@@ -475,7 +475,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/coding/">coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint/">lint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-code/">lint code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lint-algorithm/">lint, algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/leetlint/tags/lintcode/">lintcode</a></li></ul>
     </div>
@@ -485,7 +485,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/leetlint/tags/coding/" style="font-size: 10px;">coding</a> <a href="/leetlint/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/leetlint/tags/lint/" style="font-size: 20px;">lint</a> <a href="/leetlint/tags/lint-code/" style="font-size: 10px;">lint code</a> <a href="/leetlint/tags/lint-algorithm/" style="font-size: 10px;">lint, algorithm</a> <a href="/leetlint/tags/lintcode/" style="font-size: 15px;">lintcode</a>
     </div>
@@ -494,7 +494,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/leetlint/archives/2018/01/">January 2018</a></li></ul>
     </div>
@@ -504,9 +504,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/leetlint/2018/03/18/reverse-linked-list/">reverse linked list</a>
+          </li>
         
           <li>
             <a href="/leetlint/2018/03/12/rotate-image/">rotate image</a>
@@ -524,10 +528,6 @@
             <a href="/leetlint/2018/03/10/combination-sum/">combination sum</a>
           </li>
         
-          <li>
-            <a href="/leetlint/2018/03/10/combination-sum-II/">combination sum II</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -541,7 +541,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 lld2006<br>
-      Propulsé par <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
